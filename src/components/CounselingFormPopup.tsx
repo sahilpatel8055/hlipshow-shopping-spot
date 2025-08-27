@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Calendar, Users, X } from 'lucide-react';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 interface CounselingFormPopupProps {
   isOpen: boolean;
@@ -46,6 +46,7 @@ const CounselingFormPopup: React.FC<CounselingFormPopupProps> = ({ isOpen, onClo
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-md mx-auto p-4 gap-0 bg-card/95 backdrop-blur-md border-border rounded-2xl shadow-lg min-h-[440px] md:min-h-[387px] lg:min-h-[423px]">
+        <DialogTitle className="sr-only">Counseling Form</DialogTitle>
         {/* Close Button */}
         <Button
           variant="ghost"
