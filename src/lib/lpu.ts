@@ -1,10 +1,15 @@
 import lpuHero from "@/assets/lpu-hero.jpg";
+import courseBusiness from "@/assets/course-business.jpg";
+import courseTech from "@/assets/course-tech.jpg";
+import courseArts from "@/assets/course-arts.jpg";
+import courseCommerce from "@/assets/course-commerce.jpg";
 
 export type Course = {
   name: string;
   duration: string;
   fee: string;
   specializations?: string[];
+  image: string;
 };
 
 export const lpu = {
@@ -29,18 +34,28 @@ export const lpu = {
     { name: "NAAC A++", note: "Institutional accreditation grade." },
     { name: "WES Recognized", note: "Degrees recognized internationally by WES." },
   ],
+  rankings: [
+    { title: "NAAC A++", subtitle: "Accredited University", badge: "A++" },
+    { title: "QS World University Rankings", subtitle: "South Asia's Top Universities 2026", badge: "Top 195" },
+    { title: "UGC Entitled", subtitle: "Online Degrees = Campus Degree", badge: "UGC" },
+    { title: "AICTE Norms Compliant", subtitle: "Approved Technical Programs", badge: "AICTE" },
+    { title: "Times Higher Education", subtitle: "Worlds Top 400 Universities 2025", badge: "301-400" },
+    { title: "The Week", subtitle: "Private & Deemed Multidisciplinary Universities", badge: "Rank 6" },
+    { title: "Outlook", subtitle: "Private Distance & Online Learning Programs 2026", badge: "Rank 7" },
+    { title: "WES Recognized", subtitle: "For study in Canada & USA", badge: "WES" },
+  ],
   courses: {
     ug: [
-      { name: "Online BBA", duration: "3 Years", fee: "₹1,20,000 total", specializations: ["Marketing", "HR", "Finance", "IB"] },
-      { name: "Online BCA", duration: "3 Years", fee: "₹1,35,000 total", specializations: ["Cloud Computing", "Data Analytics"] },
-      { name: "Online B.Com", duration: "3 Years", fee: "₹99,000 total", specializations: ["Financial Analytics"] },
-      { name: "Online BA", duration: "3 Years", fee: "₹78,000 total" },
+      { name: "Online BBA", duration: "3 Years", fee: "₹1,20,000 total", specializations: ["Marketing", "HR", "Finance", "IB"], image: courseBusiness },
+      { name: "Online BCA", duration: "3 Years", fee: "₹1,35,000 total", specializations: ["Cloud Computing", "Data Analytics"], image: courseTech },
+      { name: "Online B.Com", duration: "3 Years", fee: "₹99,000 total", specializations: ["Financial Analytics"], image: courseCommerce },
+      { name: "Online BA", duration: "3 Years", fee: "₹78,000 total", image: courseArts },
     ] as Course[],
     pg: [
-      { name: "Online MBA", duration: "2 Years", fee: "₹1,70,000 total", specializations: ["Marketing", "Finance", "HR", "Business Analytics", "IT"] },
-      { name: "Online MCA", duration: "2 Years", fee: "₹1,60,000 total", specializations: ["AI/ML", "Data Science"] },
-      { name: "Online M.Com", duration: "2 Years", fee: "₹85,000 total" },
-      { name: "Online MA", duration: "2 Years", fee: "₹60,000 total" },
+      { name: "Online MBA", duration: "2 Years", fee: "₹1,70,000 total", specializations: ["Marketing", "Finance", "HR", "Business Analytics", "IT"], image: courseBusiness },
+      { name: "Online MCA", duration: "2 Years", fee: "₹1,60,000 total", specializations: ["AI/ML", "Data Science"], image: courseTech },
+      { name: "Online M.Com", duration: "2 Years", fee: "₹85,000 total", image: courseCommerce },
+      { name: "Online MA", duration: "2 Years", fee: "₹60,000 total", image: courseArts },
     ] as Course[],
   },
   eligibility: [
