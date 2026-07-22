@@ -1,8 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { lpu } from "@/lib/lpu";
 import lpuLogo from "@/assets/lpu-logo.png.asset.json";
 import lpuCertificate from "@/assets/lpu-certificate.jpeg.asset.json";
+import hiringPartners from "@/assets/hiring-partners.png";
+import logoNaac from "@/assets/logo/naac.jpeg";
+import logoNirf from "@/assets/logo/nirf.png";
+import logoThe from "@/assets/logo/the.png";
+import logoUgc from "@/assets/logo/ugc.jpg";
 import {
   GraduationCap,
   Award,
@@ -12,8 +17,10 @@ import {
   Briefcase,
   CheckCircle2,
   ChevronRight,
+  ChevronLeft,
   Phone,
-  Trophy,
+  X,
+  Flame,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -38,6 +45,144 @@ export const Route = createFileRoute("/")({
   component: LpuPage,
 });
 
+/* ---------------- Counseling modal (shared) ---------------- */
+
+type ModalCtx = { open: () => void };
+const modalCtx: { current: ModalCtx | null } = { current: null };
+const openModal = () => modalCtx.current?.open();
+
+function useModalTrigger() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    modalCtx.current = { open: () => setOpen(true) };
+    return () => {
+      modalCtx.current = null;
+    };
+  }, []);
+  return { open, setOpen };
+}
+
+function CounselingModal({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-0 backdrop-blur-sm sm:items-center sm:p-4">
+      <div className="relative w-full max-w-md overflow-hidden rounded-t-2xl bg-card shadow-2xl sm:rounded-2xl">
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-background/90 text-foreground shadow hover:bg-background"
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <div
+          className="px-5 pt-5 pb-4 text-primary-foreground"
+          style={{ background: "var(--gradient-brand)" }}
+        >
+          <div className="flex items-center gap-3">
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/95 p-1">
+              <img src={lpuLogo.url} alt="LPU" className="h-full w-full object-contain" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-base font-extrabold leading-tight">Admission Open · Batch 2026</p>
+              <p className="text-xs opacity-95">Talk to an LPU Online Counselor — Free</p>
+            </div>
+          </div>
+          <div className="mt-3 flex items-center gap-2 rounded-lg bg-black/25 px-3 py-2 text-xs font-semibold">
+            <Flame className="h-4 w-4 text-yellow-300" />
+            <span>85% seats already filled · Only few left this week</span>
+          </div>
+        </div>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onClose();
+          }}
+          className="grid gap-3 p-5 sm:p-6"
+        >
+          <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
+          <LabeledInput
+            label="Mobile Number"
+            type="tel"
+            placeholder="10-digit mobile"
+            required
+          />
+          <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
+          <LabeledSelect label="Select Program">
+            <option value="">Choose a program</option>
+            <optgroup label="PG Programs">
+              {lpu.courses.pg.map((c) => (
+                <option key={c.name}>{c.name}</option>
+              ))}
+            </optgroup>
+            <optgroup label="UG Programs">
+              {lpu.courses.ug.map((c) => (
+                <option key={c.name}>{c.name}</option>
+              ))}
+            </optgroup>
+          </LabeledSelect>
+          <button
+            type="submit"
+            className="mt-1 w-full rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+          >
+            Get Free Counseling Now
+          </button>
+          <p className="text-center text-[11px] text-muted-foreground">
+            By submitting you agree to be contacted about LPU Online programs.
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Reusable form inputs ---------------- */
+
+function LabeledInput({
+  label,
+  ...rest
+}: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-foreground/90">
+        {label}
+      </span>
+      <input
+        {...rest}
+        className="w-full rounded-md border-2 border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground placeholder:text-muted-foreground/80 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+      />
+    </label>
+  );
+}
+
+function LabeledSelect({
+  label,
+  children,
+  ...rest
+}: React.SelectHTMLAttributes<HTMLSelectElement> & { label: string }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-foreground/90">
+        {label}
+      </span>
+      <select
+        {...rest}
+        className="w-full rounded-md border-2 border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+      >
+        {children}
+      </select>
+    </label>
+  );
+}
+
+/* ---------------- Header ---------------- */
+
 function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/95 backdrop-blur">
@@ -49,54 +194,48 @@ function Header() {
             className="h-10 w-auto sm:h-14"
           />
         </a>
-        <a
-          href="#lead"
+        <button
+          type="button"
+          onClick={openModal}
           className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
         >
           Enroll Now
-        </a>
+        </button>
       </div>
     </header>
   );
 }
 
+/* ---------------- Compact counseling form (under hero) ---------------- */
+
 function LeadFormCompact() {
   return (
-    <div id="lead-compact" className="rounded-2xl border border-primary/30 bg-card p-5 shadow-[var(--shadow-brand)] sm:p-6">
+    <div
+      id="lead-compact"
+      className="rounded-2xl border-2 border-primary/30 bg-card p-5 shadow-[var(--shadow-brand)] sm:p-6"
+    >
       <div className="flex items-center gap-3 border-b border-border pb-4">
-        <img src={lpuLogo.url} alt="LPU" className="h-8 w-auto" />
-        <div>
-          <p className="text-sm font-bold text-foreground">Admission Open</p>
-          <p className="text-xs text-muted-foreground">Batch 2026 · Limited Seats</p>
+        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white p-1 ring-1 ring-border">
+          <img src={lpuLogo.url} alt="LPU" className="h-full w-full object-contain" />
+        </div>
+        <div className="min-w-0">
+          <p className="text-sm font-extrabold text-foreground">Admission Open</p>
+          <p className="text-xs text-muted-foreground">Batch 2026 · 85% seats filled</p>
         </div>
       </div>
       <form onSubmit={(e) => e.preventDefault()} className="mt-4 grid gap-3">
-        <input
-          required
-          placeholder="Full Name"
-          className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-primary"
-        />
-        <input
-          required
-          type="tel"
-          placeholder="Mobile Number"
-          className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-primary"
-        />
-        <input
-          required
-          type="email"
-          placeholder="Email"
-          className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-primary"
-        />
-        <select className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-primary">
-          <option>Select Program</option>
-          {[...lpu.courses.ug, ...lpu.courses.pg].map((c) => (
+        <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
+        <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
+        <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
+        <LabeledSelect label="Select Program">
+          <option value="">Choose a program</option>
+          {[...lpu.courses.pg, ...lpu.courses.ug].map((c) => (
             <option key={c.name}>{c.name}</option>
           ))}
-        </select>
+        </LabeledSelect>
         <button
           type="submit"
-          className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+          className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
         >
           Get Free Counseling
         </button>
@@ -104,6 +243,8 @@ function LeadFormCompact() {
     </div>
   );
 }
+
+/* ---------------- Hero ---------------- */
 
 function Hero() {
   return (
@@ -126,12 +267,13 @@ function Hero() {
             support and proctored exams — from anywhere in India.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#lead"
+            <button
+              type="button"
+              onClick={openModal}
               className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
             >
               Get Free Counseling <ChevronRight className="h-4 w-4" />
-            </a>
+            </button>
             <a
               href="#courses"
               className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent"
@@ -171,78 +313,103 @@ function Hero() {
   );
 }
 
-function Overview() {
+/* ---------------- Rankings & Accreditations (horizontal carousel) ---------------- */
+
+type RankingLogo = { title: string; subtitle: string; badge?: string; logo?: string };
+
+const rankingsWithLogos: RankingLogo[] = [
+  { title: "NAAC A++", subtitle: "Accredited University", badge: "A++", logo: logoNaac },
+  { title: "UGC Entitled", subtitle: "Online Degrees = Campus Degree", badge: "UGC", logo: logoUgc },
+  { title: "NIRF Ranked", subtitle: "Top Indian University 2025", badge: "NIRF", logo: logoNirf },
+  { title: "Times Higher Education", subtitle: "World's Top 400 Universities 2025", badge: "THE", logo: logoThe },
+  { title: "QS World University Rankings", subtitle: "South Asia's Top Universities 2026", badge: "Top 195" },
+  { title: "AICTE Norms Compliant", subtitle: "Approved Technical Programs", badge: "AICTE" },
+  { title: "WES Recognized", subtitle: "For study in Canada & USA", badge: "WES" },
+  { title: "The Week", subtitle: "Private & Deemed Multidisciplinary Universities", badge: "Rank 6" },
+];
+
+function RankingsCarousel() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scrollByCards = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLDivElement>("[data-card]");
+    const gap = 16;
+    const step = card ? card.offsetWidth + gap : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
+
   return (
-    <section className="border-y border-border bg-secondary/40 py-16">
+    <section className="border-b border-border bg-background py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">About {lpu.name}</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{lpu.overview}</p>
-            <p className="mt-3 text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">Established:</span> {lpu.established}
-              {" · "}
-              <span className="font-semibold text-foreground">Ranking:</span> {lpu.ranking}
+        <div className="flex items-end justify-between gap-4">
+          <div className="min-w-0">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+              Rankings & Accreditations
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">
+              Recognized by leading national and international bodies.
             </p>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-6">
-            <h3 className="flex items-center gap-2 text-lg font-semibold text-foreground">
-              <Award className="h-5 w-5 text-primary" /> Approvals & Accreditations
-            </h3>
-            <ul className="mt-4 space-y-4">
-              {lpu.approvals.map((a) => (
-                <li key={a.name}>
-                  <p className="text-sm font-semibold text-foreground">{a.name}</p>
-                  <p className="text-sm text-muted-foreground">{a.note}</p>
-                </li>
-              ))}
-            </ul>
+          <div className="flex shrink-0 gap-2">
+            <button
+              type="button"
+              aria-label="Previous"
+              onClick={() => scrollByCards(-1)}
+              className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground shadow-sm transition hover:border-primary hover:text-primary"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next"
+              onClick={() => scrollByCards(1)}
+              className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground shadow-sm transition hover:border-primary hover:text-primary"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
           </div>
+        </div>
+
+        <div
+          ref={trackRef}
+          className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {rankingsWithLogos.map((r) => (
+            <div
+              key={r.title}
+              data-card
+              className="relative flex w-[calc((100%-1rem)/2)] shrink-0 snap-start flex-col items-center rounded-2xl border border-border bg-card p-4 text-center shadow-sm sm:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)]"
+            >
+              {r.badge && (
+                <span className="absolute -top-2 right-3 rounded-md bg-primary px-2 py-0.5 text-[10px] font-bold text-primary-foreground shadow">
+                  {r.badge}
+                </span>
+              )}
+              <div className="grid h-24 w-full place-items-center rounded-xl bg-white p-3">
+                {r.logo ? (
+                  <img
+                    src={r.logo}
+                    alt={r.title}
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Award className="h-10 w-10 text-primary" />
+                )}
+              </div>
+              <p className="mt-4 text-sm font-bold text-foreground">{r.title}</p>
+              <p className="mt-1 text-xs leading-snug text-muted-foreground">{r.subtitle}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function RankingsMarquee() {
-  const items = [...lpu.rankings, ...lpu.rankings];
-  return (
-    <section className="border-b border-border bg-background py-16">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_360px] lg:items-center lg:px-8">
-        <div>
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Rankings & Accreditations
-          </h2>
-          <p className="mt-3 max-w-xl text-muted-foreground">
-            Recognized by leading national and international bodies — a degree respected by
-            employers and universities worldwide.
-          </p>
-        </div>
-        <div className="relative h-[360px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
-          <div className="animate-marquee-vertical flex flex-col gap-4">
-            {items.map((r, i) => (
-              <div
-                key={`${r.title}-${i}`}
-                className="relative flex items-center gap-4 rounded-xl border border-border bg-card p-4 shadow-sm"
-              >
-                <span className="absolute -top-2 right-3 rounded-md bg-primary px-2 py-0.5 text-[10px] font-bold text-primary-foreground">
-                  {r.badge}
-                </span>
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-accent">
-                  <Trophy className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{r.title}</p>
-                  <p className="text-xs text-muted-foreground">{r.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+/* ---------------- Courses ---------------- */
 
 function CourseCard({ c }: { c: (typeof lpu.courses.ug)[number] }) {
   return (
@@ -287,12 +454,13 @@ function CourseCard({ c }: { c: (typeof lpu.courses.ug)[number] }) {
             </div>
           </div>
         )}
-        <a
-          href="#lead"
-          className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+        <button
+          type="button"
+          onClick={openModal}
+          className="mt-5 inline-flex items-center gap-1 self-start text-sm font-semibold text-primary hover:underline"
         >
           Apply Now <ChevronRight className="h-4 w-4" />
-        </a>
+        </button>
       </div>
     </div>
   );
@@ -347,43 +515,7 @@ function Courses() {
   );
 }
 
-function Eligibility() {
-  return (
-    <section className="bg-secondary/40 py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Eligibility</h2>
-            <div className="mt-6 space-y-4">
-              {lpu.eligibility.map((e) => (
-                <div key={e.level} className="rounded-xl border border-border bg-card p-5">
-                  <p className="font-semibold text-foreground">{e.level}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{e.criteria}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Admission Process</h2>
-            <ol className="mt-6 space-y-4">
-              {lpu.process.map((step, i) => (
-                <li
-                  key={step}
-                  className="flex items-start gap-4 rounded-xl border border-border bg-card p-4"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                    {i + 1}
-                  </span>
-                  <span className="pt-1 text-sm font-medium text-foreground">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+/* ---------------- Degree Showcase ---------------- */
 
 function DegreeShowcase() {
   const points = [
@@ -447,32 +579,61 @@ function DegreeShowcase() {
   );
 }
 
+/* ---------------- Eligibility ---------------- */
+
+function Eligibility() {
+  return (
+    <section className="bg-secondary/40 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Eligibility</h2>
+            <div className="mt-6 space-y-4">
+              {lpu.eligibility.map((e) => (
+                <div key={e.level} className="rounded-xl border border-border bg-card p-5">
+                  <p className="font-semibold text-foreground">{e.level}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{e.criteria}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Admission Process</h2>
+            <ol className="mt-6 space-y-4">
+              {lpu.process.map((step, i) => (
+                <li
+                  key={step}
+                  className="flex items-start gap-4 rounded-xl border border-border bg-card p-4"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <span className="pt-1 text-sm font-medium text-foreground">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Placements ---------------- */
+
 function Placements() {
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-card p-8">
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
             <div className="flex items-center gap-3">
               <Briefcase className="h-6 w-6 text-primary" />
               <h2 className="text-2xl font-bold text-foreground">Placements</h2>
             </div>
             <p className="mt-4 text-muted-foreground">{lpu.placements.highlight}</p>
-            <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Top Recruiters
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {lpu.placements.partners.map((p) => (
-                <span
-                  key={p}
-                  className="rounded-lg border border-border bg-secondary px-3 py-1.5 text-sm font-semibold text-secondary-foreground"
-                >
-                  {p}
-                </span>
-              ))}
-            </div>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-8">
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
             <div className="flex items-center gap-3">
               <Users className="h-6 w-6 text-primary" />
               <h2 className="text-2xl font-bold text-foreground">Scholarships</h2>
@@ -487,10 +648,29 @@ function Placements() {
             </ul>
           </div>
         </div>
+
+        <div className="mt-10">
+          <h3 className="text-center text-2xl font-bold text-foreground sm:text-3xl">
+            Our Hiring Partners
+          </h3>
+          <p className="mt-2 text-center text-sm text-muted-foreground sm:text-base">
+            Top companies that trust and hire from LPU Online.
+          </p>
+          <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card p-4 sm:p-6">
+            <img
+              src={hiringPartners}
+              alt="LPU Online hiring partners"
+              loading="lazy"
+              className="mx-auto h-auto w-full max-w-5xl object-contain"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+
+/* ---------------- FAQs ---------------- */
 
 function Faqs() {
   return (
@@ -518,6 +698,8 @@ function Faqs() {
   );
 }
 
+/* ---------------- Bottom Lead Form ---------------- */
+
 function LeadForm() {
   return (
     <section id="lead" className="relative overflow-hidden py-20">
@@ -529,6 +711,9 @@ function LeadForm() {
             Get free personalized program guidance, fee & EMI details, scholarship eligibility
             and a step-by-step admission plan.
           </p>
+          <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-black/25 px-3 py-2 text-sm font-semibold">
+            <Flame className="h-4 w-4 text-yellow-300" /> 85% seats already filled
+          </div>
           <div className="mt-6 flex items-center gap-3 text-sm opacity-95">
             <Phone className="h-5 w-5" /> 1800-000-000 · Mon – Sat, 9am – 8pm
           </div>
@@ -538,33 +723,23 @@ function LeadForm() {
           className="rounded-2xl bg-card p-6 shadow-2xl sm:p-8"
         >
           <div className="grid gap-4 sm:grid-cols-2">
-            <input
-              required
-              placeholder="Full Name"
-              className="col-span-2 rounded-md border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary"
-            />
-            <input
-              required
-              type="tel"
-              placeholder="Mobile Number"
-              className="rounded-md border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary"
-            />
-            <input
-              required
-              type="email"
-              placeholder="Email"
-              className="rounded-md border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary"
-            />
-            <select className="col-span-2 rounded-md border border-input bg-background px-4 py-3 text-sm outline-none focus:border-primary">
-              <option>Select Program</option>
-              {[...lpu.courses.ug, ...lpu.courses.pg].map((c) => (
-                <option key={c.name}>{c.name}</option>
-              ))}
-            </select>
+            <div className="sm:col-span-2">
+              <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
+            </div>
+            <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
+            <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
+            <div className="sm:col-span-2">
+              <LabeledSelect label="Select Program">
+                <option value="">Choose a program</option>
+                {[...lpu.courses.pg, ...lpu.courses.ug].map((c) => (
+                  <option key={c.name}>{c.name}</option>
+                ))}
+              </LabeledSelect>
+            </div>
           </div>
           <button
             type="submit"
-            className="mt-5 w-full rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+            className="mt-5 w-full rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
           >
             Request Free Callback
           </button>
@@ -576,6 +751,8 @@ function LeadForm() {
     </section>
   );
 }
+
+/* ---------------- Footer ---------------- */
 
 function Footer() {
   return (
@@ -592,22 +769,25 @@ function Footer() {
   );
 }
 
+/* ---------------- Page ---------------- */
+
 function LpuPage() {
+  const { open, setOpen } = useModalTrigger();
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
         <Hero />
-        <Overview />
-        <RankingsMarquee />
         <Courses />
-        <Eligibility />
         <DegreeShowcase />
+        <RankingsCarousel />
+        <Eligibility />
         <Placements />
         <Faqs />
         <LeadForm />
       </main>
       <Footer />
+      <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
   );
 }
