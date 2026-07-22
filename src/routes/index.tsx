@@ -8,6 +8,9 @@ import logoNaac from "@/assets/logo/naac.jpeg";
 import logoNirf from "@/assets/logo/nirf.png";
 import logoThe from "@/assets/logo/the.png";
 import logoUgc from "@/assets/logo/ugc.jpg";
+import heroSlide1 from "@/assets/lpu-hero.jpg";
+import heroSlide2 from "@/assets/mba-slider.webp";
+import heroSlide3 from "@/assets/mca-slider.webp";
 import {
   GraduationCap,
   Award,
