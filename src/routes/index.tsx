@@ -8,6 +8,9 @@ import logoNaac from "@/assets/logo/naac.jpeg";
 import logoNirf from "@/assets/logo/nirf.png";
 import logoThe from "@/assets/logo/the.png";
 import logoUgc from "@/assets/logo/ugc.jpg";
+import heroSlide1 from "@/assets/lpu-hero.jpg";
+import heroSlide2 from "@/assets/mba-slider.webp";
+import heroSlide3 from "@/assets/mca-slider.webp";
 import {
   GraduationCap,
   Award,
@@ -71,31 +74,39 @@ function CounselingModal({
 }) {
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-0 backdrop-blur-sm sm:items-center sm:p-4">
-      <div className="relative w-full max-w-md overflow-hidden rounded-t-2xl bg-card shadow-2xl sm:rounded-2xl">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm sm:p-4">
+      <div className="relative w-full max-w-[380px] overflow-hidden rounded-2xl bg-card shadow-2xl">
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-background/90 text-foreground shadow hover:bg-background"
+          className="absolute right-2.5 top-2.5 z-10 grid h-8 w-8 place-items-center rounded-full bg-background/90 text-foreground shadow hover:bg-background"
         >
           <X className="h-4 w-4" />
         </button>
         <div
-          className="px-5 pt-5 pb-4 text-primary-foreground"
+          className="px-4 pt-4 pb-3 text-primary-foreground"
           style={{ background: "var(--gradient-brand)" }}
         >
-          <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/95 p-1">
+          <div className="flex items-center gap-2.5">
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white/95 p-1">
               <img src={lpuLogo.url} alt="LPU" className="h-full w-full object-contain" />
             </div>
             <div className="min-w-0">
-              <p className="text-base font-extrabold leading-tight">Admission Open · Batch 2026</p>
-              <p className="text-xs opacity-95">Talk to an LPU Online Counselor — Free</p>
+              <p className="text-sm font-extrabold leading-tight">Admission Open · Batch 2026</p>
+              <p className="text-[11px] opacity-95">Free counseling with LPU Online advisor</p>
             </div>
           </div>
-          <div className="mt-3 flex items-center gap-2 rounded-lg bg-black/25 px-3 py-2 text-xs font-semibold">
-            <Flame className="h-4 w-4 text-yellow-300" />
-            <span>85% seats already filled · Only few left this week</span>
+        </div>
+
+        <div className="px-4 pt-3">
+          <div className="flex items-center justify-between text-[11px] font-semibold text-foreground/80">
+            <span className="inline-flex items-center gap-1.5">
+              <Flame className="h-3.5 w-3.5 text-primary" /> Seats filling fast
+            </span>
+            <span className="text-primary">85% filled</span>
+          </div>
+          <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-accent">
+            <div className="h-full w-[85%] rounded-full" style={{ background: "var(--gradient-brand)" }} />
           </div>
         </div>
 
@@ -104,7 +115,7 @@ function CounselingModal({
             e.preventDefault();
             onClose();
           }}
-          className="grid gap-3 p-5 sm:p-6"
+          className="grid gap-2.5 p-4"
         >
           <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
           <LabeledInput
@@ -129,11 +140,11 @@ function CounselingModal({
           </LabeledSelect>
           <button
             type="submit"
-            className="mt-1 w-full rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+            className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
           >
             Get Free Counseling Now
           </button>
-          <p className="text-center text-[11px] text-muted-foreground">
+          <p className="text-center text-[10px] text-muted-foreground">
             By submitting you agree to be contacted about LPU Online programs.
           </p>
         </form>
@@ -293,23 +304,57 @@ function Hero() {
           </dl>
         </div>
         <div className="space-y-6">
-          <div className="relative">
-            <div
-              className="absolute -inset-6 -z-10 rounded-[2rem] opacity-30 blur-2xl"
-              style={{ background: "var(--gradient-brand)" }}
-            />
-            <img
-              src={lpu.image}
-              alt="LPU Online campus"
-              width={1024}
-              height={1024}
-              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl"
-            />
-          </div>
+          <HeroSlider />
           <LeadFormCompact />
         </div>
       </div>
     </section>
+  );
+}
+
+/* ---------------- Hero auto-slider ---------------- */
+
+const heroSlides = [
+  { src: heroSlide1, alt: "LPU Online campus" },
+  { src: heroSlide2, alt: "Online MBA at LPU" },
+  { src: heroSlide3, alt: "Online MCA at LPU" },
+];
+
+function HeroSlider() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx((i) => (i + 1) % heroSlides.length), 3000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <div className="relative">
+      <div
+        className="absolute -inset-6 -z-10 rounded-[2rem] opacity-30 blur-2xl"
+        style={{ background: "var(--gradient-brand)" }}
+      />
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl bg-muted">
+        {heroSlides.map((s, i) => (
+          <img
+            key={s.src}
+            src={s.src}
+            alt={s.alt}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${i === idx ? "opacity-100" : "opacity-0"}`}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
+        <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Slide ${i + 1}`}
+              onClick={() => setIdx(i)}
+              className={`h-1.5 rounded-full transition-all ${i === idx ? "w-6 bg-white" : "w-1.5 bg-white/60"}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
