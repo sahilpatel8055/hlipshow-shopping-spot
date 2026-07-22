@@ -296,23 +296,57 @@ function Hero() {
           </dl>
         </div>
         <div className="space-y-6">
-          <div className="relative">
-            <div
-              className="absolute -inset-6 -z-10 rounded-[2rem] opacity-30 blur-2xl"
-              style={{ background: "var(--gradient-brand)" }}
-            />
-            <img
-              src={lpu.image}
-              alt="LPU Online campus"
-              width={1024}
-              height={1024}
-              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl"
-            />
-          </div>
+          <HeroSlider />
           <LeadFormCompact />
         </div>
       </div>
     </section>
+  );
+}
+
+/* ---------------- Hero auto-slider ---------------- */
+
+const heroSlides = [
+  { src: heroSlide1, alt: "LPU Online campus" },
+  { src: heroSlide2, alt: "Online MBA at LPU" },
+  { src: heroSlide3, alt: "Online MCA at LPU" },
+];
+
+function HeroSlider() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx((i) => (i + 1) % heroSlides.length), 3000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <div className="relative">
+      <div
+        className="absolute -inset-6 -z-10 rounded-[2rem] opacity-30 blur-2xl"
+        style={{ background: "var(--gradient-brand)" }}
+      />
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl bg-muted">
+        {heroSlides.map((s, i) => (
+          <img
+            key={s.src}
+            src={s.src}
+            alt={s.alt}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${i === idx ? "opacity-100" : "opacity-0"}`}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
+        <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Slide ${i + 1}`}
+              onClick={() => setIdx(i)}
+              className={`h-1.5 rounded-full transition-all ${i === idx ? "w-6 bg-white" : "w-1.5 bg-white/60"}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
