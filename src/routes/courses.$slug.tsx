@@ -3,7 +3,7 @@ import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
 import lpuLogo from "@/assets/lpu-logo.png.asset.json";
 import lpuCertificate from "@/assets/lpu-certificate.jpeg.asset.json";
 import hiringPartners from "@/assets/hiring-partners.png";
-import lpuLms from "@/assets/lpu_lms.png";
+import advantageImg from "@/assets/advantage.jpg";
 import { useState } from "react";
 import {
   SiteHeader,
@@ -19,15 +19,21 @@ import {
   BadgeCheck,
   BookOpen,
   Briefcase,
+  ChevronLeft,
   ChevronRight,
   Clock,
   Download,
   GraduationCap,
   IndianRupee,
   Star,
-  MonitorPlay,
   Users,
   CheckCircle2,
+  Sparkles,
+  Laptop,
+  Video,
+  MessageSquare,
+  ShieldCheck,
+  Infinity as InfinityIcon,
 } from "lucide-react";
 
 export const Route = createFileRoute("/courses/$slug")({
@@ -91,18 +97,69 @@ export const Route = createFileRoute("/courses/$slug")({
   component: CoursePage,
 });
 
+// Parse "₹1,20,000" → 120000 (or null if it can't)
+function parseFeeNumber(s: string): number | null {
+  const digits = s.replace(/[^0-9]/g, "");
+  if (!digits) return null;
+  return parseInt(digits, 10);
+}
+function formatINR(n: number): string {
+  return "₹" + n.toLocaleString("en-IN");
+}
+
+const advantages = [
+  {
+    icon: Laptop,
+    title: "Interactive LMS",
+    desc: "24/7 access to recorded lectures, live classes and course material on any device.",
+  },
+  {
+    icon: Video,
+    title: "Live Expert Sessions",
+    desc: "Weekly live classes with senior LPU faculty and industry experts.",
+  },
+  {
+    icon: MessageSquare,
+    title: "AI Mentor Support",
+    desc: "AI-powered doubt solver plus 1:1 mentor connect for academic guidance.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Remote Proctored Exams",
+    desc: "Fully online, remote-proctored examinations from home — no travel needed.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "UGC-Entitled Degree",
+    desc: "Same recognition and value as the on-campus LPU degree.",
+  },
+  {
+    icon: InfinityIcon,
+    title: "Learn At Your Own Pace",
+    desc: "Flexible schedule designed for working professionals and students.",
+  },
+];
+
 function CoursePage() {
   const { course } = Route.useLoaderData() as { course: Course };
   const { open, setOpen } = useModalTrigger();
-  const [curriculumTab, setCurriculumTab] = useState(course.curriculum[0]?.year ?? "");
-  const activeCurriculum =
-    course.curriculum.find((y) => y.year === curriculumTab) ?? course.curriculum[0];
+
+  const semesters = course.curriculum.map((y, i) => ({
+    label: `Semester ${i + 1}`,
+    subjects: y.subjects,
+  }));
+  const [semIdx, setSemIdx] = useState(0);
+  const activeSem = semesters[semIdx] ?? semesters[0];
+
+  // Discounted pricing (20% off full fee)
+  const fullNum = parseFeeNumber(course.feesBreakdown.fullFees);
+  const discountedFull = fullNum ? formatINR(Math.round(fullNum * 0.8)) : course.feesBreakdown.fullFees;
 
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>
-        {/* Hero */}
+        {/* Hero (with sticky form column) */}
         <section
           className="relative overflow-hidden bg-background py-12 sm:py-16"
           style={{
@@ -110,7 +167,7 @@ function CoursePage() {
               "linear-gradient(135deg, color-mix(in oklab, var(--primary) 10%, transparent), transparent 60%)",
           }}
         >
-          <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
               <div className="flex items-center gap-4">
                 <img
@@ -160,24 +217,186 @@ function CoursePage() {
                 </button>
               </div>
             </div>
-            <div>
+            <div className="lg:sticky lg:top-24">
               <LeadFormCompact />
             </div>
           </div>
         </section>
 
-        {/* Fees */}
+        {/* Specializations — right below hero/sticky form */}
+        {course.specializations && course.specializations.length > 0 && (
+          <section
+            className="py-14 sm:py-16"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, color-mix(in oklab, var(--primary) 6%, transparent), transparent)",
+            }}
+          >
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex items-end justify-between gap-6">
+                <div>
+                  <p className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
+                    <Sparkles className="h-3.5 w-3.5" /> Specializations
+                  </p>
+                  <h2 className="mt-3 text-2xl font-bold text-foreground sm:text-3xl">
+                    {course.name} Specializations Offered
+                  </h2>
+                  <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">
+                    Choose an industry-aligned specialization and build career-ready skills for
+                    high-demand roles.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {course.specializations.map((spec, i) => (
+                  <div
+                    key={spec}
+                    className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]"
+                  >
+                    <div
+                      className="absolute inset-x-0 top-0 h-1"
+                      style={{ background: "var(--gradient-brand)" }}
+                    />
+                    <div className="flex items-start gap-4">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                        <Briefcase className="h-6 w-6" />
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                          Specialization {String(i + 1).padStart(2, "0")}
+                        </p>
+                        <h3 className="mt-1 text-lg font-bold text-foreground">{spec}</h3>
+                        <p className="mt-2 text-sm text-muted-foreground">
+                          Industry-relevant curriculum with hands-on projects and expert mentoring
+                          for {spec}.
+                        </p>
+                        <button
+                          type="button"
+                          onClick={openModal}
+                          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                        >
+                          Know more <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Curriculum — semester-wise, mobile-friendly nav */}
+        <section className="bg-secondary/40 py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
+              <BookOpen className="h-7 w-7 text-primary" /> {course.name} Curriculum
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">
+              Semester-wise breakdown of the {course.level.toUpperCase()} program curriculum.
+            </p>
+
+            <div className="mt-6 rounded-2xl border border-border bg-card p-4 sm:p-6">
+              {/* Desktop / tablet tabs */}
+              <div className="hidden flex-wrap gap-2 sm:flex">
+                {semesters.map((s, i) => (
+                  <button
+                    key={s.label}
+                    type="button"
+                    onClick={() => setSemIdx(i)}
+                    className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
+                      semIdx === i
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-secondary text-muted-foreground hover:bg-accent"
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Mobile pager */}
+              <div className="flex items-center justify-between gap-3 sm:hidden">
+                <button
+                  type="button"
+                  aria-label="Previous semester"
+                  onClick={() => setSemIdx((i) => Math.max(0, i - 1))}
+                  disabled={semIdx === 0}
+                  className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground disabled:opacity-40"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <div className="flex-1 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    {semIdx + 1} of {semesters.length}
+                  </p>
+                  <p className="text-base font-bold text-foreground">{activeSem?.label}</p>
+                </div>
+                <button
+                  type="button"
+                  aria-label="Next semester"
+                  onClick={() =>
+                    setSemIdx((i) => Math.min(semesters.length - 1, i + 1))
+                  }
+                  disabled={semIdx === semesters.length - 1}
+                  className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground disabled:opacity-40"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2">
+                {activeSem?.subjects.map((s) => (
+                  <div
+                    key={s}
+                    className="flex items-start gap-3 rounded-lg border border-border bg-background p-4"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                    <span className="text-sm font-medium text-foreground">{s}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile dots */}
+              <div className="mt-5 flex justify-center gap-2 sm:hidden">
+                {semesters.map((s, i) => (
+                  <button
+                    key={s.label}
+                    type="button"
+                    aria-label={`Go to ${s.label}`}
+                    onClick={() => setSemIdx(i)}
+                    className={`h-2.5 rounded-full transition-all ${
+                      semIdx === i ? "w-6 bg-primary" : "w-2.5 bg-border"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Fees — moved BELOW curriculum, with discount UI */}
         <section className="bg-background py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
               <IndianRupee className="h-7 w-7 text-primary" /> Online {course.name} Fee
             </h2>
             <div className="mt-6 grid grid-cols-1 gap-6 rounded-2xl border border-primary/20 bg-accent p-6 md:grid-cols-3">
-              <FeeStat
-                label={`Full Course Fee (${course.level === "ug" ? "Six" : "Four"} semesters)`}
-                value={course.feesBreakdown.fullFees}
-                note="Inclusive of all taxes"
-              />
+              {/* Full fee card with discount */}
+              <div>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Full Fee Payment
+                </p>
+                <p className="mt-2 text-lg font-semibold text-muted-foreground line-through">
+                  {course.feesBreakdown.fullFees}
+                </p>
+                <p className="text-3xl font-extrabold text-primary sm:text-4xl">
+                  {discountedFull}
+                </p>
+                <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                  <Sparkles className="h-3.5 w-3.5" /> 20% discount
+                </p>
+              </div>
               <FeeStat
                 label="Each Semester Fee"
                 value={course.feesBreakdown.perSemester}
@@ -192,105 +411,42 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Curriculum */}
-        <section className="bg-secondary/40 py-16">
+        {/* Online Advantages (replaces "Why LPU Online") */}
+        <section className="bg-secondary/40 py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
-              <BookOpen className="h-7 w-7 text-primary" /> {course.name} Curriculum
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">
-              Explore the subjects covered year-wise in our {course.level.toUpperCase()} program.
-            </p>
-            <div className="mt-6 rounded-2xl border border-border bg-card p-4 sm:p-6">
-              <div className="flex flex-wrap gap-2">
-                {course.curriculum.map((y) => (
-                  <button
-                    key={y.year}
-                    type="button"
-                    onClick={() => setCurriculumTab(y.year)}
-                    className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
-                      curriculumTab === y.year
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-secondary text-muted-foreground hover:bg-accent"
-                    }`}
-                  >
-                    {y.year}
-                  </button>
-                ))}
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              <div>
+                <p className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
+                  <Sparkles className="h-3.5 w-3.5" /> LPU Online Advantages
+                </p>
+                <h2 className="mt-3 text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
+                  Why choose LPU Online programs?
+                </h2>
+                <p className="mt-3 max-w-xl text-muted-foreground">
+                  Learn from anywhere on a world-class LMS with the same UGC-entitled degree as
+                  the on-campus program — engineered for working professionals and busy learners.
+                </p>
+                <img
+                  src={advantageImg}
+                  alt="LPU Online Advantages"
+                  loading="lazy"
+                  className="mt-6 w-full rounded-2xl border border-border bg-white shadow-2xl"
+                />
               </div>
-              <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2">
-                {activeCurriculum?.subjects.map((s) => (
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {advantages.map((a) => (
                   <div
-                    key={s}
-                    className="flex items-start gap-3 rounded-lg border border-border bg-background p-4"
+                    key={a.title}
+                    className="group rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]"
                   >
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm font-medium text-foreground">{s}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Specializations */}
-        {course.specializations && course.specializations.length > 0 && (
-          <section className="bg-background py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
-                <Briefcase className="h-7 w-7 text-primary" /> {course.name} Specializations
-                Offered
-              </h2>
-              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {course.specializations.map((spec) => (
-                  <div
-                    key={spec}
-                    className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5 transition hover:border-primary/60 hover:shadow-[var(--shadow-brand)]"
-                  >
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent">
-                      <Award className="h-5 w-5 text-primary" />
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                      <a.icon className="h-5 w-5" />
                     </span>
-                    <span className="font-semibold text-foreground">{spec}</span>
+                    <h3 className="mt-3 text-base font-bold text-foreground">{a.title}</h3>
+                    <p className="mt-1.5 text-sm text-muted-foreground">{a.desc}</p>
                   </div>
                 ))}
               </div>
-            </div>
-          </section>
-        )}
-
-        {/* Why Online (LMS) */}
-        <section className="bg-secondary/40 py-16">
-          <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div>
-              <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
-                <MonitorPlay className="h-7 w-7 text-primary" /> Why LPU Online Programs
-              </h2>
-              <p className="mt-4 text-muted-foreground">
-                Learn at your own pace on a modern LMS with recorded lectures, live sessions,
-                mentor support and proctored online exams — all recognized as a full campus
-                degree.
-              </p>
-              <ul className="mt-6 space-y-3 text-sm">
-                {[
-                  "Interactive LMS with 24/7 access to recorded lectures",
-                  "Live sessions with expert industry faculty",
-                  "AI-powered mentor and doubt-solving support",
-                  "Fully remote proctored online examinations",
-                  "Same UGC-entitled degree as the campus program",
-                ].map((line) => (
-                  <li key={line} className="flex items-start gap-2 text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" /> {line}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative">
-              <img
-                src={lpuLms}
-                alt="LPU Online LMS preview"
-                loading="lazy"
-                className="w-full rounded-2xl border border-border bg-white shadow-2xl"
-              />
             </div>
           </div>
         </section>
@@ -365,7 +521,7 @@ function CoursePage() {
         {/* Career Scope & Recruiters */}
         <section className="bg-background py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-3xl font-bold text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
               Career Scope & Top Recruiters
             </h2>
             <div className="mt-10 grid gap-10 lg:grid-cols-2">
@@ -405,7 +561,7 @@ function CoursePage() {
         {/* Related courses */}
         <section className="bg-secondary/40 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-center text-2xl font-bold text-foreground sm:text-3xl">
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
               Explore Other LPU Online Programs
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
