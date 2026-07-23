@@ -29,11 +29,7 @@ import {
   Users,
   CheckCircle2,
   Sparkles,
-  Laptop,
-  Video,
-  MessageSquare,
-  ShieldCheck,
-  Infinity as InfinityIcon,
+
 } from "lucide-react";
 
 export const Route = createFileRoute("/courses/$slug")({
