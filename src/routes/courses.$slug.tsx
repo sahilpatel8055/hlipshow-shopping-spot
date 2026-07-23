@@ -109,34 +109,29 @@ function formatINR(n: number): string {
 
 const advantages = [
   {
-    icon: Laptop,
-    title: "Interactive LMS",
-    desc: "24/7 access to recorded lectures, live classes and course material on any device.",
+    number: "1",
+    title: "Flexibility:",
+    desc: "LPU Online offers a flexible learning environment suitable for working professionals.",
   },
   {
-    icon: Video,
-    title: "Live Expert Sessions",
-    desc: "Weekly live classes with senior LPU faculty and industry experts.",
+    number: "2",
+    title: "Quality Education:",
+    desc: "The program maintains high academic standards with a curriculum updated to reflect industry trends.",
   },
   {
-    icon: MessageSquare,
-    title: "AI Mentor Support",
-    desc: "AI-powered doubt solver plus 1:1 mentor connect for academic guidance.",
+    number: "3",
+    title: "24*7 LMS Access:",
+    desc: "Get unlimited 24×7 access to our Learning Management System so you can study anytime, anywhere. All your course materials, lectures, and assignments are just a click away.",
   },
   {
-    icon: ShieldCheck,
-    title: "Remote Proctored Exams",
-    desc: "Fully online, remote-proctored examinations from home — no travel needed.",
+    number: "4",
+    title: "1 on 1 mentor:",
+    desc: "Receive personalized guidance with 1-on-1 mentorship tailored to your learning needs. Get expert support to clarify doubts, plan studies, and achieve your goals faster.",
   },
   {
-    icon: BadgeCheck,
-    title: "UGC-Entitled Degree",
-    desc: "Same recognition and value as the on-campus LPU degree.",
-  },
-  {
-    icon: InfinityIcon,
-    title: "Learn At Your Own Pace",
-    desc: "Flexible schedule designed for working professionals and students.",
+    number: "5",
+    title: "Placement Support:",
+    desc: "Get dedicated placement support with active job promotion to top recruiters. From resume building to interview preparation, we help you secure and showcase your profile for the best opportunities.",
   },
 ];
 
