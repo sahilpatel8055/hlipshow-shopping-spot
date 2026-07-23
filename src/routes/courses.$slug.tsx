@@ -92,7 +92,7 @@ export const Route = createFileRoute("/courses/$slug")({
 });
 
 function CoursePage() {
-  const { course } = Route.useLoaderData();
+  const { course } = Route.useLoaderData() as { course: Course };
   const { open, setOpen } = useModalTrigger();
   const [curriculumTab, setCurriculumTab] = useState(course.curriculum[0]?.year ?? "");
   const activeCurriculum =
