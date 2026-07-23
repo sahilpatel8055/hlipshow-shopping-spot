@@ -1,5 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { findCourse, allCourses, lpu } from "@/lib/lpu";
+import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
 import lpuLogo from "@/assets/lpu-logo.png.asset.json";
 import lpuCertificate from "@/assets/lpu-certificate.jpeg.asset.json";
 import hiringPartners from "@/assets/hiring-partners.png";
