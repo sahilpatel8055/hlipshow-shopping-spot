@@ -398,41 +398,43 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Online Advantages (replaces "Why LPU Online") */}
-        <section className="bg-secondary/40 py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid items-center gap-10 lg:grid-cols-2">
-              <div>
-                <p className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
-                  <Sparkles className="h-3.5 w-3.5" /> LPU Online Advantages
-                </p>
-                <h2 className="mt-3 text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
-                  Why choose LPU Online programs?
+        {/* LPU Online Advantages — numbered list + image (matches reference) */}
+        <section className="relative overflow-hidden bg-background py-16">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 lg:flex-row">
+              {/* Left content */}
+              <div className="flex-1 lg:pr-8">
+                <h2 className="mb-8 text-3xl font-bold leading-tight lg:text-4xl">
+                  <span className="text-primary">LPU Online</span> Advantages
                 </h2>
-                <p className="mt-3 max-w-xl text-muted-foreground">
-                  Learn from anywhere on a world-class LMS with the same UGC-entitled degree as
-                  the on-campus program — engineered for working professionals and busy learners.
-                </p>
+                <div className="space-y-6">
+                  {advantages.map((point) => (
+                    <div key={point.number} className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <span className="text-5xl font-bold leading-none text-primary">
+                          {point.number}
+                        </span>
+                      </div>
+                      <div className="pt-2">
+                        <h3 className="mb-1 text-lg font-bold text-foreground">
+                          {point.title}
+                        </h3>
+                        <p className="leading-relaxed text-muted-foreground">
+                          {point.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Right image */}
+              <div className="relative flex-1">
                 <img
                   src={advantageImg}
                   alt="LPU Online Advantages"
                   loading="lazy"
-                  className="mt-6 w-full rounded-2xl border border-border bg-white shadow-2xl"
+                  className="mx-auto h-auto w-full max-w-lg rounded-lg"
                 />
-              </div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {advantages.map((a) => (
-                  <div
-                    key={a.title}
-                    className="group rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]"
-                  >
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                      <a.icon className="h-5 w-5" />
-                    </span>
-                    <h3 className="mt-3 text-base font-bold text-foreground">{a.title}</h3>
-                    <p className="mt-1.5 text-sm text-muted-foreground">{a.desc}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
