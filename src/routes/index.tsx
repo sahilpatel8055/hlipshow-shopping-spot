@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { lpu } from "@/lib/lpu";
-import lpuCertificate from "@/assets/lpu-certificate.jpeg.asset.json";
+import lpuCertificate from "@/assets/sample-degree.webp.asset.json";
 import hiringPartners from "@/assets/hiring-partners.png";
 import logoNaac from "@/assets/logo/naac.jpeg";
 import logoNirf from "@/assets/logo/nirf.png";
