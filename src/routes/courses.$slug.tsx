@@ -218,7 +218,7 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Specializations — right below hero/sticky form */}
+        {/* Specializations — horizontal scrolling name chips */}
         {course.specializations && course.specializations.length > 0 && (
           <section
             className="py-14 sm:py-16"
@@ -228,52 +228,44 @@ function CoursePage() {
             }}
           >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex items-end justify-between gap-6">
-                <div>
-                  <p className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
-                    <Sparkles className="h-3.5 w-3.5" /> Specializations
-                  </p>
-                  <h2 className="mt-3 text-2xl font-bold text-foreground sm:text-3xl">
-                    {course.name} Specializations Offered
-                  </h2>
-                  <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">
-                    Choose an industry-aligned specialization and build career-ready skills for
-                    high-demand roles.
-                  </p>
+              <div className="flex items-end justify-between gap-4">
+                <h2 className="text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
+                  Specializations Offered
+                </h2>
+                <div className="hidden gap-2 sm:flex">
+                  <button
+                    type="button"
+                    aria-label="Scroll left"
+                    onClick={() => document.getElementById("spec-scroll")?.scrollBy({ left: -320, behavior: "smooth" })}
+                    className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground hover:bg-accent"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Scroll right"
+                    onClick={() => document.getElementById("spec-scroll")?.scrollBy({ left: 320, behavior: "smooth" })}
+                    className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground hover:bg-accent"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
                 </div>
               </div>
-              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {course.specializations.map((spec, i) => (
+              <div
+                id="spec-scroll"
+                className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {course.specializations.map((spec) => (
                   <div
                     key={spec}
-                    className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]"
+                    className="group flex min-w-[260px] shrink-0 snap-start items-center gap-4 rounded-2xl border border-border bg-card px-5 py-5 shadow-sm transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)] sm:min-w-[300px]"
                   >
-                    <div
-                      className="absolute inset-x-0 top-0 h-1"
-                      style={{ background: "var(--gradient-brand)" }}
-                    />
-                    <div className="flex items-start gap-4">
-                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                        <Briefcase className="h-6 w-6" />
-                      </span>
-                      <div className="min-w-0">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                          Specialization {String(i + 1).padStart(2, "0")}
-                        </p>
-                        <h3 className="mt-1 text-lg font-bold text-foreground">{spec}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground">
-                          Industry-relevant curriculum with hands-on projects and expert mentoring
-                          for {spec}.
-                        </p>
-                        <button
-                          type="button"
-                          onClick={openModal}
-                          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-                        >
-                          Know more <ChevronRight className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </div>
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-background ring-1 ring-border text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Briefcase className="h-5 w-5" />
+                    </span>
+                    <h3 className="text-base font-semibold text-foreground sm:text-lg">
+                      {spec}
+                    </h3>
                   </div>
                 ))}
               </div>
