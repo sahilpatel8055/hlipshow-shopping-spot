@@ -1,6 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
-import lpuLogo from "@/assets/lpu-logo.png.asset.json";
 import lpuCertificate from "@/assets/sample-degree.webp.asset.json";
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
@@ -13,6 +12,11 @@ import {
   openModal,
   LeadFormCompact,
   CareerAssistance,
+  SpecializationsSection,
+  StickyActionBar,
+  Breadcrumb,
+  SeoFaq,
+  PopularSearches,
 } from "@/components/site";
 import {
   Award,
@@ -29,8 +33,10 @@ import {
   Users,
   CheckCircle2,
   Sparkles,
-
 } from "lucide-react";
+
+const LOGO_SRC = "/lpu-logo.png";
+
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
