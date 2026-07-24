@@ -220,60 +220,11 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Specializations — horizontal scrolling name chips */}
+        {/* Specializations — 2-per-row grid with arrow navigation */}
         {course.specializations && course.specializations.length > 0 && (
-          <section
-            className="py-14 sm:py-16"
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, color-mix(in oklab, var(--primary) 6%, transparent), transparent)",
-            }}
-          >
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex items-end justify-between gap-4">
-                <h2 className="text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
-                  Specializations Offered
-                </h2>
-                <div className="hidden gap-2 sm:flex">
-                  <button
-                    type="button"
-                    aria-label="Scroll left"
-                    onClick={() => document.getElementById("spec-scroll")?.scrollBy({ left: -320, behavior: "smooth" })}
-                    className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground hover:bg-accent"
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Scroll right"
-                    onClick={() => document.getElementById("spec-scroll")?.scrollBy({ left: 320, behavior: "smooth" })}
-                    className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground hover:bg-accent"
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </button>
-                </div>
-              </div>
-              <div
-                id="spec-scroll"
-                className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-              >
-                {course.specializations.map((spec) => (
-                  <div
-                    key={spec}
-                    className="group flex min-w-[260px] shrink-0 snap-start items-center gap-4 rounded-2xl border border-border bg-card px-5 py-5 shadow-sm transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)] sm:min-w-[300px]"
-                  >
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-background ring-1 ring-border text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                      <Briefcase className="h-5 w-5" />
-                    </span>
-                    <h3 className="text-base font-semibold text-foreground sm:text-lg">
-                      {spec}
-                    </h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <SpecializationsSection specializations={course.specializations} />
         )}
+
 
         {/* Curriculum — semester-wise, mobile-friendly nav */}
         <section className="bg-secondary/40 py-16">
