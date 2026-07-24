@@ -10,11 +10,60 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LpuOnlineAdmissionRouteImport } from './routes/lpu-online-admission'
+import { Route as LpuOnlineAdmissionLastDateRouteImport } from './routes/lpu-online-admission-last-date'
+import { Route as LpuOnlineCoursesRouteImport } from './routes/lpu-online-courses'
+import { Route as LpuOnlineEligibilityRouteImport } from './routes/lpu-online-eligibility'
+import { Route as LpuOnlineFeesRouteImport } from './routes/lpu-online-fees'
+import { Route as LpuOnlinePlacementRouteImport } from './routes/lpu-online-placement'
+import { Route as LpuOnlineReviewRouteImport } from './routes/lpu-online-review'
+import { Route as LpuOnlineScholarshipRouteImport } from './routes/lpu-online-scholarship'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpuOnlineAdmissionRoute = LpuOnlineAdmissionRouteImport.update({
+  id: '/lpu-online-admission',
+  path: '/lpu-online-admission',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpuOnlineAdmissionLastDateRoute =
+  LpuOnlineAdmissionLastDateRouteImport.update({
+    id: '/lpu-online-admission-last-date',
+    path: '/lpu-online-admission-last-date',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LpuOnlineCoursesRoute = LpuOnlineCoursesRouteImport.update({
+  id: '/lpu-online-courses',
+  path: '/lpu-online-courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpuOnlineEligibilityRoute = LpuOnlineEligibilityRouteImport.update({
+  id: '/lpu-online-eligibility',
+  path: '/lpu-online-eligibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpuOnlineFeesRoute = LpuOnlineFeesRouteImport.update({
+  id: '/lpu-online-fees',
+  path: '/lpu-online-fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpuOnlinePlacementRoute = LpuOnlinePlacementRouteImport.update({
+  id: '/lpu-online-placement',
+  path: '/lpu-online-placement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpuOnlineReviewRoute = LpuOnlineReviewRouteImport.update({
+  id: '/lpu-online-review',
+  path: '/lpu-online-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LpuOnlineScholarshipRoute = LpuOnlineScholarshipRouteImport.update({
+  id: '/lpu-online-scholarship',
+  path: '/lpu-online-scholarship',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesSlugRoute = CoursesSlugRouteImport.update({
@@ -25,27 +74,90 @@ const CoursesSlugRoute = CoursesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
+  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
+  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
+  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
+  '/lpu-online-fees': typeof LpuOnlineFeesRoute
+  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
+  '/lpu-online-review': typeof LpuOnlineReviewRoute
+  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/courses/$slug': typeof CoursesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
+  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
+  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
+  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
+  '/lpu-online-fees': typeof LpuOnlineFeesRoute
+  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
+  '/lpu-online-review': typeof LpuOnlineReviewRoute
+  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/courses/$slug': typeof CoursesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
+  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
+  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
+  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
+  '/lpu-online-fees': typeof LpuOnlineFeesRoute
+  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
+  '/lpu-online-review': typeof LpuOnlineReviewRoute
+  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/courses/$slug': typeof CoursesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/courses/$slug'
+  fullPaths:
+    | '/'
+    | '/lpu-online-admission'
+    | '/lpu-online-admission-last-date'
+    | '/lpu-online-courses'
+    | '/lpu-online-eligibility'
+    | '/lpu-online-fees'
+    | '/lpu-online-placement'
+    | '/lpu-online-review'
+    | '/lpu-online-scholarship'
+    | '/courses/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/courses/$slug'
-  id: '__root__' | '/' | '/courses/$slug'
+  to:
+    | '/'
+    | '/lpu-online-admission'
+    | '/lpu-online-admission-last-date'
+    | '/lpu-online-courses'
+    | '/lpu-online-eligibility'
+    | '/lpu-online-fees'
+    | '/lpu-online-placement'
+    | '/lpu-online-review'
+    | '/lpu-online-scholarship'
+    | '/courses/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/lpu-online-admission'
+    | '/lpu-online-admission-last-date'
+    | '/lpu-online-courses'
+    | '/lpu-online-eligibility'
+    | '/lpu-online-fees'
+    | '/lpu-online-placement'
+    | '/lpu-online-review'
+    | '/lpu-online-scholarship'
+    | '/courses/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LpuOnlineAdmissionRoute: typeof LpuOnlineAdmissionRoute
+  LpuOnlineAdmissionLastDateRoute: typeof LpuOnlineAdmissionLastDateRoute
+  LpuOnlineCoursesRoute: typeof LpuOnlineCoursesRoute
+  LpuOnlineEligibilityRoute: typeof LpuOnlineEligibilityRoute
+  LpuOnlineFeesRoute: typeof LpuOnlineFeesRoute
+  LpuOnlinePlacementRoute: typeof LpuOnlinePlacementRoute
+  LpuOnlineReviewRoute: typeof LpuOnlineReviewRoute
+  LpuOnlineScholarshipRoute: typeof LpuOnlineScholarshipRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
 }
 
@@ -56,6 +168,62 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-admission': {
+      id: '/lpu-online-admission'
+      path: '/lpu-online-admission'
+      fullPath: '/lpu-online-admission'
+      preLoaderRoute: typeof LpuOnlineAdmissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-admission-last-date': {
+      id: '/lpu-online-admission-last-date'
+      path: '/lpu-online-admission-last-date'
+      fullPath: '/lpu-online-admission-last-date'
+      preLoaderRoute: typeof LpuOnlineAdmissionLastDateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-courses': {
+      id: '/lpu-online-courses'
+      path: '/lpu-online-courses'
+      fullPath: '/lpu-online-courses'
+      preLoaderRoute: typeof LpuOnlineCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-eligibility': {
+      id: '/lpu-online-eligibility'
+      path: '/lpu-online-eligibility'
+      fullPath: '/lpu-online-eligibility'
+      preLoaderRoute: typeof LpuOnlineEligibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-fees': {
+      id: '/lpu-online-fees'
+      path: '/lpu-online-fees'
+      fullPath: '/lpu-online-fees'
+      preLoaderRoute: typeof LpuOnlineFeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-placement': {
+      id: '/lpu-online-placement'
+      path: '/lpu-online-placement'
+      fullPath: '/lpu-online-placement'
+      preLoaderRoute: typeof LpuOnlinePlacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-review': {
+      id: '/lpu-online-review'
+      path: '/lpu-online-review'
+      fullPath: '/lpu-online-review'
+      preLoaderRoute: typeof LpuOnlineReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lpu-online-scholarship': {
+      id: '/lpu-online-scholarship'
+      path: '/lpu-online-scholarship'
+      fullPath: '/lpu-online-scholarship'
+      preLoaderRoute: typeof LpuOnlineScholarshipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses/$slug': {
@@ -70,6 +238,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LpuOnlineAdmissionRoute: LpuOnlineAdmissionRoute,
+  LpuOnlineAdmissionLastDateRoute: LpuOnlineAdmissionLastDateRoute,
+  LpuOnlineCoursesRoute: LpuOnlineCoursesRoute,
+  LpuOnlineEligibilityRoute: LpuOnlineEligibilityRoute,
+  LpuOnlineFeesRoute: LpuOnlineFeesRoute,
+  LpuOnlinePlacementRoute: LpuOnlinePlacementRoute,
+  LpuOnlineReviewRoute: LpuOnlineReviewRoute,
+  LpuOnlineScholarshipRoute: LpuOnlineScholarshipRoute,
   CoursesSlugRoute: CoursesSlugRoute,
 }
 export const routeTree = rootRouteImport
