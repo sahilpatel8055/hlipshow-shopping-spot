@@ -585,6 +585,9 @@ function CoursePage() {
               Get Free Counseling <ChevronRight className="h-4 w-4" />
             </button>
           </div>
+        </section>
+
+
 
         {/* SEO FAQ + Popular Searches */}
         <SeoFaq items={lpu.faqs} />
