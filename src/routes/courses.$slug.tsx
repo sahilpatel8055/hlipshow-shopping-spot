@@ -168,7 +168,7 @@ function CoursePage() {
             <div>
               <div className="flex items-center gap-4">
                 <img
-                  src={lpuLogo.url}
+                  src={LOGO_SRC}
                   alt="LPU Online"
                   className="h-14 w-14 rounded-lg bg-white object-contain p-1 ring-1 ring-border sm:h-16 sm:w-16"
                 />
