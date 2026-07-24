@@ -186,7 +186,9 @@ function CoursePage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
+      <Breadcrumb items={[{ label: "Courses", to: "/lpu-online-courses" }, { label: course.name }]} />
       <main>
+
         {/* Hero (with sticky form column) */}
         <section
           className="relative overflow-hidden bg-background py-12 sm:py-16"
