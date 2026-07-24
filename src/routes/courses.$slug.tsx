@@ -44,25 +44,56 @@ export const Route = createFileRoute("/courses/$slug")({
     if (!course) throw notFound();
     return { course };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const c = loaderData?.course;
     const title = c
-      ? `${c.name} — LPU Online | UGC Entitled Degree`
+      ? `${c.name} — LPU Online | UGC Entitled Degree, Fees & Admission 2026`
       : "Course — LPU Online";
     const desc = c
-      ? `${c.tagline} 100% online, UGC-entitled, NAAC A++ university. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}.`
+      ? `${c.tagline} 100% online, UGC-entitled, NAAC A++ university. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}. Apply for LPU Online admission 2026.`
       : "Explore online degree programs from LPU Online.";
+    const canonical = `https://onlinevgu.avedu.in/courses/${params.slug}`;
+    const courseSchema = c
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: c.name,
+          description: c.tagline,
+          provider: {
+            "@type": "CollegeOrUniversity",
+            name: "Lovely Professional University",
+            sameAs: "https://www.lpu.in/",
+          },
+          hasCourseInstance: {
+            "@type": "CourseInstance",
+            courseMode: "online",
+            courseWorkload: c.duration,
+          },
+          offers: {
+            "@type": "Offer",
+            price: c.feesBreakdown.fullFees.replace(/[^0-9]/g, ""),
+            priceCurrency: "INR",
+          },
+        }
+      : null;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
+        { name: "robots", content: "noindex, nofollow" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:url", content: canonical },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
+      links: [{ rel: "canonical", href: canonical }],
+      scripts: courseSchema
+        ? [{ type: "application/ld+json", children: JSON.stringify(courseSchema) }]
+        : [],
     };
   },
+
   notFoundComponent: () => (
     <div className="min-h-screen bg-background">
       <SiteHeader />
