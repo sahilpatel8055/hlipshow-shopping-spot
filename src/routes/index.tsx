@@ -631,9 +631,12 @@ function LpuPage() {
         <Placements />
         <Faqs />
         <LeadForm />
+        <PopularSearches />
       </main>
       <SiteFooter />
+      <StickyActionBar />
       <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
   );
 }
+
