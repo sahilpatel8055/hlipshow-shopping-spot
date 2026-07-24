@@ -1,6 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
-import lpuLogo from "@/assets/lpu-logo.png.asset.json";
 import lpuCertificate from "@/assets/sample-degree.webp.asset.json";
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
@@ -13,6 +12,11 @@ import {
   openModal,
   LeadFormCompact,
   CareerAssistance,
+  SpecializationsSection,
+  StickyActionBar,
+  Breadcrumb,
+  SeoFaq,
+  PopularSearches,
 } from "@/components/site";
 import {
   Award,
@@ -29,8 +33,10 @@ import {
   Users,
   CheckCircle2,
   Sparkles,
-
 } from "lucide-react";
+
+const LOGO_SRC = "/lpu-logo.png";
+
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
@@ -38,25 +44,56 @@ export const Route = createFileRoute("/courses/$slug")({
     if (!course) throw notFound();
     return { course };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const c = loaderData?.course;
     const title = c
-      ? `${c.name} — LPU Online | UGC Entitled Degree`
+      ? `${c.name} — LPU Online | UGC Entitled Degree, Fees & Admission 2026`
       : "Course — LPU Online";
     const desc = c
-      ? `${c.tagline} 100% online, UGC-entitled, NAAC A++ university. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}.`
+      ? `${c.tagline} 100% online, UGC-entitled, NAAC A++ university. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}. Apply for LPU Online admission 2026.`
       : "Explore online degree programs from LPU Online.";
+    const canonical = `https://onlinevgu.avedu.in/courses/${params.slug}`;
+    const courseSchema = c
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: c.name,
+          description: c.tagline,
+          provider: {
+            "@type": "CollegeOrUniversity",
+            name: "Lovely Professional University",
+            sameAs: "https://www.lpu.in/",
+          },
+          hasCourseInstance: {
+            "@type": "CourseInstance",
+            courseMode: "online",
+            courseWorkload: c.duration,
+          },
+          offers: {
+            "@type": "Offer",
+            price: c.feesBreakdown.fullFees.replace(/[^0-9]/g, ""),
+            priceCurrency: "INR",
+          },
+        }
+      : null;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
+        { name: "robots", content: "noindex, nofollow" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:url", content: canonical },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
+      links: [{ rel: "canonical", href: canonical }],
+      scripts: courseSchema
+        ? [{ type: "application/ld+json", children: JSON.stringify(courseSchema) }]
+        : [],
     };
   },
+
   notFoundComponent: () => (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -149,7 +186,9 @@ function CoursePage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
+      <Breadcrumb items={[{ label: "Courses", to: "/lpu-online-courses" }, { label: course.name }]} />
       <main>
+
         {/* Hero (with sticky form column) */}
         <section
           className="relative overflow-hidden bg-background py-12 sm:py-16"
@@ -162,7 +201,7 @@ function CoursePage() {
             <div>
               <div className="flex items-center gap-4">
                 <img
-                  src={lpuLogo.url}
+                  src={LOGO_SRC}
                   alt="LPU Online"
                   className="h-14 w-14 rounded-lg bg-white object-contain p-1 ring-1 ring-border sm:h-16 sm:w-16"
                 />
@@ -214,60 +253,11 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Specializations — horizontal scrolling name chips */}
+        {/* Specializations — 2-per-row grid with arrow navigation */}
         {course.specializations && course.specializations.length > 0 && (
-          <section
-            className="py-14 sm:py-16"
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, color-mix(in oklab, var(--primary) 6%, transparent), transparent)",
-            }}
-          >
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex items-end justify-between gap-4">
-                <h2 className="text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
-                  Specializations Offered
-                </h2>
-                <div className="hidden gap-2 sm:flex">
-                  <button
-                    type="button"
-                    aria-label="Scroll left"
-                    onClick={() => document.getElementById("spec-scroll")?.scrollBy({ left: -320, behavior: "smooth" })}
-                    className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground hover:bg-accent"
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Scroll right"
-                    onClick={() => document.getElementById("spec-scroll")?.scrollBy({ left: 320, behavior: "smooth" })}
-                    className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground hover:bg-accent"
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </button>
-                </div>
-              </div>
-              <div
-                id="spec-scroll"
-                className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-              >
-                {course.specializations.map((spec) => (
-                  <div
-                    key={spec}
-                    className="group flex min-w-[260px] shrink-0 snap-start items-center gap-4 rounded-2xl border border-border bg-card px-5 py-5 shadow-sm transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)] sm:min-w-[300px]"
-                  >
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-background ring-1 ring-border text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                      <Briefcase className="h-5 w-5" />
-                    </span>
-                    <h3 className="text-base font-semibold text-foreground sm:text-lg">
-                      {spec}
-                    </h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <SpecializationsSection specializations={course.specializations} />
         )}
+
 
         {/* Curriculum — semester-wise, mobile-friendly nav */}
         <section className="bg-secondary/40 py-16">
@@ -596,12 +586,20 @@ function CoursePage() {
             </button>
           </div>
         </section>
+
+
+
+        {/* SEO FAQ + Popular Searches */}
+        <SeoFaq items={lpu.faqs} />
+        <PopularSearches />
       </main>
       <SiteFooter />
+      <StickyActionBar />
       <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
   );
 }
+
 
 function FeeStat({ label, value, note }: { label: string; value: string; note: string }) {
   return (

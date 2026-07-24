@@ -33,6 +33,8 @@ import {
   LabeledSelect,
   LeadFormCompact,
   CareerAssistance,
+  StickyActionBar,
+  PopularSearches,
 } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -42,20 +44,24 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Enroll in LPU Online UGC-entitled BBA, BCA, MBA, MCA and more. NAAC A++ accredited, 100% online with EMI options, mentor support and placement assistance.",
+          "Apply for LPU Online admission 2026. UGC-entitled BBA, BCA, MBA, MCA and more from NAAC A++ Lovely Professional University. 100% online, EMI options, placement support.",
       },
+      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online — Same Degree, Now Online" },
       {
         property: "og:description",
         content:
           "UGC-entitled online degrees from India's largest private university. Flexible learning, dedicated placement cell, EMI options.",
       },
+      { property: "og:url", content: "https://onlinevgu.avedu.in/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://onlinevgu.avedu.in/" }],
   }),
   component: LpuPage,
 });
+
 
 /* ---------------- Hero ---------------- */
 
@@ -625,9 +631,12 @@ function LpuPage() {
         <Placements />
         <Faqs />
         <LeadForm />
+        <PopularSearches />
       </main>
       <SiteFooter />
+      <StickyActionBar />
       <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
   );
 }
+

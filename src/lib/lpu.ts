@@ -280,5 +280,19 @@ export const lpu = {
 
 export const allCourses: Course[] = [...lpu.courses.pg, ...lpu.courses.ug];
 
-export const findCourse = (slug: string): Course | undefined =>
-  allCourses.find((c) => c.slug === slug);
+// Short-form aliases so /courses/mba, /courses/mca etc. also work for SEO.
+const slugAliases: Record<string, string> = {
+  mba: "online-mba",
+  mca: "online-mca",
+  bca: "online-bca",
+  bba: "online-bba",
+  ba: "online-ba",
+  bcom: "online-bcom",
+  mcom: "online-mcom",
+  ma: "online-ma",
+};
+
+export const findCourse = (slug: string): Course | undefined => {
+  const normalized = slugAliases[slug] ?? slug;
+  return allCourses.find((c) => c.slug === normalized);
+};
