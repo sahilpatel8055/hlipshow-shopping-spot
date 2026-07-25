@@ -345,9 +345,22 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <p className="mt-8 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} LPU Online. All rights reserved. UGC-Entitled Programs.
+        <div className="mt-8 rounded-lg border border-border bg-secondary/40 p-4 text-xs text-muted-foreground">
+          <p className="font-semibold text-foreground">Disclaimer</p>
+          <p className="mt-1">
+            We act as a marketing service partner only. LPU Online hold full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. For official and updated information, visitors should always refer directly to the official LPU Online website:{" "}
+            <a href="https://www.lpuonline.com" target="_blank" rel="noopener" className="text-primary hover:underline">
+              https://www.lpuonline.com
+            </a>
+          </p>
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground">
+          © {new Date().getFullYear()} LPU Online · avedu. All rights reserved. UGC-Entitled Programs.{" "}
+          <Link to="/disclaimer" className="hover:text-primary">Disclaimer</Link> ·{" "}
+          <Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> ·{" "}
+          <Link to="/terms-conditions" className="hover:text-primary">Terms & Conditions</Link>
         </p>
+
       </div>
     </footer>
   );
