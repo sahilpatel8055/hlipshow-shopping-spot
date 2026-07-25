@@ -563,9 +563,9 @@ function Faqs() {
 
 function LeadForm() {
   return (
-    <section id="lead" className="relative overflow-hidden py-20">
+    <section id="lead" className="relative overflow-hidden py-16">
       <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
         <div className="text-primary-foreground">
           <h2 className="text-3xl font-bold sm:text-4xl">Talk to an LPU Online Counselor</h2>
           <p className="mt-4 text-base opacity-95">
@@ -579,39 +579,12 @@ function LeadForm() {
             <Phone className="h-5 w-5" /> 1800-000-000 · Mon – Sat, 9am – 8pm
           </div>
         </div>
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="rounded-2xl bg-card p-6 shadow-2xl sm:p-8"
-        >
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="sm:col-span-2">
-              <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-            </div>
-            <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
-            <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
-            <div className="sm:col-span-2">
-              <LabeledSelect label="Select Program">
-                <option value="">Choose a program</option>
-                {[...lpu.courses.pg, ...lpu.courses.ug].map((c) => (
-                  <option key={c.name}>{c.name}</option>
-                ))}
-              </LabeledSelect>
-            </div>
-          </div>
-          <button
-            type="submit"
-            className="mt-5 w-full rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
-          >
-            Request Free Callback
-          </button>
-          <p className="mt-3 text-center text-xs text-muted-foreground">
-            By submitting you agree to be contacted about LPU Online programs.
-          </p>
-        </form>
+        <div><LeadFormCompact /></div>
       </div>
     </section>
   );
 }
+
 
 /* ---------------- Page ---------------- */
 
