@@ -525,7 +525,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
     "@type": "ListItem",
     position: i + 1,
     name: c.label,
-    ...(c.to ? { item: `https://onlinevgu.avedu.in${c.to}` } : {}),
+    ...(c.to ? { item: `https://lpuonline.avedu.in${c.to}` } : {}),
   }));
   const jsonLd = {
     "@context": "https://schema.org",

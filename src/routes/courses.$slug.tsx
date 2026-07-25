@@ -52,7 +52,7 @@ export const Route = createFileRoute("/courses/$slug")({
     const desc = c
       ? `${c.tagline} 100% online, UGC-entitled, NAAC A++ university. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}. Apply for LPU Online admission 2026.`
       : "Explore online degree programs from LPU Online.";
-    const canonical = `https://onlinevgu.avedu.in/courses/${params.slug}`;
+    const canonical = `https://lpuonline.avedu.in/courses/${params.slug}`;
     const courseSchema = c
       ? {
           "@context": "https://schema.org",
@@ -80,7 +80,6 @@ export const Route = createFileRoute("/courses/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
-        { name: "robots", content: "noindex, nofollow" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:url", content: canonical },

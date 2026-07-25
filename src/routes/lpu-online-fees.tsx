@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { lpu, allCourses } from "@/lib/lpu";
 
-const CANONICAL = "https://onlinevgu.avedu.in/lpu-online-fees";
+const CANONICAL = "https://lpuonline.avedu.in/lpu-online-fees";
 
 export const Route = createFileRoute("/lpu-online-fees")({
   head: () => ({
     meta: [
       { title: "LPU Online Fees Structure 2026 — Course Fee & EMI Options" },
       { name: "description", content: "LPU Online fee structure 2026 — full fee, per-semester fee and 0% EMI plans for every UG and PG program." },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online Fees 2026" },
       { property: "og:description", content: "Program-wise fees and EMI options for LPU Online." },
       { property: "og:url", content: CANONICAL },

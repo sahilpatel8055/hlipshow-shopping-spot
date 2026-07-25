@@ -46,18 +46,17 @@ export const Route = createFileRoute("/")({
         content:
           "Apply for LPU Online admission 2026. UGC-entitled BBA, BCA, MBA, MCA and more from NAAC A++ Lovely Professional University. 100% online, EMI options, placement support.",
       },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online — Same Degree, Now Online" },
       {
         property: "og:description",
         content:
           "UGC-entitled online degrees from India's largest private university. Flexible learning, dedicated placement cell, EMI options.",
       },
-      { property: "og:url", content: "https://onlinevgu.avedu.in/" },
+      { property: "og:url", content: "https://lpuonline.avedu.in/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://onlinevgu.avedu.in/" }],
+    links: [{ rel: "canonical", href: "https://lpuonline.avedu.in/" }],
   }),
   component: LpuPage,
 });

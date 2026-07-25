@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { lpu } from "@/lib/lpu";
 
-const CANONICAL = "https://onlinevgu.avedu.in/lpu-online-eligibility";
+const CANONICAL = "https://lpuonline.avedu.in/lpu-online-eligibility";
 
 export const Route = createFileRoute("/lpu-online-eligibility")({
   head: () => ({
     meta: [
       { title: "LPU Online Eligibility Criteria 2026 — UG & PG Requirements" },
       { name: "description", content: "LPU Online eligibility criteria for UG and PG programs — minimum marks, qualifying exams and required documents." },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online Eligibility 2026" },
       { property: "og:description", content: "Check eligibility for LPU Online UG and PG programs." },
       { property: "og:url", content: CANONICAL },

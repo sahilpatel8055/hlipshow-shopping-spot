@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { lpu } from "@/lib/lpu";
 
-const CANONICAL = "https://onlinevgu.avedu.in/lpu-online-admission-last-date";
+const CANONICAL = "https://lpuonline.avedu.in/lpu-online-admission-last-date";
 
 export const Route = createFileRoute("/lpu-online-admission-last-date")({
   head: () => ({
     meta: [
       { title: "LPU Online Admission Last Date 2026 — Apply Before Deadline" },
       { name: "description", content: "LPU Online admission last date 2026 — apply before the cycle closes to secure early-bird discounts and preferred specializations." },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online Admission Last Date 2026" },
       { property: "og:description", content: "Don't miss the LPU Online admission deadline." },
       { property: "og:url", content: CANONICAL },
