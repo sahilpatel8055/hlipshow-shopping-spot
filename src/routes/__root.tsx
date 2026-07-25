@@ -77,17 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "LPU Online — UGC-Entitled Online Degrees" },
-      { name: "description", content: "Apply for LPU Online admission 2026 — UGC-entitled online degrees from NAAC A++ Lovely Professional University." },
-      { name: "robots", content: "noindex, nofollow" },
-      { name: "author", content: "LPU Online" },
+      { title: "LPU Online — UGC-Entitled Online Degrees (Courses, Fees, Admission 2026)" },
+      { name: "description", content: "Apply for LPU Online admission 2026 — UGC-entitled online BBA, BCA, MBA, MCA degrees from NAAC A++ Lovely Professional University. Fees, eligibility & EMI options." },
+      { name: "author", content: "LPU Online · avedu" },
       { property: "og:site_name", content: "LPU Online" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "google-site-verification", content: "REPLACE_ME" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/lpu-logo.png", type: "image/png" },
+      { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
     ],
     scripts: [
       {
@@ -96,13 +98,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "CollegeOrUniversity",
           name: "LPU Online — Lovely Professional University",
-          url: "https://onlinevgu.avedu.in/",
-          logo: "https://onlinevgu.avedu.in/lpu-logo.png",
-          sameAs: ["https://www.lpu.in/"],
+          url: "https://lpuonline.avedu.in/",
+          logo: "https://lpuonline.avedu.in/lpu-logo.png",
+          sameAs: ["https://www.lpuonline.com/", "https://www.lpu.in/"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "LPU Online",
+          url: "https://lpuonline.avedu.in/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://lpuonline.avedu.in/?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
         }),
       },
     ],
   }),
+
 
   shellComponent: RootShell,
   component: RootComponent,

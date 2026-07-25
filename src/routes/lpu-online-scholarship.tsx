@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { lpu } from "@/lib/lpu";
 
-const CANONICAL = "https://onlinevgu.avedu.in/lpu-online-scholarship";
+const CANONICAL = "https://lpuonline.avedu.in/lpu-online-scholarship";
 
 export const Route = createFileRoute("/lpu-online-scholarship")({
   head: () => ({
     meta: [
       { title: "LPU Online Scholarship 2026 — Merit, Defence & Divyaang" },
       { name: "description", content: "LPU Online scholarships 2026 — merit, defence, divyaang and sports scholarships with eligibility and how to apply." },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online Scholarship 2026" },
       { property: "og:description", content: "Scholarships available for LPU Online learners." },
       { property: "og:url", content: CANONICAL },

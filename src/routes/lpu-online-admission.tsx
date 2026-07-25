@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { lpu } from "@/lib/lpu";
 
-const CANONICAL = "https://onlinevgu.avedu.in/lpu-online-admission";
+const CANONICAL = "https://lpuonline.avedu.in/lpu-online-admission";
 
 export const Route = createFileRoute("/lpu-online-admission")({
   head: () => ({
     meta: [
       { title: "LPU Online Admission 2026 — Process, Dates & Apply Online" },
       { name: "description", content: "LPU Online admission 2026 — step-by-step application process, required documents, key dates and eligibility for UGC-entitled online degrees." },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online Admission 2026" },
       { property: "og:description", content: "Apply to LPU Online — UGC-entitled online BBA, BCA, MBA, MCA and more." },
       { property: "og:url", content: CANONICAL },

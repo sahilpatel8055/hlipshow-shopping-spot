@@ -9,6 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as LpuOnlineScholarshipRouteImport } from './routes/lpu-online-scholarship'
 import { Route as LpuOnlineReviewRouteImport } from './routes/lpu-online-review'
 import { Route as LpuOnlinePlacementRouteImport } from './routes/lpu-online-placement'
@@ -17,9 +20,28 @@ import { Route as LpuOnlineEligibilityRouteImport } from './routes/lpu-online-el
 import { Route as LpuOnlineCoursesRouteImport } from './routes/lpu-online-courses'
 import { Route as LpuOnlineAdmissionLastDateRouteImport } from './routes/lpu-online-admission-last-date'
 import { Route as LpuOnlineAdmissionRouteImport } from './routes/lpu-online-admission'
+import { Route as FeesRouteImport } from './routes/fees'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
+import { Route as BestOnlineProgramRouteImport } from './routes/best-online-$program'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LpuOnlineScholarshipRoute = LpuOnlineScholarshipRouteImport.update({
   id: '/lpu-online-scholarship',
   path: '/lpu-online-scholarship',
@@ -61,6 +83,26 @@ const LpuOnlineAdmissionRoute = LpuOnlineAdmissionRouteImport.update({
   path: '/lpu-online-admission',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeesRoute = FeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareUniversitiesRoute = CompareUniversitiesRouteImport.update({
+  id: '/compare-universities',
+  path: '/compare-universities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
+  id: '/best-online-$program',
+  path: '/best-online-$program',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -74,6 +116,10 @@ const CoursesSlugRoute = CoursesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/best-online-$program': typeof BestOnlineProgramRoute
+  '/compare-universities': typeof CompareUniversitiesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/fees': typeof FeesRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
   '/lpu-online-courses': typeof LpuOnlineCoursesRoute
@@ -82,10 +128,17 @@ export interface FileRoutesByFullPath {
   '/lpu-online-placement': typeof LpuOnlinePlacementRoute
   '/lpu-online-review': typeof LpuOnlineReviewRoute
   '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-conditions': typeof TermsConditionsRoute
   '/courses/$slug': typeof CoursesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/best-online-$program': typeof BestOnlineProgramRoute
+  '/compare-universities': typeof CompareUniversitiesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/fees': typeof FeesRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
   '/lpu-online-courses': typeof LpuOnlineCoursesRoute
@@ -94,11 +147,18 @@ export interface FileRoutesByTo {
   '/lpu-online-placement': typeof LpuOnlinePlacementRoute
   '/lpu-online-review': typeof LpuOnlineReviewRoute
   '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-conditions': typeof TermsConditionsRoute
   '/courses/$slug': typeof CoursesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/best-online-$program': typeof BestOnlineProgramRoute
+  '/compare-universities': typeof CompareUniversitiesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/fees': typeof FeesRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
   '/lpu-online-courses': typeof LpuOnlineCoursesRoute
@@ -107,12 +167,19 @@ export interface FileRoutesById {
   '/lpu-online-placement': typeof LpuOnlinePlacementRoute
   '/lpu-online-review': typeof LpuOnlineReviewRoute
   '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms-conditions': typeof TermsConditionsRoute
   '/courses/$slug': typeof CoursesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/best-online-$program'
+    | '/compare-universities'
+    | '/disclaimer'
+    | '/fees'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
     | '/lpu-online-courses'
@@ -121,10 +188,17 @@ export interface FileRouteTypes {
     | '/lpu-online-placement'
     | '/lpu-online-review'
     | '/lpu-online-scholarship'
+    | '/privacy-policy'
+    | '/sitemap.xml'
+    | '/terms-conditions'
     | '/courses/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/best-online-$program'
+    | '/compare-universities'
+    | '/disclaimer'
+    | '/fees'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
     | '/lpu-online-courses'
@@ -133,10 +207,17 @@ export interface FileRouteTypes {
     | '/lpu-online-placement'
     | '/lpu-online-review'
     | '/lpu-online-scholarship'
+    | '/privacy-policy'
+    | '/sitemap.xml'
+    | '/terms-conditions'
     | '/courses/$slug'
   id:
     | '__root__'
     | '/'
+    | '/best-online-$program'
+    | '/compare-universities'
+    | '/disclaimer'
+    | '/fees'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
     | '/lpu-online-courses'
@@ -145,11 +226,18 @@ export interface FileRouteTypes {
     | '/lpu-online-placement'
     | '/lpu-online-review'
     | '/lpu-online-scholarship'
+    | '/privacy-policy'
+    | '/sitemap.xml'
+    | '/terms-conditions'
     | '/courses/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BestOnlineProgramRoute: typeof BestOnlineProgramRoute
+  CompareUniversitiesRoute: typeof CompareUniversitiesRoute
+  DisclaimerRoute: typeof DisclaimerRoute
+  FeesRoute: typeof FeesRoute
   LpuOnlineAdmissionRoute: typeof LpuOnlineAdmissionRoute
   LpuOnlineAdmissionLastDateRoute: typeof LpuOnlineAdmissionLastDateRoute
   LpuOnlineCoursesRoute: typeof LpuOnlineCoursesRoute
@@ -158,11 +246,35 @@ export interface RootRouteChildren {
   LpuOnlinePlacementRoute: typeof LpuOnlinePlacementRoute
   LpuOnlineReviewRoute: typeof LpuOnlineReviewRoute
   LpuOnlineScholarshipRoute: typeof LpuOnlineScholarshipRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsConditionsRoute: typeof TermsConditionsRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lpu-online-scholarship': {
       id: '/lpu-online-scholarship'
       path: '/lpu-online-scholarship'
@@ -219,6 +331,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LpuOnlineAdmissionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fees': {
+      id: '/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof FeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare-universities': {
+      id: '/compare-universities'
+      path: '/compare-universities'
+      fullPath: '/compare-universities'
+      preLoaderRoute: typeof CompareUniversitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-online-$program': {
+      id: '/best-online-$program'
+      path: '/best-online-$program'
+      fullPath: '/best-online-$program'
+      preLoaderRoute: typeof BestOnlineProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -238,6 +378,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BestOnlineProgramRoute: BestOnlineProgramRoute,
+  CompareUniversitiesRoute: CompareUniversitiesRoute,
+  DisclaimerRoute: DisclaimerRoute,
+  FeesRoute: FeesRoute,
   LpuOnlineAdmissionRoute: LpuOnlineAdmissionRoute,
   LpuOnlineAdmissionLastDateRoute: LpuOnlineAdmissionLastDateRoute,
   LpuOnlineCoursesRoute: LpuOnlineCoursesRoute,
@@ -246,18 +390,11 @@ const rootRouteChildren: RootRouteChildren = {
   LpuOnlinePlacementRoute: LpuOnlinePlacementRoute,
   LpuOnlineReviewRoute: LpuOnlineReviewRoute,
   LpuOnlineScholarshipRoute: LpuOnlineScholarshipRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsConditionsRoute: TermsConditionsRoute,
   CoursesSlugRoute: CoursesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

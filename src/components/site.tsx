@@ -233,38 +233,29 @@ const WA_LINK = "https://wa.me/919999999999";
 export function StickyActionBar() {
   return (
     <>
-      {/* Desktop / tablet: floating right rail */}
-      <div className="pointer-events-none fixed inset-y-0 right-3 z-40 hidden items-center md:flex">
-        <div className="pointer-events-auto flex flex-col gap-2">
-          <a
-            href={CALL_TEL}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
-          >
-            <Phone className="h-4 w-4" /> Call Now
-          </a>
-          <button
-            type="button"
-            onClick={openModal}
-            className="inline-flex items-center gap-2 rounded-full bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
-          >
-            <PhoneCall className="h-4 w-4" /> Request Callback
-          </button>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center gap-2 rounded-full bg-[#22c55e] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
-          >
-            <MessageCircle className="h-4 w-4" /> WhatsApp
-          </a>
-          <button
-            type="button"
-            onClick={openModal}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground shadow-md transition hover:bg-accent"
-          >
-            <Download className="h-4 w-4" /> Brochure
-          </button>
-        </div>
+      {/* Desktop / tablet: Call Now bottom-left; Callback + WhatsApp bottom-right */}
+      <a
+        href={CALL_TEL}
+        className="fixed bottom-5 left-4 z-40 hidden items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 md:inline-flex"
+      >
+        <Phone className="h-4 w-4" /> Call Now
+      </a>
+      <div className="fixed bottom-5 right-4 z-40 hidden flex-col gap-2 md:flex">
+        <button
+          type="button"
+          onClick={openModal}
+          className="inline-flex items-center gap-2 rounded-full bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
+        >
+          <PhoneCall className="h-4 w-4" /> Request Callback
+        </button>
+        <a
+          href={WA_LINK}
+          target="_blank"
+          rel="noopener"
+          className="inline-flex items-center gap-2 rounded-full bg-[#22c55e] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
+        >
+          <MessageCircle className="h-4 w-4" /> WhatsApp
+        </a>
       </div>
 
       {/* Mobile: bottom fixed action bar */}
@@ -300,6 +291,7 @@ export function StickyActionBar() {
     </>
   );
 }
+
 
 /* ---------------- Footer ---------------- */
 
@@ -353,9 +345,22 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <p className="mt-8 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} LPU Online. All rights reserved. UGC-Entitled Programs.
+        <div className="mt-8 rounded-lg border border-border bg-secondary/40 p-4 text-xs text-muted-foreground">
+          <p className="font-semibold text-foreground">Disclaimer</p>
+          <p className="mt-1">
+            We act as a marketing service partner only. LPU Online hold full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. For official and updated information, visitors should always refer directly to the official LPU Online website:{" "}
+            <a href="https://www.lpuonline.com" target="_blank" rel="noopener" className="text-primary hover:underline">
+              https://www.lpuonline.com
+            </a>
+          </p>
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground">
+          © {new Date().getFullYear()} LPU Online · avedu. All rights reserved. UGC-Entitled Programs.{" "}
+          <Link to="/disclaimer" className="hover:text-primary">Disclaimer</Link> ·{" "}
+          <Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> ·{" "}
+          <Link to="/terms-conditions" className="hover:text-primary">Terms & Conditions</Link>
         </p>
+
       </div>
     </footer>
   );
@@ -525,7 +530,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
     "@type": "ListItem",
     position: i + 1,
     name: c.label,
-    ...(c.to ? { item: `https://onlinevgu.avedu.in${c.to}` } : {}),
+    ...(c.to ? { item: `https://lpuonline.avedu.in${c.to}` } : {}),
   }));
   const jsonLd = {
     "@context": "https://schema.org",

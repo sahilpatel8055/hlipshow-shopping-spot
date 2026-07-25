@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { lpu } from "@/lib/lpu";
 
-const CANONICAL = "https://onlinevgu.avedu.in/lpu-online-review";
+const CANONICAL = "https://lpuonline.avedu.in/lpu-online-review";
 
 export const Route = createFileRoute("/lpu-online-review")({
   head: () => ({
     meta: [
       { title: "LPU Online Review 2026 — Is LPU Online Degree Worth It?" },
       { name: "description", content: "LPU Online review 2026 — accreditation, degree validity, learning experience, placements and student feedback." },
-      { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "LPU Online Review 2026" },
       { property: "og:description", content: "Honest overview of LPU Online — recognition, learning, placements." },
       { property: "og:url", content: CANONICAL },
