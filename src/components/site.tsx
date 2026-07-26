@@ -306,13 +306,18 @@ const footerLinks: { label: string; to: string }[] = [
   { label: "Admission Last Date", to: "/lpu-online-admission-last-date" },
 ];
 
+import aveduLogo from "@/assets/avedu-logo.jpg.asset.json";
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background pt-10 pb-16 md:pb-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <img src={LOGO_SRC} alt="LPU Online" className="h-10 w-auto" />
+            <div className="flex items-center gap-3">
+              <img src={LOGO_SRC} alt="LPU Online" className="h-10 w-auto" />
+              <img src={aveduLogo.url} alt="avedu" className="h-10 w-auto rounded" />
+            </div>
             <p className="mt-3 text-sm text-muted-foreground">
               UGC-entitled online degrees from Lovely Professional University — NAAC A++,
               flexible learning, dedicated placement support.
@@ -348,19 +353,20 @@ export function SiteFooter() {
         <div className="mt-8 rounded-lg border border-border bg-secondary/40 p-4 text-xs text-muted-foreground">
           <p className="font-semibold text-foreground">Disclaimer</p>
           <p className="mt-1">
-            We act as a marketing service partner only. LPU Online hold full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. For official and updated information, visitors should always refer directly to the official LPU Online website:{" "}
-            <a href="https://www.lpuonline.com" target="_blank" rel="noopener" className="text-primary hover:underline">
-              https://www.lpuonline.com
-            </a>
+            This website lpuonline.avedu.in is operated under the brand name www.avedu.in. We are an independent education guidance platform and are not affiliated with Lovely Professional University (LPU) or any other university. LPU holds full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. We do not act as a university or an admission authority.
           </p>
         </div>
-        <p className="mt-4 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} LPU Online · avedu. All rights reserved. UGC-Entitled Programs.{" "}
-          <Link to="/disclaimer" className="hover:text-primary">Disclaimer</Link> ·{" "}
-          <Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link> ·{" "}
-          <Link to="/terms-conditions" className="hover:text-primary">Terms & Conditions</Link>
-        </p>
 
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-border pt-6">
+          <Link to="/disclaimer" className="text-sm font-semibold text-primary hover:underline">Disclaimer</Link>
+          <span className="text-muted-foreground/40">|</span>
+          <Link to="/terms-conditions" className="text-sm font-semibold text-primary hover:underline">Terms &amp; Conditions</Link>
+          <span className="text-muted-foreground/40">|</span>
+          <Link to="/privacy-policy" className="text-sm font-semibold text-primary hover:underline">Privacy Policy</Link>
+        </div>
+        <p className="mt-4 text-center text-xs text-muted-foreground">
+          © {new Date().getFullYear()} LPU Online · avedu. All rights reserved.
+        </p>
       </div>
     </footer>
   );
