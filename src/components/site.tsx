@@ -699,6 +699,10 @@ export function SeoPageLayout({
         >
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
+              <div className="mb-4 flex items-center gap-3">
+                <img src={LOGO_SRC} alt="LPU Online" className="h-12 w-auto" />
+                <img src={aveduLogo.url} alt="avedu" className="h-12 w-auto rounded" />
+              </div>
               <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
                 {title}
               </h1>
