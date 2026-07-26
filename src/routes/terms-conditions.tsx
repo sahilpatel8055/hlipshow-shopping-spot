@@ -8,9 +8,9 @@ export const Route = createFileRoute("/terms-conditions")({
   head: () => ({
     meta: [
       { title: "Terms & Conditions — LPU Online · avedu" },
-      { name: "description", content: "Terms and conditions for using the LPU Online counseling website operated by avedu as a marketing partner." },
+      { name: "description", content: "Terms & Conditions for using lpuonline.avedu.in, independently owned and operated by Avedu Pvt Ltd." },
       { property: "og:title", content: "Terms & Conditions — LPU Online · avedu" },
-      { property: "og:description", content: "Terms of use for LPU Online counseling website." },
+      { property: "og:description", content: "Terms of use for lpuonline.avedu.in." },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "article" },
     ],
@@ -23,12 +23,25 @@ function Page() {
   return (
     <SeoPageLayout
       title="Terms & Conditions"
-      intro="By using this website you agree to the following terms of use. Please read them carefully before submitting any form."
+      intro="These Terms & Conditions govern your use of the website www.lpuonline.avedu.in, independently owned and operated by Avedu Pvt Ltd. By using this platform, you agree to abide by the terms mentioned herein. We provide counselling and information services to help users explore online and distance education programs offered by UGC-DEB-approved universities. We are not an admission center and do not claim to represent or be affiliated with any university, including LPU."
       breadcrumb={[{ label: "Terms & Conditions" }]}
       sections={[
-        { heading: "Use of Website", bullets: ["Content is for informational purposes only and may change without notice.", "Verify all details on the official LPU Online website before enrolment.", "We reserve the right to update these terms at any time."] },
-        { heading: "Consent to Contact", bullets: ["Submitting a form authorizes us to contact you via call, SMS, email or WhatsApp regarding LPU Online programs.", "This overrides any DND registration for the purpose of counseling."] },
-        { heading: "Limitation of Liability", bullets: ["We are not liable for admission decisions taken by the university.", "Program pricing and terms are governed by LPU Online."] },
+        {
+          heading: "1. Role of Our Platform",
+          bullets: ["We act solely as a guidance and counselling provider.", "All decisions related to admission, course selection, or university interactions are made by users independently."],
+        },
+        {
+          heading: "2. No Affiliation Guarantee",
+          bullets: ["We are not affiliated with LPU or any other university.", "All information is provided for awareness and reference only."],
+        },
+        {
+          heading: "3. Changes to These Terms",
+          bullets: ["We reserve the right to update or modify these terms at any time.", "Continued use of the platform signifies your agreement to the latest version."],
+        },
+        {
+          heading: "4. Contact",
+          bullets: ["For any concerns, reach out to: support@lpuonline.avedu.in"],
+        },
       ]}
       faqs={lpu.faqs.slice(0, 4)}
     />
