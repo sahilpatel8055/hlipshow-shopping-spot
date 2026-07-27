@@ -562,27 +562,27 @@ function Faqs() {
 
 function LeadForm() {
   return (
-    <section id="lead" className="relative overflow-hidden py-16">
-      <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
+    <section id="lead" className="relative overflow-hidden py-16 bg-slate-900 text-white">
       <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
-        <div className="text-primary-foreground">
-          <h2 className="text-3xl font-bold sm:text-4xl">Talk to an LPU Online Counselor</h2>
-          <p className="mt-4 text-base opacity-95">
-            Get free personalized program guidance, fee & EMI details, scholarship eligibility
+        <div>
+          <h2 className="text-3xl font-bold sm:text-4xl text-white">Talk to an LPU Online Counselor</h2>
+          <p className="mt-4 text-base text-slate-200">
+            Get free personalized program guidance, fee &amp; EMI details, scholarship eligibility
             and a step-by-step admission plan.
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-black/25 px-3 py-2 text-sm font-semibold">
+          <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary/90 px-3 py-2 text-sm font-semibold text-white">
             <Flame className="h-4 w-4 text-yellow-300" /> 85% seats already filled
           </div>
-          <div className="mt-6 flex items-center gap-3 text-sm opacity-95">
-            <Phone className="h-5 w-5" /> 1800-000-000 · Mon – Sat, 9am – 8pm
-          </div>
+          <a href="tel:+918770012496" className="mt-6 flex items-center gap-3 text-base font-semibold text-yellow-300 hover:text-yellow-200">
+            <Phone className="h-5 w-5" /> +91 87700 12496 · Mon – Sat, 9am – 8pm
+          </a>
         </div>
         <div><LeadFormCompact /></div>
       </div>
     </section>
   );
 }
+
 
 
 /* ---------------- Page ---------------- */
