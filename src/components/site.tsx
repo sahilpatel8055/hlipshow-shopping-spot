@@ -201,10 +201,12 @@ export function CounselingModal({
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            markLeadFilled();
             onClose();
           }}
           className="grid gap-2.5 p-4"
         >
+
           <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
           <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
           <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
@@ -253,7 +255,7 @@ export function LeadFormCompact() {
           <p className="text-xs text-muted-foreground">Batch 2026 · 85% seats filled</p>
         </div>
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="mt-4 grid gap-3">
+      <form onSubmit={(e) => { e.preventDefault(); markLeadFilled(); }} className="mt-4 grid gap-3">
         <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
         <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
         <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
