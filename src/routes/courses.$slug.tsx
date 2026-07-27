@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
-import lpuCertificate from "@/assets/sample-degree.webp.asset.json";
+const lpuCertificate = { url: "/sample-degree.webp" };
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
 import { useState } from "react";

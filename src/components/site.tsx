@@ -24,6 +24,33 @@ type ModalCtx = { open: () => void };
 const modalCtx: { current: ModalCtx | null } = { current: null };
 export const openModal = () => modalCtx.current?.open();
 
+const FILLED_KEY = "lpu_lead_filled";
+const COOLDOWN_KEY = "lpu_popup_cooldown_until";
+const SHOWN_KEY = "lpu_popup_shown_session";
+
+export function markLeadFilled() {
+  try {
+    localStorage.setItem(FILLED_KEY, "1");
+  } catch {}
+}
+
+function isFilled() {
+  try {
+    return localStorage.getItem(FILLED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function inCooldown() {
+  try {
+    const until = Number(localStorage.getItem(COOLDOWN_KEY) || 0);
+    return until && Date.now() < until;
+  } catch {
+    return false;
+  }
+}
+
 export function useModalTrigger() {
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -32,8 +59,55 @@ export function useModalTrigger() {
       modalCtx.current = null;
     };
   }, []);
-  return { open, setOpen };
+
+  // Auto-popup: 15s time delay, 25% scroll, exit-intent, session/cooldown persistence.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (isFilled() || inCooldown()) return;
+    if (sessionStorage.getItem(SHOWN_KEY) === "1") return;
+
+    let done = false;
+    const trigger = () => {
+      if (done) return;
+      done = true;
+      sessionStorage.setItem(SHOWN_KEY, "1");
+      setOpen(true);
+      cleanup();
+    };
+
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop + window.innerHeight) / h.scrollHeight;
+      if (scrolled >= 0.25) trigger();
+    };
+    const onExit = (e: MouseEvent) => {
+      if (e.clientY <= 0) trigger();
+    };
+    const timer = window.setTimeout(trigger, 15000);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mouseleave", onExit);
+
+    function cleanup() {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mouseleave", onExit);
+    }
+    return cleanup;
+  }, []);
+
+  // On close, set 5-minute cooldown so it doesn't reopen immediately on next page.
+  const setOpenWrapped = (v: boolean) => {
+    if (!v && open) {
+      try {
+        localStorage.setItem(COOLDOWN_KEY, String(Date.now() + 5 * 60 * 1000));
+      } catch {}
+    }
+    setOpen(v);
+  };
+
+  return { open, setOpen: setOpenWrapped };
 }
+
 
 /* ---------------- Inputs ---------------- */
 
@@ -127,10 +201,12 @@ export function CounselingModal({
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            markLeadFilled();
             onClose();
           }}
           className="grid gap-2.5 p-4"
         >
+
           <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
           <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
           <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
@@ -179,7 +255,7 @@ export function LeadFormCompact() {
           <p className="text-xs text-muted-foreground">Batch 2026 · 85% seats filled</p>
         </div>
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="mt-4 grid gap-3">
+      <form onSubmit={(e) => { e.preventDefault(); markLeadFilled(); }} className="mt-4 grid gap-3">
         <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
         <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
         <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
@@ -227,8 +303,9 @@ export function SiteHeader() {
 
 /* ---------------- Sticky Action Bar (desktop right rail + mobile bottom bar) ---------------- */
 
-const CALL_TEL = "tel:18000000000";
-const WA_LINK = "https://wa.me/919999999999";
+const CALL_TEL = "tel:+918770012496";
+const WA_LINK = "https://wa.me/918770012496";
+
 
 export function StickyActionBar() {
   return (
