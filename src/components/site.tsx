@@ -227,8 +227,9 @@ export function SiteHeader() {
 
 /* ---------------- Sticky Action Bar (desktop right rail + mobile bottom bar) ---------------- */
 
-const CALL_TEL = "tel:18000000000";
-const WA_LINK = "https://wa.me/919999999999";
+const CALL_TEL = "tel:+918770012496";
+const WA_LINK = "https://wa.me/918770012496";
+
 
 export function StickyActionBar() {
   return (
