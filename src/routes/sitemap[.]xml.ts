@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { allCourses } from "@/lib/lpu";
+import { blogs } from "@/lib/blogs";
 
 const BASE_URL = "https://lpuonline.avedu.in";
 
@@ -20,13 +21,15 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/lpu-online-scholarship",
           "/fees",
           "/compare-universities",
+          "/blog",
           "/disclaimer",
           "/privacy-policy",
           "/terms-conditions",
         ];
         const coursePaths = allCourses.map((c) => `/courses/${c.slug}`);
         const bestPaths = allCourses.map((c) => `/best-online-${c.slug}`);
-        const all = [...staticPaths, ...coursePaths, ...bestPaths];
+        const blogPaths = blogs.map((b) => `/blog/${b.slug}`);
+        const all = [...staticPaths, ...coursePaths, ...bestPaths, ...blogPaths];
         const urls = all
           .map((p) => `  <url><loc>${BASE_URL}${p}</loc><changefreq>weekly</changefreq></url>`)
           .join("\n");
@@ -38,3 +41,4 @@ export const Route = createFileRoute("/sitemap.xml")({
     },
   },
 });
+

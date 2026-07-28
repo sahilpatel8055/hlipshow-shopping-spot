@@ -502,7 +502,29 @@ function CoursePage() {
           </div>
         </section>
 
+        {/* Internal links — helps SEO and gives visitors more useful paths */}
+        <section className="bg-background pt-10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-border bg-secondary/40 p-6">
+              <h2 className="text-lg font-bold text-foreground">More about {course.name} at LPU Online</h2>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Link to="/lpu-online-fees" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Fees & EMI</Link>
+                <Link to="/lpu-online-eligibility" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Eligibility</Link>
+                <Link to="/lpu-online-admission" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Admission process</Link>
+                <Link to="/lpu-online-admission-last-date" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Last date</Link>
+                <Link to="/lpu-online-placement" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Placements</Link>
+                <Link to="/lpu-online-scholarship" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Scholarships</Link>
+                <Link to="/lpu-online-review" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</Link>
+                <Link to="/compare-universities" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Compare universities</Link>
+                <Link to="/best-online-$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
+                <Link to="/blog" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Blog & guides</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Related courses */}
+
         <section className="bg-secondary/40 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
