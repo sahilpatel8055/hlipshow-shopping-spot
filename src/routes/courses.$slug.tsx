@@ -129,45 +129,16 @@ export const Route = createFileRoute("/courses/$slug")({
   component: CoursePage,
 });
 
-// Parse "₹1,20,000" → 120000 (or null if it can't)
-function parseFeeNumber(s: string): number | null {
-  const digits = s.replace(/[^0-9]/g, "");
-  if (!digits) return null;
-  return parseInt(digits, 10);
-}
-function formatINR(n: number): string {
-  return "₹" + n.toLocaleString("en-IN");
-}
-
 const advantages = [
-  {
-    number: "1",
-    title: "Flexibility:",
-    desc: "LPU Online offers a flexible learning environment suitable for working professionals.",
-  },
-  {
-    number: "2",
-    title: "Quality Education:",
-    desc: "The program maintains high academic standards with a curriculum updated to reflect industry trends.",
-  },
-  {
-    number: "3",
-    title: "24*7 LMS Access:",
-    desc: "Get unlimited 24×7 access to our Learning Management System so you can study anytime, anywhere. All your course materials, lectures, and assignments are just a click away.",
-  },
-  {
-    number: "4",
-    title: "1 on 1 mentor:",
-    desc: "Receive personalized guidance with 1-on-1 mentorship tailored to your learning needs. Get expert support to clarify doubts, plan studies, and achieve your goals faster.",
-  },
-  {
-    number: "5",
-    title: "Placement Support:",
-    desc: "Get dedicated placement support with active job promotion to top recruiters. From resume building to interview preparation, we help you secure and showcase your profile for the best opportunities.",
-  },
+  { number: "1", title: "Flexibility:", desc: "LPU Online offers a flexible learning environment suitable for working professionals." },
+  { number: "2", title: "Quality Education:", desc: "The program maintains high academic standards with a curriculum updated to reflect industry trends." },
+  { number: "3", title: "24*7 LMS Access:", desc: "Get unlimited 24×7 access to our Learning Management System so you can study anytime, anywhere. All your course materials, lectures, and assignments are just a click away." },
+  { number: "4", title: "1 on 1 mentor:", desc: "Receive personalized guidance with 1-on-1 mentorship tailored to your learning needs. Get expert support to clarify doubts, plan studies, and achieve your goals faster." },
+  { number: "5", title: "Placement Support:", desc: "Get dedicated placement support with active job promotion to top recruiters. From resume building to interview preparation, we help you secure and showcase your profile for the best opportunities." },
 ];
 
 function CoursePage() {
+
   const { course } = Route.useLoaderData() as { course: Course };
   const { open, setOpen } = useModalTrigger();
 
@@ -178,9 +149,8 @@ function CoursePage() {
   const [semIdx, setSemIdx] = useState(0);
   const activeSem = semesters[semIdx] ?? semesters[0];
 
-  // Discounted pricing (20% off full fee)
-  const fullNum = parseFeeNumber(course.feesBreakdown.fullFees);
-  const discountedFull = fullNum ? formatINR(Math.round(fullNum * 0.8)) : course.feesBreakdown.fullFees;
+  const discountedFull = course.feesBreakdown.appliedFee;
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -532,7 +502,29 @@ function CoursePage() {
           </div>
         </section>
 
+        {/* Internal links — helps SEO and gives visitors more useful paths */}
+        <section className="bg-background pt-10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-border bg-secondary/40 p-6">
+              <h2 className="text-lg font-bold text-foreground">More about {course.name} at LPU Online</h2>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Link to="/lpu-online-fees" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Fees & EMI</Link>
+                <Link to="/lpu-online-eligibility" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Eligibility</Link>
+                <Link to="/lpu-online-admission" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Admission process</Link>
+                <Link to="/lpu-online-admission-last-date" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Last date</Link>
+                <Link to="/lpu-online-placement" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Placements</Link>
+                <Link to="/lpu-online-scholarship" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Scholarships</Link>
+                <Link to="/lpu-online-review" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</Link>
+                <Link to="/compare-universities" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Compare universities</Link>
+                <Link to="/best-online-$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
+                <Link to="/blog" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Blog & guides</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Related courses */}
+
         <section className="bg-secondary/40 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">

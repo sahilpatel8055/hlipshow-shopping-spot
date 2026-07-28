@@ -6,7 +6,12 @@ import courseCommerce from "@/assets/course-commerce.jpg";
 
 export type CareerRole = { role: string; salary: string };
 export type CurriculumYear = { year: string; subjects: string[] };
-export type FeesBreakdown = { fullFees: string; perSemester: string; emi: string };
+export type FeesBreakdown = {
+  fullFees: string;
+  appliedFee: string;
+  perSemester: string;
+  emi: string;
+};
 
 export type Course = {
   slug: string;
@@ -66,6 +71,15 @@ const artsCareers: CareerRole[] = [
   { role: "Civil Services Aspirant", salary: "₹7 - 15 LPA" },
 ];
 
+const scienceCareers: CareerRole[] = [
+  { role: "Data Scientist", salary: "₹7 - 18 LPA" },
+  { role: "Statistician", salary: "₹5 - 12 LPA" },
+  { role: "Economist", salary: "₹6 - 14 LPA" },
+  { role: "Research Analyst", salary: "₹5 - 11 LPA" },
+  { role: "Actuary", salary: "₹8 - 20 LPA" },
+  { role: "Quantitative Analyst", salary: "₹7 - 16 LPA" },
+];
+
 export const lpu = {
   slug: "lpu-online",
   name: "LPU Online",
@@ -105,17 +119,16 @@ export const lpu = {
         name: "Online BBA",
         level: "ug",
         duration: "3 Years",
-        fee: "₹1,20,000 total",
-        specializations: ["Marketing", "HR", "Finance", "International Business"],
+        fee: "₹1,22,400 total",
         image: courseBusiness,
         rating: 4.7,
         reviews: 1240,
         tagline: "Bachelor of Business Administration — build a strong business foundation.",
-        feesBreakdown: { fullFees: "₹1,20,000", perSemester: "₹20,000", emi: "₹3,499/mo" },
+        feesBreakdown: { fullFees: "₹1,50,000", appliedFee: "₹1,22,400", perSemester: "₹20,400", emi: "₹5,100/mo" },
         curriculum: ugYears([
           ["Principles of Management", "Business Communication", "Financial Accounting", "Microeconomics", "Business Mathematics"],
           ["Marketing Management", "Human Resource Management", "Business Law", "Cost Accounting", "Organizational Behavior"],
-          ["Strategic Management", "Entrepreneurship", "Specialization Electives", "Project Work"],
+          ["Strategic Management", "Entrepreneurship", "Project Work"],
         ]),
         careers: defaultCareers,
       },
@@ -124,17 +137,16 @@ export const lpu = {
         name: "Online BCA",
         level: "ug",
         duration: "3 Years",
-        fee: "₹1,35,000 total",
-        specializations: ["Cloud Computing", "Data Analytics", "Full Stack Development", "Cyber Security"],
+        fee: "₹1,22,400 total",
         image: courseTech,
         rating: 4.8,
         reviews: 1580,
         tagline: "Bachelor of Computer Applications — launch a career in tech.",
-        feesBreakdown: { fullFees: "₹1,35,000", perSemester: "₹22,500", emi: "₹3,899/mo" },
+        feesBreakdown: { fullFees: "₹1,50,000", appliedFee: "₹1,22,400", perSemester: "₹20,400", emi: "₹5,100/mo" },
         curriculum: ugYears([
           ["Programming in C", "Digital Electronics", "Mathematics", "PC Software", "Communication Skills"],
           ["Data Structures", "Operating Systems", "DBMS", "Web Technologies", "Java"],
-          ["Software Engineering", "Cloud Computing", "Specialization Electives", "Capstone Project"],
+          ["Software Engineering", "Cloud Computing", "Capstone Project"],
         ]),
         careers: techCareers,
       },
@@ -149,7 +161,7 @@ export const lpu = {
         rating: 4.6,
         reviews: 980,
         tagline: "Bachelor of Commerce — master accounting, finance and business.",
-        feesBreakdown: { fullFees: "₹99,000", perSemester: "₹16,500", emi: "₹2,899/mo" },
+        feesBreakdown: { fullFees: "₹99,000", appliedFee: "₹99,000", perSemester: "₹16,500", emi: "₹2,899/mo" },
         curriculum: ugYears([
           ["Financial Accounting", "Business Economics", "Business Law", "Business Statistics"],
           ["Corporate Accounting", "Cost Accounting", "Income Tax", "Auditing"],
@@ -162,12 +174,12 @@ export const lpu = {
         name: "Online BA",
         level: "ug",
         duration: "3 Years",
-        fee: "₹78,000 total",
+        fee: "₹98,400 total",
         image: courseArts,
         rating: 4.5,
         reviews: 720,
         tagline: "Bachelor of Arts — a flexible, career-ready arts degree.",
-        feesBreakdown: { fullFees: "₹78,000", perSemester: "₹13,000", emi: "₹2,299/mo" },
+        feesBreakdown: { fullFees: "₹1,20,000", appliedFee: "₹98,400", perSemester: "₹16,400", emi: "₹4,100/mo" },
         curriculum: ugYears([
           ["English", "Political Science", "History", "Sociology"],
           ["Public Administration", "Economics", "Psychology", "Communication"],
@@ -182,13 +194,25 @@ export const lpu = {
         name: "Online MBA",
         level: "pg",
         duration: "2 Years",
-        fee: "₹1,70,000 total",
-        specializations: ["Marketing", "Finance", "HR", "Business Analytics", "IT", "Operations Management"],
+        fee: "₹1,61,600 total",
+        specializations: [
+          "Marketing Management",
+          "Human Resource Management",
+          "Finance Management",
+          "Logistics & Supply Chain Management",
+          "Data Science",
+          "Operations Management",
+          "Business Analytics",
+          "International Business",
+          "Hospitals & Healthcare Management",
+          "Digital Marketing",
+          "Information Technology",
+        ],
         image: courseBusiness,
         rating: 4.8,
         reviews: 2140,
         tagline: "Master of Business Administration — accelerate your leadership career.",
-        feesBreakdown: { fullFees: "₹1,70,000", perSemester: "₹42,500", emi: "₹4,899/mo" },
+        feesBreakdown: { fullFees: "₹2,00,000", appliedFee: "₹1,61,600", perSemester: "₹40,400", emi: "₹6,733/mo" },
         curriculum: pgYears([
           ["Managerial Economics", "Financial Accounting", "Marketing Management", "Organizational Behaviour", "Business Statistics"],
           ["Strategic Management", "Operations", "Business Research", "Specialization Electives", "Capstone Project"],
@@ -200,13 +224,19 @@ export const lpu = {
         name: "Online MCA",
         level: "pg",
         duration: "2 Years",
-        fee: "₹1,60,000 total",
-        specializations: ["AI/ML", "Data Science", "Cloud Computing", "Cyber Security"],
+        fee: "₹1,29,600 total",
+        specializations: [
+          "Data Science",
+          "Full Stack Development",
+          "Machine Learning & AI",
+          "Cyber Security",
+          "AR/VR (Game Development)",
+        ],
         image: courseTech,
         rating: 4.8,
         reviews: 1360,
         tagline: "Master of Computer Applications — go deep on modern software.",
-        feesBreakdown: { fullFees: "₹1,60,000", perSemester: "₹40,000", emi: "₹4,599/mo" },
+        feesBreakdown: { fullFees: "₹1,60,000", appliedFee: "₹1,29,600", perSemester: "₹32,400", emi: "₹5,400/mo" },
         curriculum: pgYears([
           ["Advanced DBMS", "Object-Oriented Programming", "Data Structures & Algorithms", "Software Engineering"],
           ["AI & Machine Learning", "Cloud Computing", "Specialization Electives", "Major Project"],
@@ -218,12 +248,12 @@ export const lpu = {
         name: "Online M.Com",
         level: "pg",
         duration: "2 Years",
-        fee: "₹85,000 total",
+        fee: "₹81,600 total",
         image: courseCommerce,
         rating: 4.6,
         reviews: 640,
-        tagline: "Master of Commerce — specialize in finance, taxation and analytics.",
-        feesBreakdown: { fullFees: "₹85,000", perSemester: "₹21,250", emi: "₹2,499/mo" },
+        tagline: "Master of Commerce — advance in finance, taxation and analytics.",
+        feesBreakdown: { fullFees: "₹1,00,000", appliedFee: "₹81,600", perSemester: "₹20,400", emi: "₹3,400/mo" },
         curriculum: pgYears([
           ["Advanced Financial Accounting", "Managerial Economics", "Corporate Law", "Business Research"],
           ["Strategic Financial Management", "Taxation", "Electives", "Dissertation"],
@@ -235,17 +265,36 @@ export const lpu = {
         name: "Online MA",
         level: "pg",
         duration: "2 Years",
-        fee: "₹60,000 total",
+        fee: "₹65,600 total",
+        specializations: ["Sociology", "English", "History", "Political Science"],
         image: courseArts,
         rating: 4.5,
         reviews: 420,
         tagline: "Master of Arts — an advanced humanities degree, 100% online.",
-        feesBreakdown: { fullFees: "₹60,000", perSemester: "₹15,000", emi: "₹1,799/mo" },
+        feesBreakdown: { fullFees: "₹80,000", appliedFee: "₹65,600", perSemester: "₹16,400", emi: "₹3,644/mo" },
         curriculum: pgYears([
           ["Core Discipline I", "Core Discipline II", "Research Methods", "Communication"],
           ["Advanced Electives", "Contemporary Studies", "Dissertation"],
         ]),
         careers: artsCareers,
+      },
+      {
+        slug: "online-msc",
+        name: "Online M.Sc",
+        level: "pg",
+        duration: "2 Years",
+        fee: "₹81,600 total",
+        specializations: ["Mathematics", "Economics"],
+        image: courseTech,
+        rating: 4.6,
+        reviews: 380,
+        tagline: "Master of Science — build deep analytical and quantitative expertise.",
+        feesBreakdown: { fullFees: "₹1,00,000", appliedFee: "₹81,600", perSemester: "₹20,400", emi: "₹3,400/mo" },
+        curriculum: pgYears([
+          ["Advanced Calculus / Microeconomics", "Linear Algebra / Macroeconomics", "Probability & Statistics", "Research Methods"],
+          ["Specialization Electives", "Computational Methods", "Dissertation"],
+        ]),
+        careers: scienceCareers,
       },
     ] as Course[],
   },
@@ -290,6 +339,7 @@ const slugAliases: Record<string, string> = {
   bcom: "online-bcom",
   mcom: "online-mcom",
   ma: "online-ma",
+  msc: "online-msc",
 };
 
 export const findCourse = (slug: string): Course | undefined => {
