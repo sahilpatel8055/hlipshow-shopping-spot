@@ -129,44 +129,6 @@ export const Route = createFileRoute("/courses/$slug")({
   component: CoursePage,
 });
 
-// Parse "₹1,20,000" → 120000 (or null if it can't)
-function parseFeeNumber(s: string): number | null {
-  const digits = s.replace(/[^0-9]/g, "");
-  if (!digits) return null;
-  return parseInt(digits, 10);
-}
-function formatINR(n: number): string {
-  return "₹" + n.toLocaleString("en-IN");
-}
-
-const advantages = [
-  {
-    number: "1",
-    title: "Flexibility:",
-    desc: "LPU Online offers a flexible learning environment suitable for working professionals.",
-  },
-  {
-    number: "2",
-    title: "Quality Education:",
-    desc: "The program maintains high academic standards with a curriculum updated to reflect industry trends.",
-  },
-  {
-    number: "3",
-    title: "24*7 LMS Access:",
-    desc: "Get unlimited 24×7 access to our Learning Management System so you can study anytime, anywhere. All your course materials, lectures, and assignments are just a click away.",
-  },
-  {
-    number: "4",
-    title: "1 on 1 mentor:",
-    desc: "Receive personalized guidance with 1-on-1 mentorship tailored to your learning needs. Get expert support to clarify doubts, plan studies, and achieve your goals faster.",
-  },
-  {
-    number: "5",
-    title: "Placement Support:",
-    desc: "Get dedicated placement support with active job promotion to top recruiters. From resume building to interview preparation, we help you secure and showcase your profile for the best opportunities.",
-  },
-];
-
 function CoursePage() {
   const { course } = Route.useLoaderData() as { course: Course };
   const { open, setOpen } = useModalTrigger();
@@ -178,9 +140,8 @@ function CoursePage() {
   const [semIdx, setSemIdx] = useState(0);
   const activeSem = semesters[semIdx] ?? semesters[0];
 
-  // Discounted pricing (20% off full fee)
-  const fullNum = parseFeeNumber(course.feesBreakdown.fullFees);
-  const discountedFull = fullNum ? formatINR(Math.round(fullNum * 0.8)) : course.feesBreakdown.fullFees;
+  const discountedFull = course.feesBreakdown.appliedFee;
+
 
   return (
     <div className="min-h-screen bg-background">
