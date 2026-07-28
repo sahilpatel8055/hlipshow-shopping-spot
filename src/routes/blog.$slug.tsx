@@ -90,7 +90,7 @@ function BlogPost() {
               <h1 className="mt-4 text-3xl font-bold text-foreground sm:text-4xl">{post.title}</h1>
               <p className="mt-3 text-sm text-muted-foreground">{post.readTime} · {new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</p>
               <div className="prose prose-slate mt-8 max-w-none">
-                {post.content.map((s, i) => (
+                {post.content.map((s: { heading?: string; body: string }, i: number) => (
                   <div key={i} className="mb-6">
                     {s.heading && <h2 className="text-xl font-bold text-foreground sm:text-2xl">{s.heading}</h2>}
                     <p className="mt-2 leading-relaxed text-muted-foreground">{s.body}</p>
