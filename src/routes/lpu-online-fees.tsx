@@ -26,7 +26,7 @@ function Page() {
       intro="Transparent, program-wise fees for LPU Online. Pay in full or opt for 0% interest EMI plans with dedicated counselor support."
       breadcrumb={[{ label: "Fees" }]}
       sections={[
-        { heading: "Program-wise Fees", bullets: allCourses.map((c) => `${c.name}: Full ${c.feesBreakdown.fullFees} · Semester ${c.feesBreakdown.perSemester} · EMI ${c.feesBreakdown.emi}`) },
+        { heading: "Program-wise Fees (with 20% discount applied)", bullets: allCourses.map((c) => `${c.name}: ${c.feesBreakdown.appliedFee} (was ${c.feesBreakdown.fullFees}) · Semester ${c.feesBreakdown.perSemester} · EMI ${c.feesBreakdown.emi}`) },
         { heading: "Scholarships Available", bullets: lpu.scholarships },
       ]}
       faqs={lpu.faqs}
