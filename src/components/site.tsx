@@ -18,6 +18,7 @@ import {
 
 // Logo lives in /public — reference directly.
 const LOGO_SRC = "/lpu-logo.png";
+const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
 
 /* ---------------- Modal singleton ---------------- */
 
@@ -413,7 +414,50 @@ export function SiteHeader() {
 /* ---------------- Sticky Action Bar (desktop right rail + mobile bottom bar) ---------------- */
 
 const CALL_TEL = "tel:+918770012496";
-const WA_LINK = "https://wa.me/918770012496";
+const WA_TEXT = "Hi, I want free counseling and more information about LPU Online programs.";
+const WA_LINK = `https://wa.me/918770012496?text=${encodeURIComponent(WA_TEXT)}`;
+
+function WhatsAppTeaser() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("wa_teaser_seen")) return;
+    const t = setTimeout(() => {
+      setOpen(true);
+      sessionStorage.setItem("wa_teaser_seen", "1");
+      setTimeout(() => setOpen(false), 20000);
+    }, 30000);
+    return () => clearTimeout(t);
+  }, []);
+  if (!open) return null;
+  return (
+    <div className="fixed bottom-24 right-3 z-50 w-[240px] rounded-2xl border border-border bg-card p-3 shadow-xl md:bottom-32 md:right-4 md:w-[280px]">
+      <button
+        type="button"
+        aria-label="Close WhatsApp message"
+        onClick={() => setOpen(false)}
+        className="absolute right-2 top-2 text-muted-foreground hover:text-foreground"
+      >
+        <X className="h-4 w-4" />
+      </button>
+      <div className="flex items-start gap-2 pr-4">
+        <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#16a34a]" />
+        <p className="text-xs font-medium leading-snug text-foreground">
+          Still deciding? Chat with an LPU Online counselor on WhatsApp — free guidance in 2 minutes.
+        </p>
+      </div>
+      <a
+        href={WA_LINK}
+        target="_blank"
+        rel="noopener"
+        onClick={() => setOpen(false)}
+        className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-full bg-[#22c55e] px-3 py-2 text-xs font-semibold text-white"
+      >
+        <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+      </a>
+    </div>
+  );
+}
 
 
 export function StickyActionBar() {
@@ -472,6 +516,8 @@ export function StickyActionBar() {
         </button>
       </div>
 
+      <WhatsAppTeaser />
+
       {/* Reserve space for mobile bar so page content isn't hidden */}
       <div aria-hidden className="h-14 md:hidden" />
     </>
@@ -492,8 +538,6 @@ const footerLinks: { label: string; to: string }[] = [
   { label: "Admission Last Date", to: "/lpu-online-admission-last-date" },
 ];
 
-import aveduLogo from "@/assets/avedu-logo.jpg.asset.json";
-
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background pt-10 pb-16 md:pb-10">
@@ -502,7 +546,7 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-3">
               <img src={LOGO_SRC} alt="LPU Online" className="h-10 w-auto" />
-              <img src={aveduLogo.url} alt="avedu" className="h-10 w-auto rounded" />
+              <img src={AVEDU_LOGO_SRC} alt="avedu" className="h-10 w-auto rounded" />
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               UGC-entitled online degrees from Lovely Professional University — NAAC A++,
@@ -887,7 +931,7 @@ export function SeoPageLayout({
             <div>
               <div className="mb-4 flex items-center gap-3">
                 <img src={LOGO_SRC} alt="LPU Online" className="h-12 w-auto" />
-                <img src={aveduLogo.url} alt="avedu" className="h-12 w-auto rounded" />
+                <img src={AVEDU_LOGO_SRC} alt="avedu" className="h-12 w-auto rounded" />
               </div>
               <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
                 {title}
