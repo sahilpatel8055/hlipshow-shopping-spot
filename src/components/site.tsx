@@ -198,20 +198,127 @@ export function CounselingModal({
           </div>
         </div>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            markLeadFilled();
-            onClose();
-          }}
+        <LeadFields
           className="grid gap-2.5 p-4"
-        >
+          submitLabel="Get Free Counseling Now"
+          source="counseling-modal"
+          onDone={onClose}
+          grouped
+          footer={
+            <p className="text-center text-[10px] text-muted-foreground">
+              By submitting you agree to be contacted about LPU Online programs.
+            </p>
+          }
+        />
+      </div>
+    </div>
+  );
+}
 
-          <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-          <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
-          <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
-          <LabeledSelect label="Select Program">
-            <option value="">Choose a program</option>
+/* ---------------- Shared lead fields (Google Sheet wired) ---------------- */
+
+function LeadFields({
+  className,
+  submitLabel,
+  source,
+  onDone,
+  grouped,
+  footer,
+}: {
+  className: string;
+  submitLabel: string;
+  source: string;
+  onDone?: () => void;
+  grouped?: boolean;
+  footer?: ReactNode;
+}) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [program, setProgram] = useState("");
+  const [company, setCompany] = useState(""); // honeypot
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const [done, setDone] = useState(false);
+
+  if (done) {
+    return (
+      <div className="p-4 text-center">
+        <p className="text-base font-bold text-foreground">Thank you! 🎉</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Our LPU Online counselor will call you shortly on {phone || "your number"}.
+        </p>
+        <a
+          href="tel:+918770012496"
+          className="mt-3 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
+        >
+          <Phone className="h-4 w-4" /> Call now instead
+        </a>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      className={className}
+      onSubmit={async (e) => {
+        e.preventDefault();
+        if (busy) return;
+        setBusy(true);
+        setErr(null);
+        const res = await submitLead({
+          fullName: name,
+          email,
+          phoneNumber: phone,
+          interestedCourse: program,
+          company,
+          leadSource: `${source} · ${typeof window !== "undefined" ? window.location.pathname : "/"}`,
+        });
+        setBusy(false);
+        if (!res.ok) {
+          setErr(res.error || "Something went wrong.");
+          return;
+        }
+        markLeadFilled();
+        setDone(true);
+        if (onDone) setTimeout(onDone, 2200);
+      }}
+    >
+      <LabeledInput
+        label="Full Name"
+        placeholder="e.g. Rahul Sharma"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        maxLength={100}
+        required
+      />
+      <LabeledInput
+        label="Mobile Number"
+        type="tel"
+        inputMode="numeric"
+        placeholder="10-digit mobile"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+        required
+      />
+      <LabeledInput
+        label="Email"
+        type="email"
+        placeholder="name@example.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        maxLength={255}
+        required
+      />
+      <LabeledSelect
+        label="Select Program"
+        value={program}
+        onChange={(e) => setProgram(e.target.value)}
+        required
+      >
+        <option value="">Choose a program</option>
+        {grouped ? (
+          <>
             <optgroup label="PG Programs">
               {lpu.courses.pg.map((c) => (
                 <option key={c.name}>{c.name}</option>
@@ -222,19 +329,35 @@ export function CounselingModal({
                 <option key={c.name}>{c.name}</option>
               ))}
             </optgroup>
-          </LabeledSelect>
-          <button
-            type="submit"
-            className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
-          >
-            Get Free Counseling Now
-          </button>
-          <p className="text-center text-[10px] text-muted-foreground">
-            By submitting you agree to be contacted about LPU Online programs.
-          </p>
-        </form>
-      </div>
-    </div>
+          </>
+        ) : (
+          [...lpu.courses.pg, ...lpu.courses.ug].map((c) => <option key={c.name}>{c.name}</option>)
+        )}
+      </LabeledSelect>
+
+      {/* honeypot — hidden from humans */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
+
+      {err && <p className="text-xs font-semibold text-destructive">{err}</p>}
+
+      <button
+        type="submit"
+        disabled={busy}
+        className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 disabled:opacity-60"
+      >
+        {busy ? "Submitting…" : submitLabel}
+      </button>
+      {footer}
+    </form>
   );
 }
 
@@ -255,26 +378,11 @@ export function LeadFormCompact() {
           <p className="text-xs text-muted-foreground">Batch 2026 · 85% seats filled</p>
         </div>
       </div>
-      <form onSubmit={(e) => { e.preventDefault(); markLeadFilled(); }} className="mt-4 grid gap-3">
-        <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-        <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
-        <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
-        <LabeledSelect label="Select Program">
-          <option value="">Choose a program</option>
-          {[...lpu.courses.pg, ...lpu.courses.ug].map((c) => (
-            <option key={c.name}>{c.name}</option>
-          ))}
-        </LabeledSelect>
-        <button
-          type="submit"
-          className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
-        >
-          Get Free Counseling
-        </button>
-      </form>
+      <LeadFields className="mt-4 grid gap-3" submitLabel="Get Free Counseling" source="embedded-form" />
     </div>
   );
 }
+
 
 /* ---------------- Header ---------------- */
 
