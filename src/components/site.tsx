@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { lpu } from "@/lib/lpu";
+import { submitLead } from "@/lib/leads";
 import {
   Flame,
   X,
