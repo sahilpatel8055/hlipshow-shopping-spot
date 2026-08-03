@@ -580,8 +580,25 @@ function CoursePage() {
 
 
 
+        {/* Phase 3/7 — topical authority, tools and conversion blocks */}
+        <SmartCTA title={`Talk to a counsellor about ${course.name} admission 2026`} />
+        <section className="bg-background py-12">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <FeeEmiCalculator defaultSlug={course.slug} />
+            <div className="mt-6">
+              <EligibilityChecker defaultSlug={course.slug} />
+            </div>
+          </div>
+        </section>
+        <AdmissionTimeline />
+        <PlacementDetails course={course} />
+        <TopicLinkGrid program={course.slug.replace("online-", "")} courseName={course.name} />
+        <StudentsAlsoViewed currentSlug={course.slug} />
+        <RelatedBlogsBlock keyword={course.name.replace("Online ", "")} />
+
         {/* SEO FAQ + Popular Searches */}
         <SeoFaq items={lpu.faqs} />
+        <QuickLinksRow />
         <PopularSearches />
       </main>
       <SiteFooter />
