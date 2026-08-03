@@ -25,6 +25,7 @@ import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BestOnlineProgramRouteImport } from './routes/best-online-$program'
+import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -110,6 +111,11 @@ const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
   path: '/best-online-$program',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -128,6 +134,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/blog': typeof BlogRouteWithChildren
   '/compare-universities': typeof CompareUniversitiesRoute
@@ -149,6 +156,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/blog': typeof BlogRouteWithChildren
   '/compare-universities': typeof CompareUniversitiesRoute
@@ -171,6 +179,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/blog': typeof BlogRouteWithChildren
   '/compare-universities': typeof CompareUniversitiesRoute
@@ -194,6 +203,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$'
     | '/best-online-$program'
     | '/blog'
     | '/compare-universities'
@@ -215,6 +225,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$'
     | '/best-online-$program'
     | '/blog'
     | '/compare-universities'
@@ -236,6 +247,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/$'
     | '/best-online-$program'
     | '/blog'
     | '/compare-universities'
@@ -258,6 +270,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
   BestOnlineProgramRoute: typeof BestOnlineProgramRoute
   BlogRoute: typeof BlogRouteWithChildren
   CompareUniversitiesRoute: typeof CompareUniversitiesRoute
@@ -391,6 +404,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BestOnlineProgramRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -427,6 +447,7 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
   BestOnlineProgramRoute: BestOnlineProgramRoute,
   BlogRoute: BlogRouteWithChildren,
   CompareUniversitiesRoute: CompareUniversitiesRoute,

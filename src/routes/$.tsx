@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { TopicalPageLayout } from "@/components/topical";
 import { allCourses } from "@/lib/lpu";
+import type { TopicSlug } from "@/lib/topics";
 import {
   SITE,
   LAST_UPDATED,
@@ -127,7 +128,7 @@ function TopicalPage() {
       ? [
           { label: "Courses", to: "/lpu-online-courses" },
           { label: d.courseName, to: `/courses/${d.program}` },
-          { label: TOPIC_LABELS[d.topic] },
+          { label: TOPIC_LABELS[d.topic as TopicSlug] },
         ]
       : [{ label: "LPU Online", to: "/lpu-online-courses" }, { label: d.h1 }];
 
