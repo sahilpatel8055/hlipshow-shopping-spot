@@ -21,6 +21,7 @@ import { Route as LpuOnlineCoursesRouteImport } from './routes/lpu-online-course
 import { Route as LpuOnlineAdmissionLastDateRouteImport } from './routes/lpu-online-admission-last-date'
 import { Route as LpuOnlineAdmissionRouteImport } from './routes/lpu-online-admission'
 import { Route as LpuFeeCalculatorRouteImport } from './routes/lpu-fee-calculator'
+import { Route as LpuEligibilityCheckerRouteImport } from './routes/lpu-eligibility-checker'
 import { Route as FeesRouteImport } from './routes/fees'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
@@ -92,6 +93,11 @@ const LpuFeeCalculatorRoute = LpuFeeCalculatorRouteImport.update({
   path: '/lpu-fee-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LpuEligibilityCheckerRoute = LpuEligibilityCheckerRouteImport.update({
+  id: '/lpu-eligibility-checker',
+  path: '/lpu-eligibility-checker',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeesRoute = FeesRouteImport.update({
   id: '/fees',
   path: '/fees',
@@ -146,6 +152,7 @@ export interface FileRoutesByFullPath {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
+  '/lpu-eligibility-checker': typeof LpuEligibilityCheckerRoute
   '/lpu-fee-calculator': typeof LpuFeeCalculatorRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
@@ -169,6 +176,7 @@ export interface FileRoutesByTo {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
+  '/lpu-eligibility-checker': typeof LpuEligibilityCheckerRoute
   '/lpu-fee-calculator': typeof LpuFeeCalculatorRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
@@ -193,6 +201,7 @@ export interface FileRoutesById {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
+  '/lpu-eligibility-checker': typeof LpuEligibilityCheckerRoute
   '/lpu-fee-calculator': typeof LpuFeeCalculatorRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
@@ -218,6 +227,7 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
+    | '/lpu-eligibility-checker'
     | '/lpu-fee-calculator'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
@@ -241,6 +251,7 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
+    | '/lpu-eligibility-checker'
     | '/lpu-fee-calculator'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
@@ -264,6 +275,7 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
+    | '/lpu-eligibility-checker'
     | '/lpu-fee-calculator'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
@@ -288,6 +300,7 @@ export interface RootRouteChildren {
   CompareUniversitiesRoute: typeof CompareUniversitiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
   FeesRoute: typeof FeesRoute
+  LpuEligibilityCheckerRoute: typeof LpuEligibilityCheckerRoute
   LpuFeeCalculatorRoute: typeof LpuFeeCalculatorRoute
   LpuOnlineAdmissionRoute: typeof LpuOnlineAdmissionRoute
   LpuOnlineAdmissionLastDateRoute: typeof LpuOnlineAdmissionLastDateRoute
@@ -389,6 +402,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LpuFeeCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lpu-eligibility-checker': {
+      id: '/lpu-eligibility-checker'
+      path: '/lpu-eligibility-checker'
+      fullPath: '/lpu-eligibility-checker'
+      preLoaderRoute: typeof LpuEligibilityCheckerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fees': {
       id: '/fees'
       path: '/fees'
@@ -473,6 +493,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareUniversitiesRoute: CompareUniversitiesRoute,
   DisclaimerRoute: DisclaimerRoute,
   FeesRoute: FeesRoute,
+  LpuEligibilityCheckerRoute: LpuEligibilityCheckerRoute,
   LpuFeeCalculatorRoute: LpuFeeCalculatorRoute,
   LpuOnlineAdmissionRoute: LpuOnlineAdmissionRoute,
   LpuOnlineAdmissionLastDateRoute: LpuOnlineAdmissionLastDateRoute,
