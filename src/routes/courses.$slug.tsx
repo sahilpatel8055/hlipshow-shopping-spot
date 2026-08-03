@@ -19,6 +19,17 @@ import {
   PopularSearches,
 } from "@/components/site";
 import {
+  SmartCTA,
+  FeeEmiCalculator,
+  EligibilityChecker,
+  AdmissionTimeline,
+  PlacementDetails,
+  TopicLinkGrid,
+  StudentsAlsoViewed,
+  RelatedBlogsBlock,
+  QuickLinksRow,
+} from "@/components/topical";
+import {
   Award,
   BadgeCheck,
   BookOpen,
