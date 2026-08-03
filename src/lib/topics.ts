@@ -419,7 +419,7 @@ export function buildTopicPage(program: ProgramSlug, topic: TopicSlug): TopicPag
     "sample-degree": `${name} sample degree — what the LPU online degree looks like, validity and verification.`,
   };
   return {
-    path: `/lpu-${program}-${topic}`,
+    path: `/lpu-online-${program}-${topic}`,
     program,
     topic,
     course,
@@ -433,7 +433,7 @@ export function buildTopicPage(program: ProgramSlug, topic: TopicSlug): TopicPag
 }
 
 export const allTopicPaths: string[] = PROGRAM_SLUGS.flatMap((p) =>
-  TOPIC_SLUGS.map((t) => `/lpu-${p}-${t}`),
+  TOPIC_SLUGS.map((t) => `/lpu-online-${p}-${t}`),
 );
 
 /* ---------------- Informational support pages ---------------- */
@@ -602,8 +602,8 @@ export function relatedBlogs(keyword: string, limit = 3): BlogPost[] {
 
 export function parseTopicPath(pathname: string): TopicPage | null {
   const clean = pathname.replace(/^\/+|\/+$/g, "");
-  if (!clean.startsWith("lpu-")) return null;
-  const rest = clean.slice(4);
+  if (!clean.startsWith("lpu-online-")) return null;
+  const rest = clean.slice("lpu-online-".length);
   const topic = TOPIC_SLUGS.find((t) => rest.endsWith(`-${t}`));
   if (!topic) return null;
   const program = rest.slice(0, rest.length - topic.length - 1) as ProgramSlug;
