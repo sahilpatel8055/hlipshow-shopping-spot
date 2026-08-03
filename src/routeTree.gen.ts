@@ -20,6 +20,7 @@ import { Route as LpuOnlineEligibilityRouteImport } from './routes/lpu-online-el
 import { Route as LpuOnlineCoursesRouteImport } from './routes/lpu-online-courses'
 import { Route as LpuOnlineAdmissionLastDateRouteImport } from './routes/lpu-online-admission-last-date'
 import { Route as LpuOnlineAdmissionRouteImport } from './routes/lpu-online-admission'
+import { Route as LpuFeeCalculatorRouteImport } from './routes/lpu-fee-calculator'
 import { Route as FeesRouteImport } from './routes/fees'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
@@ -86,6 +87,11 @@ const LpuOnlineAdmissionRoute = LpuOnlineAdmissionRouteImport.update({
   path: '/lpu-online-admission',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LpuFeeCalculatorRoute = LpuFeeCalculatorRouteImport.update({
+  id: '/lpu-fee-calculator',
+  path: '/lpu-fee-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeesRoute = FeesRouteImport.update({
   id: '/fees',
   path: '/fees',
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
+  '/lpu-fee-calculator': typeof LpuFeeCalculatorRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
   '/lpu-online-courses': typeof LpuOnlineCoursesRoute
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
+  '/lpu-fee-calculator': typeof LpuFeeCalculatorRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
   '/lpu-online-courses': typeof LpuOnlineCoursesRoute
@@ -185,6 +193,7 @@ export interface FileRoutesById {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
+  '/lpu-fee-calculator': typeof LpuFeeCalculatorRoute
   '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
   '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
   '/lpu-online-courses': typeof LpuOnlineCoursesRoute
@@ -209,6 +218,7 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
+    | '/lpu-fee-calculator'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
     | '/lpu-online-courses'
@@ -231,6 +241,7 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
+    | '/lpu-fee-calculator'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
     | '/lpu-online-courses'
@@ -253,6 +264,7 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
+    | '/lpu-fee-calculator'
     | '/lpu-online-admission'
     | '/lpu-online-admission-last-date'
     | '/lpu-online-courses'
@@ -276,6 +288,7 @@ export interface RootRouteChildren {
   CompareUniversitiesRoute: typeof CompareUniversitiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
   FeesRoute: typeof FeesRoute
+  LpuFeeCalculatorRoute: typeof LpuFeeCalculatorRoute
   LpuOnlineAdmissionRoute: typeof LpuOnlineAdmissionRoute
   LpuOnlineAdmissionLastDateRoute: typeof LpuOnlineAdmissionLastDateRoute
   LpuOnlineCoursesRoute: typeof LpuOnlineCoursesRoute
@@ -369,6 +382,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LpuOnlineAdmissionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lpu-fee-calculator': {
+      id: '/lpu-fee-calculator'
+      path: '/lpu-fee-calculator'
+      fullPath: '/lpu-fee-calculator'
+      preLoaderRoute: typeof LpuFeeCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fees': {
       id: '/fees'
       path: '/fees'
@@ -453,6 +473,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareUniversitiesRoute: CompareUniversitiesRoute,
   DisclaimerRoute: DisclaimerRoute,
   FeesRoute: FeesRoute,
+  LpuFeeCalculatorRoute: LpuFeeCalculatorRoute,
   LpuOnlineAdmissionRoute: LpuOnlineAdmissionRoute,
   LpuOnlineAdmissionLastDateRoute: LpuOnlineAdmissionLastDateRoute,
   LpuOnlineCoursesRoute: LpuOnlineCoursesRoute,
