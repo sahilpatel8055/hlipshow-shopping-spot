@@ -35,6 +35,7 @@ import {
   StickyActionBar,
   PopularSearches,
 } from "@/components/site";
+import { StudentToolsSection, StudentToolsHost } from "@/components/topical";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -602,10 +603,12 @@ function LpuPage() {
         <Placements />
         <Faqs />
         <LeadForm />
+        <StudentToolsSection />
         <PopularSearches />
       </main>
       <SiteFooter />
       <StickyActionBar />
+      <StudentToolsHost />
       <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
   );

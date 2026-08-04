@@ -559,11 +559,13 @@ export function TopicalPageLayout({
         <RelatedBlogsBlock keyword={keyword} />
         <SeoFaq items={faqs} />
         <OfficialReferences />
+        <StudentToolsSection />
         <QuickLinksRow />
         <PopularSearches />
       </main>
       <SiteFooter />
       <StickyActionBar />
+      <StudentToolsHost />
       <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
   );

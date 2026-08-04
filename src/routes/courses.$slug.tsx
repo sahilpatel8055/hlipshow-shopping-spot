@@ -28,6 +28,8 @@ import {
   StudentsAlsoViewed,
   RelatedBlogsBlock,
   QuickLinksRow,
+  StudentToolsSection,
+  StudentToolsHost,
 } from "@/components/topical";
 import {
   Award,
@@ -609,11 +611,13 @@ function CoursePage() {
 
         {/* SEO FAQ + Popular Searches */}
         <SeoFaq items={lpu.faqs} />
+        <StudentToolsSection />
         <QuickLinksRow />
         <PopularSearches />
       </main>
       <SiteFooter />
       <StickyActionBar />
+      <StudentToolsHost />
       <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
   );
