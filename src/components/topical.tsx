@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   SiteHeader,
   SiteFooter,
@@ -566,5 +566,165 @@ export function TopicalPageLayout({
       <StickyActionBar />
       <CounselingModal open={open} onClose={() => setOpen(false)} />
     </div>
+  );
+}
+
+/* ---------------- Student tools: promo band, modal & floating launcher ---------------- */
+
+type ToolTab = "fees" | "eligibility";
+const toolsCtx: { open?: (tab: ToolTab) => void } = {};
+export const openTools = (tab: ToolTab = "fees") => toolsCtx.open?.(tab);
+
+export function StudentToolsSection() {
+  const cards = [
+    {
+      tab: "fees" as ToolTab,
+      icon: IndianRupee,
+      title: "Fee & EMI Calculator",
+      text: "Pick your programme, apply a scholarship and see your semester fee, total fee and monthly EMI in seconds.",
+      cta: "Calculate my fee",
+      href: "/lpu-fee-calculator",
+    },
+    {
+      tab: "eligibility" as ToolTab,
+      icon: FileCheck2,
+      title: "Instant Eligibility Checker",
+      text: "Enter your 10th, 12th or graduation marks and instantly know if you qualify — plus the documents you need.",
+      cta: "Check my eligibility",
+      href: "/lpu-eligibility-checker",
+    },
+  ];
+  return (
+    <section className="bg-secondary/40 py-12">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
+          <Rocket className="h-3.5 w-3.5" /> Free student tools
+        </span>
+        <h2 className="mt-3 text-2xl font-bold text-foreground sm:text-3xl">
+          Plan your admission in under a minute
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm text-muted-foreground sm:text-base">
+          Two free tools used by thousands of LPU Online applicants — no sign-up needed.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {cards.map((c) => (
+            <div key={c.tab} className="rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:border-primary hover:shadow-md">
+              <div className="flex items-center gap-3">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
+                  <c.icon className="h-5 w-5" />
+                </span>
+                <h3 className="text-lg font-bold text-foreground">{c.title}</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">{c.text}</p>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => openTools(c.tab)}
+                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)]"
+                >
+                  {c.cta} <ChevronRight className="h-4 w-4" />
+                </button>
+                <a href={c.href} className="text-sm font-semibold text-primary underline underline-offset-4">
+                  Open full page
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function StudentToolsHost() {
+  const [tab, setTab] = useState<ToolTab | null>(null);
+  const [pulse, setPulse] = useState(true);
+
+  useEffect(() => {
+    toolsCtx.open = (t) => {
+      setTab(t);
+      setPulse(false);
+    };
+    return () => {
+      toolsCtx.open = undefined;
+    };
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => setPulse(false), 12000);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => openTools("fees")}
+        aria-label="Open free student tools: fee calculator and eligibility checker"
+        className="fixed bottom-20 left-3 z-40 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card px-3.5 py-2.5 text-xs font-bold text-primary shadow-xl transition hover:bg-primary hover:text-primary-foreground md:bottom-20 md:left-4 md:text-sm"
+      >
+        <span className={`grid h-5 w-5 place-items-center rounded-full bg-primary/15 ${pulse ? "animate-pulse" : ""}`}>
+          <IndianRupee className="h-3.5 w-3.5" />
+        </span>
+        Fee &amp; Eligibility Tools
+      </button>
+
+      {tab && (
+        <div
+          className="fixed inset-0 z-[95] flex items-start justify-center overflow-y-auto bg-black/60 p-3 backdrop-blur-sm sm:p-6"
+          onClick={() => setTab(null)}
+        >
+          <div
+            className="my-6 w-full max-w-3xl rounded-2xl border border-border bg-background p-4 shadow-2xl sm:p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex gap-2">
+                {(
+                  [
+                    ["fees", "Fee & EMI"],
+                    ["eligibility", "Eligibility"],
+                  ] as [ToolTab, string][]
+                ).map(([id, label]) => (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => setTab(id)}
+                    className={`rounded-full px-4 py-2 text-xs font-bold transition sm:text-sm ${
+                      tab === id
+                        ? "bg-primary text-primary-foreground"
+                        : "border border-border bg-card text-foreground"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setTab(null)}
+                aria-label="Close tools"
+                className="grid h-8 w-8 place-items-center rounded-full border border-border bg-card text-foreground"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="mt-4">
+              {tab === "fees" ? <FeeEmiCalculator /> : <EligibilityChecker />}
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setTab(null);
+                openModal();
+              }}
+              className="mt-4 w-full rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
+            >
+              Get an exact quote from a counsellor
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
