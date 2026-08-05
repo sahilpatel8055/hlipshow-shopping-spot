@@ -40,13 +40,13 @@ import { StudentToolsSection, StudentToolsHost } from "@/components/topical";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LPU Online — UGC-Entitled Online Degrees | Same Degree, Now Online" },
+      { title: "LPU Online - Avedu | UGC-Entitled Online Degrees" },
       {
         name: "description",
         content:
           "Apply for LPU Online admission 2026. UGC-entitled BBA, BCA, MBA, MCA and more from NAAC A++ Lovely Professional University. 100% online, EMI options, placement support.",
       },
-      { property: "og:title", content: "LPU Online — Same Degree, Now Online" },
+      { property: "og:title", content: "LPU Online - Avedu | Same Degree, Now Online" },
       {
         property: "og:description",
         content:

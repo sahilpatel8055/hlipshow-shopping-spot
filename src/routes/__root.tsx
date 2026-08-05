@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "LPU Online — UGC-Entitled Online Degrees (Courses, Fees, Admission 2026)" },
+      { title: "LPU Online - Avedu | UGC-Entitled Online Degrees" },
       { name: "description", content: "Apply for LPU Online admission 2026 — UGC-entitled online BBA, BCA, MBA, MCA degrees from NAAC A++ Lovely Professional University. Fees, eligibility & EMI options." },
       { name: "author", content: "LPU Online - Avedu" },
       { name: "application-name", content: "LPU Online - Avedu" },
@@ -89,10 +89,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", sizes: "any" },
-      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "192x192" },
-      { rel: "shortcut icon", href: "/favicon.ico" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "icon", href: "/lpu-online-icon.ico?v=2", sizes: "any" },
+      { rel: "icon", href: "/lpu-online-icon.png?v=2", type: "image/png", sizes: "192x192" },
+      { rel: "shortcut icon", href: "/lpu-online-icon.ico?v=2" },
+      { rel: "apple-touch-icon", href: "/lpu-online-icon.png?v=2", sizes: "192x192" },
       { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
     ],
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "LPU Online - Avedu",
-          alternateName: "LPU Online Avedu",
+          alternateName: ["LPU Online Avedu", "LPU Online"],
           url: "https://lpuonline.avedu.in/",
           publisher: { "@type": "Organization", name: "LPU Online - Avedu" },
           potentialAction: {
