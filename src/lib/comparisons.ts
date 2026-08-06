@@ -14,23 +14,9 @@ export type Comparison = {
   faqs: { q: string; a: string }[];
 };
 
-const base = (rival: string, extras: Partial<Comparison>): Comparison => ({
-  slug: "",
-  rival,
-  shortRival: rival,
-  title: "",
-  description: "",
-  intro: "",
-  rows: [],
-  lpuWins: [],
-  rivalWins: [],
-  verdict: "",
-  faqs: [],
-  ...extras,
-}) as Comparison;
-
 export const comparisons: Comparison[] = [
-  base("Manipal University Online", {
+  {
+    rival: "Manipal University Online",
     slug: "lpu-vs-manipal",
     shortRival: "Manipal Online",
     title: "LPU Online vs Manipal Online 2026 — Fees, Accreditation & Placements Compared",
@@ -64,8 +50,9 @@ export const comparisons: Comparison[] = [
       { q: "Is LPU Online better than Manipal Online?", a: "LPU Online holds a higher NAAC grade (A++ vs A+) and offers a lower effective fee with more MBA specializations. Both are UGC-DEB entitled and valid for jobs and higher studies." },
       { q: "Which is cheaper, LPU or Manipal online MBA?", a: "The LPU Online MBA at ₹1,61,600 after discount is generally cheaper than the comparable Manipal Online MBA." },
     ],
-  }),
-  base("Amity University Online", {
+  },
+  {
+    rival: "Amity University Online",
     slug: "lpu-vs-amity",
     shortRival: "Amity Online",
     title: "LPU Online vs Amity Online 2026 — Which Online Degree Gives Better Value?",
@@ -97,8 +84,9 @@ export const comparisons: Comparison[] = [
       { q: "Is LPU Online cheaper than Amity Online?", a: "Yes. LPU Online programs are generally 15–25% cheaper than the equivalent Amity Online programs after discount." },
       { q: "Are both degrees equally valid?", a: "Yes. Both universities offer UGC-DEB entitled online degrees valid for jobs, government exams and higher studies." },
     ],
-  }),
-  base("Chandigarh University Online", {
+  },
+  {
+    rival: "Chandigarh University Online",
     slug: "lpu-vs-chandigarh",
     shortRival: "CU Online",
     title: "LPU Online vs Chandigarh University Online 2026 — Full Comparison",
@@ -130,8 +118,9 @@ export const comparisons: Comparison[] = [
       { q: "Which is better for an online MBA — LPU or Chandigarh University?", a: "LPU Online offers a higher NAAC grade, more specializations and a dedicated online placement cell, making it the stronger overall pick for most working professionals." },
       { q: "Are both UGC approved?", a: "Yes, both offer UGC-DEB entitled online degrees." },
     ],
-  }),
-  base("Jain University Online", {
+  },
+  {
+    rival: "Jain University Online",
     slug: "lpu-vs-jain",
     shortRival: "Jain Online",
     title: "LPU Online vs Jain University Online 2026 — Fees, Ranking & Placements",
@@ -163,8 +152,9 @@ export const comparisons: Comparison[] = [
       { q: "Is Jain Online better than LPU Online?", a: "Both are NAAC A++ and UGC-DEB entitled. LPU Online is typically cheaper with a wider program range; Jain Online has stronger South India recruiter reach." },
       { q: "Which has more MBA specializations?", a: "LPU Online offers 11 specializations; Jain Online counters with a dual-specialization option." },
     ],
-  }),
-  base("DY Patil University Online", {
+  },
+  {
+    rival: "DY Patil University Online",
     slug: "lpu-vs-dy-patil",
     shortRival: "DY Patil Online",
     title: "LPU Online vs DY Patil Online 2026 — Which Online MBA Is Worth It?",
@@ -196,8 +186,9 @@ export const comparisons: Comparison[] = [
       { q: "Which is better for a healthcare MBA?", a: "DY Patil Online has the stronger hospital and healthcare management specialization; LPU Online also offers a healthcare management elective within its MBA." },
       { q: "Which is cheaper?", a: "LPU Online is generally cheaper after the current fee discount." },
     ],
-  }),
-  base("NMIMS Online (CDOE)", {
+  },
+  {
+    rival: "NMIMS Online (CDOE)",
     slug: "lpu-vs-nmims",
     shortRival: "NMIMS Online",
     title: "LPU Online vs NMIMS Online 2026 — Brand, Fees & ROI Compared",
@@ -228,7 +219,7 @@ export const comparisons: Comparison[] = [
       { q: "Is NMIMS Online worth the extra fee over LPU Online?", a: "Only if you are targeting BFSI or consulting roles in Mumbai where the brand carries weight. For most learners the LPU Online MBA delivers a better cost-to-outcome ratio." },
       { q: "Are both degrees UGC entitled?", a: "Yes, both offer UGC-DEB entitled online programs." },
     ],
-  }),
+  },
 ];
 
 export const findComparison = (slug: string) => comparisons.find((c) => c.slug === slug);
