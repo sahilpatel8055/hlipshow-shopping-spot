@@ -223,6 +223,352 @@ export const blogs: BlogPost[] = [
       { heading: "Divyaang & sports", body: "Special financial support for Divyaang candidates and national/state-level sports achievers." },
     ],
   },
+
+  /* ---------------- Pillar articles (2026) ---------------- */
+  {
+    slug: "lpu-online-mba-review-2026",
+    title: "LPU Online MBA Review 2026 — Honest Breakdown of Fees, Faculty & Placements",
+    description: "An in-depth LPU Online MBA review for 2026: curriculum quality, LMS experience, specializations, real fee structure, placement support and who the program suits.",
+    category: "Review",
+    readTime: "10 min read",
+    date: "2026-03-02",
+    featured: true,
+    keyTakeaways: [
+      "UGC-DEB entitled, NAAC A++ university — degree is treated at par with the on-campus MBA.",
+      "Total MBA fee ₹2,02,000, currently ₹1,61,600 after discount, with 0% EMI from ₹6,733/month.",
+      "11 specializations including Business Analytics, Finance, Marketing, HR and Data Science.",
+      "Best suited to working professionals who need weekend live classes plus recorded lectures.",
+    ],
+    content: [
+      { body: "The LPU Online MBA is one of the most searched online management programs in India, and for good reason — it combines a NAAC A++ university brand with a fee that sits below most private online MBAs. This review looks at what you actually get: the teaching model, the LMS, the specializations, the real cost after discounts, and the level of placement support you can realistically expect." },
+      {
+        heading: "Programme structure at a glance",
+        body: "The MBA runs for 2 years across 4 semesters, delivered fully online with no campus visits mandated. Semesters 1 and 2 cover the management core; semesters 3 and 4 shift into your chosen specialization plus a capstone project.",
+        bullets: [
+          "Duration: 2 years / 4 semesters (flexible completion window)",
+          "Mode: live weekend classes + recorded lectures on the LMS",
+          "Assessment: continuous internal assessment + proctored end-term exams",
+          "Eligibility: Bachelor's degree with 50% marks (45% for reserved categories)",
+        ],
+      },
+      {
+        heading: "Teaching quality and the LMS",
+        body: "Learning happens through a dedicated LMS that hosts recorded lectures, e-books, practice quizzes and discussion boards. Live sessions are scheduled mostly on weekends and evenings so that working professionals can attend, and every session is recorded. The strongest part of the experience is asynchronous access — you can complete a full week of content on a Sunday if your job demands it. The weakest part, as with any online MBA, is peer networking; you have to actively use discussion forums and cohort groups to get value there.",
+      },
+      {
+        heading: "Specializations worth choosing in 2026",
+        body: "Not all specializations carry the same hiring demand. Based on current recruitment trends, Business Analytics, Finance and Marketing lead on job availability, while Data Science and IT suit candidates already working in tech.",
+        bullets: [
+          "Business Analytics — analyst and consulting roles, strong salary growth",
+          "Finance Management — banking, FP&A, credit and investment roles",
+          "Marketing / Digital Marketing — growth, brand and performance marketing",
+          "Human Resource Management — HRBP, talent acquisition, L&D",
+          "Operations & Supply Chain — manufacturing, e-commerce, logistics",
+        ],
+      },
+      {
+        heading: "Fees: what you actually pay",
+        body: "The published total MBA fee is ₹2,02,000. With the current discount it comes down to ₹1,61,600, payable per semester or on 0% interest EMI starting around ₹6,733 per month. Scholarships (merit, defence, government employee, Divyaang, sports) apply on top for eligible candidates, so your final number is often lower than the sticker price. Use the fee and EMI calculator on this site to see your exact monthly outgo before you apply.",
+      },
+      {
+        heading: "Placement support — realistic expectations",
+        body: "LPU runs a dedicated online placement cell with 400+ hiring partners, resume workshops, mock interviews and job alerts inside the LMS. Average reported packages sit around ₹5 LPA with highs near ₹10 LPA, and outcomes skew heavily toward candidates who already have 2+ years of work experience. Treat placement support as a genuine accelerator, not a guaranteed job — the degree plus your existing experience is what moves your salary.",
+      },
+      {
+        heading: "Who should and shouldn't pick this MBA",
+        body: "Pick it if you are working, need UGC-entitled credentials for a promotion or a role change, and want a recognized brand at a mid-range fee. Skip it if you are a fresher expecting campus-style placements from a top IIM-tier cohort — a full-time MBA serves that goal better.",
+      },
+      {
+        heading: "Verdict",
+        body: "For working professionals in India, the LPU Online MBA is strong value in 2026: credible accreditation, a wide specialization list, transparent fees and 0% EMI. Rated 4.4/5 on overall value for money by learners who completed the program while working.",
+      },
+    ],
+    faqs: [
+      { q: "Is the LPU Online MBA valid for government jobs?", a: "Yes. It is UGC-DEB entitled, so it is accepted for government jobs, PSU roles and higher studies including PhD." },
+      { q: "How much does the LPU Online MBA cost in 2026?", a: "Total fee is ₹2,02,000, discounted to ₹1,61,600, with 0% interest EMI from about ₹6,733 per month." },
+      { q: "Are there live classes?", a: "Yes — live weekend and evening sessions are held and every class is recorded for later viewing on the LMS." },
+      { q: "Does LPU Online provide placement assistance?", a: "Yes, through a dedicated online placement cell with 400+ hiring partners, resume support and mock interviews." },
+    ],
+  },
+  {
+    slug: "lpu-online-fees-2026",
+    title: "LPU Online Fees 2026 — Complete Program-Wise Fee Structure, EMI & Hidden Costs",
+    description: "Program-wise LPU Online fees for 2026 — MBA, MCA, MA, M.Sc, M.Com, BBA, BCA, BA and B.Com totals, per-semester fees, discounts, EMI plans and what is included.",
+    category: "Fees",
+    readTime: "9 min read",
+    date: "2026-03-04",
+    featured: true,
+    keyTakeaways: [
+      "UG programs start around ₹99,000 total; PG programs from about ₹65,600.",
+      "Discounted fees apply automatically on full payment; 0% EMI is available on every program.",
+      "LMS, e-books, live classes, exams and placement support are included — no separate charges.",
+      "Scholarships can reduce your fee by up to 30% on top of the discount.",
+    ],
+    content: [
+      { body: "Fees are the single biggest deciding factor for most online learners, so here is the full 2026 picture for LPU Online — program totals, per-semester splits, EMI options and the costs that people usually forget to budget for." },
+      {
+        heading: "Postgraduate fee structure 2026",
+        body: "PG programs run 2 years across 4 semesters.",
+        bullets: [
+          "Online MBA — ₹2,02,000 total, ₹1,61,600 after discount, EMI from ₹6,733/mo",
+          "Online MCA — ₹1,60,000 total, ₹1,29,600 after discount, EMI from ₹5,400/mo",
+          "Online M.Com — mid-range PG fee with per-semester payment option",
+          "Online MA — ₹65,600 total, one of the most affordable UGC-entitled PG degrees",
+          "Online M.Sc — competitive fee with specialization-based variation",
+        ],
+      },
+      {
+        heading: "Undergraduate fee structure 2026",
+        body: "UG programs run 3 years across 6 semesters.",
+        bullets: [
+          "Online BBA — ₹1,50,000 total, ₹1,22,400 after discount, EMI from ₹5,100/mo",
+          "Online BCA — ₹1,22,400 after discount, EMI options available",
+          "Online B.Com — ₹99,000 total (about ₹16,500 per semester), EMI from ₹2,899/mo",
+          "Online BA — lowest-cost UG route with UGC entitlement",
+        ],
+      },
+      {
+        heading: "Payment options",
+        body: "You can pay the full program fee upfront (highest discount), pay semester by semester, or use a 0% interest EMI plan through partner lenders. EMI approval typically needs a PAN, bank statement and address proof, and is processed within 24–48 hours.",
+      },
+      {
+        heading: "What the fee includes — and what it doesn't",
+        body: "Included: LMS access for the full duration, recorded and live classes, digital course material and e-books, internal assessments, mentor support, and placement assistance. Not included: the one-time application fee, exam re-attempt fees if you fail a paper, and optional physical convocation costs.",
+      },
+      {
+        heading: "Scholarships that reduce your fee further",
+        body: "Merit scholarship up to 30% based on your last qualifying exam, plus dedicated concessions for Defence personnel, government employees, Divyaang candidates and national/state-level sportspersons. These stack on top of the standard discount, so always check eligibility before paying.",
+      },
+      {
+        heading: "How LPU Online fees compare",
+        body: "Against Manipal Online (₹1,66,000 for MBA) and Amity Online (around ₹2,00,000), LPU's discounted MBA at ₹1,61,600 with NAAC A++ accreditation is one of the better cost-to-brand ratios in the Indian online degree market.",
+      },
+    ],
+    faqs: [
+      { q: "Can I pay LPU Online fees semester-wise?", a: "Yes. Every program supports per-semester payment, and 0% interest EMI is available as well." },
+      { q: "Is the discounted fee always available?", a: "Discounts are cycle-based and tied to the January and July intakes. Confirm the current offer with a counselor before you pay." },
+      { q: "Are there any hidden charges?", a: "No. The program fee covers LMS, classes, study material and exams. Only the application fee and re-attempt exam fees are separate." },
+      { q: "Do scholarships apply on top of the discount?", a: "Yes, eligible candidates can combine a scholarship with the standard fee discount." },
+    ],
+  },
+  {
+    slug: "lpu-online-admission-guide-2026",
+    title: "LPU Online Admission Guide 2026 — Process, Documents, Dates & Common Mistakes",
+    description: "Step-by-step LPU Online admission guide for 2026 — eligibility, application process, document checklist, fee payment, LMS activation and intake deadlines.",
+    category: "Admission",
+    readTime: "8 min read",
+    date: "2026-03-06",
+    featured: true,
+    keyTakeaways: [
+      "No entrance exam — admission is merit-based on your last qualifying degree.",
+      "Two intakes every year: January and July.",
+      "The full process takes 2–4 days from application to LMS access.",
+      "Applying early protects both the scholarship slab and the fee discount.",
+    ],
+    content: [
+      { body: "LPU Online admissions are refreshingly simple — there is no entrance exam and the whole process is online. The catch is that most delays come from avoidable document errors. This guide walks through every step and flags the mistakes that hold applications up." },
+      {
+        heading: "Step 1 — Confirm eligibility",
+        body: "UG programs need 10+2 from a recognized board with 50% marks (45% for reserved categories). PG programs need a bachelor's degree with 50% marks (45% relaxed). There is no upper age limit for any online program.",
+      },
+      {
+        heading: "Step 2 — Free counseling (recommended)",
+        body: "Speak to an advisor before you fill the form. Specialization choice is the one decision you cannot easily reverse after semester 2, and a 15-minute call usually saves candidates from picking the wrong stream.",
+      },
+      {
+        heading: "Step 3 — Fill the online application",
+        body: "Register with your mobile number and email, then complete personal, academic and program details. Enter your name exactly as printed on your 10th marksheet — mismatches are the single most common cause of verification delays.",
+      },
+      {
+        heading: "Step 4 — Upload documents",
+        body: "Keep clear scans ready in PDF or JPG under the size limit.",
+        bullets: [
+          "10th and 12th marksheets",
+          "Graduation degree / provisional certificate (PG applicants)",
+          "Government photo ID — Aadhaar or PAN",
+          "Passport-size photograph and signature",
+          "Category or scholarship supporting certificate, if applicable",
+        ],
+      },
+      {
+        heading: "Step 5 — Pay the fee",
+        body: "Choose full payment, semester-wise payment or 0% EMI. Payment confirmation is instant for cards and UPI; EMI approval can take up to 48 hours.",
+      },
+      {
+        heading: "Step 6 — Verification and LMS access",
+        body: "Documents are verified within 24–48 hours. Once cleared, you receive your enrolment number and LMS credentials by email and can start attending classes immediately.",
+      },
+      {
+        heading: "Mistakes that delay admission",
+        body: "Blurred document scans, name mismatches between marksheet and ID, uploading a mark statement instead of a degree certificate for PG, and applying in the last week of an intake when verification queues are longest.",
+      },
+      {
+        heading: "Important dates for 2026",
+        body: "January intake applications typically close in late January; July intake closes in late July. Scholarship slabs are allotted on a first-come basis, so early applicants get the better deal.",
+      },
+    ],
+    faqs: [
+      { q: "Is there an entrance exam for LPU Online?", a: "No. Admission is merit-based on your last qualifying examination." },
+      { q: "How long does LPU Online admission take?", a: "Typically 2–4 days from submitting the application to receiving LMS credentials." },
+      { q: "Can I apply without a graduation certificate?", a: "PG applicants can apply with a provisional certificate, but the final degree must be submitted before the first exam." },
+      { q: "When are the LPU Online intakes?", a: "There are two intake cycles each year — January and July." },
+    ],
+  },
+  {
+    slug: "lpu-online-scholarship-guide-2026",
+    title: "LPU Online Scholarship 2026 — Every Scheme, Eligibility & How to Claim It",
+    description: "Complete guide to LPU Online scholarships in 2026 — merit, defence, government employee, Divyaang and sports schemes, discount slabs, documents and claim process.",
+    category: "Scholarship",
+    readTime: "7 min read",
+    date: "2026-03-08",
+    featured: true,
+    keyTakeaways: [
+      "Merit scholarships go up to 30% of the total program fee.",
+      "Defence, government employee, Divyaang and sports schemes run in parallel.",
+      "You must claim the scholarship before paying the fee — it is not applied retrospectively.",
+      "Only one scholarship applies per learner; the highest eligible slab is granted.",
+    ],
+    content: [
+      { body: "A scholarship is the fastest way to cut your online degree cost, and most LPU Online applicants qualify for at least one scheme. Here is what is on offer in 2026, who qualifies and exactly how to claim it." },
+      {
+        heading: "Merit scholarship",
+        body: "Based on the percentage in your last qualifying exam (12th for UG, graduation for PG). Higher percentage bands unlock larger waivers, going up to 30% of the total program fee. You need self-attested marksheets at the time of application.",
+      },
+      {
+        heading: "Defence scholarship",
+        body: "For serving and retired Defence, Paramilitary and Police personnel and their dependents. Requires a service certificate, discharge book or dependent card.",
+      },
+      {
+        heading: "Government employee scholarship",
+        body: "Central and state government employees and their immediate family members qualify. An employee ID plus a department letter is usually enough.",
+      },
+      {
+        heading: "Divyaang scholarship",
+        body: "Candidates with 40% or more certified disability receive a dedicated fee concession. Submit a valid UDID or medical board certificate.",
+      },
+      {
+        heading: "Sports scholarship",
+        body: "For national and state-level sports achievers. Attach the participation or medal certificate issued by a recognized federation.",
+      },
+      {
+        heading: "How to claim your scholarship",
+        body: "Declare the scheme in the application form, upload the supporting certificate at the document stage, and wait for the revised fee quote before making payment. If you pay the full fee first, the waiver cannot be adjusted afterwards.",
+      },
+      {
+        heading: "Scholarship plus discount stacking",
+        body: "The scholarship applies on the program fee, and the current intake discount applies separately, so an eligible candidate can land well below the published price. A counselor can compute your exact net payable in one call.",
+      },
+    ],
+    faqs: [
+      { q: "Can I claim two LPU Online scholarships together?", a: "No. Only one scheme applies per learner — the highest eligible waiver is granted." },
+      { q: "What is the maximum LPU Online scholarship?", a: "Merit scholarships go up to 30% of the total program fee." },
+      { q: "Can I claim a scholarship after paying fees?", a: "No. The scholarship must be declared and approved before the fee payment is made." },
+      { q: "Do scholarships apply to every semester?", a: "Yes, an approved waiver applies across the program duration subject to satisfactory academic progress." },
+    ],
+  },
+  {
+    slug: "lpu-online-exam-pattern-2026",
+    title: "LPU Online Exam Pattern 2026 — Proctored Exams, Marks Split & Passing Criteria",
+    description: "How LPU Online exams work in 2026 — internal assessment weightage, end-term proctored exam format, passing marks, re-attempt rules and preparation tips.",
+    category: "Exams",
+    readTime: "7 min read",
+    date: "2026-03-10",
+    featured: true,
+    keyTakeaways: [
+      "Exams are fully online and remotely proctored — no exam centre visit needed.",
+      "Final marks combine continuous internal assessment with an end-term exam.",
+      "Assignments and quizzes through the semester make passing far easier.",
+      "Re-attempts are allowed in the next exam cycle for backlog papers.",
+    ],
+    content: [
+      { body: "One of the most common questions before enrolling is simply: how are online exams conducted, and are they hard? Here is exactly how the LPU Online assessment system works and how to prepare for it while holding a full-time job." },
+      {
+        heading: "Two components of your final score",
+        body: "Every course is graded on continuous internal assessment plus an end-term examination. Internal assessment comes from quizzes, assignments and discussion participation completed through the semester; the end-term is a single proctored exam per subject.",
+      },
+      {
+        heading: "How remote proctoring works",
+        body: "You take the exam from home on a laptop or desktop with a working webcam, microphone and stable internet. The system verifies your identity, monitors the session via camera and screen tracking, and flags tab switching. Slot booking is done in advance from the LMS, with multiple time windows to pick from.",
+        bullets: [
+          "Laptop/desktop with webcam and mic (mobile is not recommended)",
+          "Stable broadband — 2 Mbps or better",
+          "Government photo ID for identity verification",
+          "A quiet, well-lit room with no other person present",
+        ],
+      },
+      {
+        heading: "Question format",
+        body: "Papers typically mix objective questions with short and long descriptive answers depending on the subject. Technical programs such as MCA and BCA include applied and case-based questions; management papers lean on scenario analysis.",
+      },
+      {
+        heading: "Passing criteria and re-attempts",
+        body: "You must clear the aggregate passing threshold for each course, combining internals and the end-term. If you miss or fail a paper, it becomes a backlog and can be re-attempted in the next exam cycle on payment of a re-attempt fee — it does not stop you from progressing to the next semester.",
+      },
+      {
+        heading: "How to prepare while working",
+        body: "Do not save internals for the end — they are the easiest marks in the system. Watch recorded lectures at 1.5x during the week, attempt the LMS practice quizzes after each module, and reserve the two weekends before the end-term for revision and past-paper practice.",
+      },
+    ],
+    faqs: [
+      { q: "Do I have to visit a centre for LPU Online exams?", a: "No. All end-term exams are conducted online with remote proctoring from your own location." },
+      { q: "What happens if I fail a paper?", a: "The paper becomes a backlog and can be re-attempted in the next exam cycle on payment of a re-attempt fee." },
+      { q: "Can I take the exam on a mobile phone?", a: "A laptop or desktop with a webcam is required for proctoring; mobile devices are not recommended." },
+      { q: "How much weight do internal assessments carry?", a: "Internals from quizzes and assignments form a significant part of the final score alongside the end-term exam." },
+    ],
+  },
+  {
+    slug: "lpu-online-degree-validity",
+    title: "LPU Online Degree Validity — Is It Valid for Jobs, PhD & Abroad? (2026)",
+    description: "Is an LPU Online degree valid? UGC-DEB entitlement, NAAC A++ accreditation, WES recognition, government job acceptance, PhD eligibility and how to verify your degree.",
+    category: "Recognition",
+    readTime: "8 min read",
+    date: "2026-03-12",
+    featured: true,
+    keyTakeaways: [
+      "UGC-DEB entitled online degrees are legally equivalent to on-campus degrees.",
+      "Accepted for government jobs, PSU roles, UPSC and state services.",
+      "Valid for PhD, NET and higher studies in India.",
+      "WES recognition supports applications to Canada and the USA.",
+    ],
+    content: [
+      { body: "Degree validity is the number one anxiety for anyone considering an online degree, and the answer for LPU Online is straightforward: it is a UGC-DEB entitled degree from a NAAC A++ accredited university, and by law it carries the same standing as the equivalent on-campus degree." },
+      {
+        heading: "The legal position",
+        body: "Under UGC (Open and Distance Learning Programmes and Online Programmes) Regulations, degrees awarded through entitled online programmes are treated at par with degrees awarded in conventional mode. LPU appears on the UGC's list of entitled universities, and its degree certificates do not carry any 'online' distinction that marks them apart from campus degrees.",
+      },
+      {
+        heading: "Government jobs and competitive exams",
+        body: "An LPU Online degree is accepted as the qualifying degree for UPSC, SSC, state PSC, banking exams, PSU recruitment and teaching eligibility tests, provided you meet the specific notification's subject and percentage requirements.",
+      },
+      {
+        heading: "Private sector hiring",
+        body: "Employers verify accreditation, not delivery mode. Recruiters across IT services, BFSI, e-commerce and consulting hire LPU Online graduates, and 400+ hiring partners work with the university's online placement cell. What matters in interviews is your specialization and demonstrated skills.",
+      },
+      {
+        heading: "Higher studies and PhD",
+        body: "The degree makes you eligible for postgraduate admission, UGC-NET and PhD programmes at Indian universities. Some institutions ask for a UGC entitlement reference — the public UGC notice list covers this.",
+      },
+      {
+        heading: "Studying or working abroad",
+        body: "LPU is WES recognized, which is the credential evaluation body used for Canadian and US immigration and admissions. That means your transcripts can be evaluated for equivalence rather than being rejected outright, though each destination university still applies its own admission criteria.",
+      },
+      {
+        heading: "How to verify a degree",
+        body: "Check the university's name in the UGC-DEB list of entitled online universities for the relevant academic session, confirm the NAAC grade on the NAAC portal, and validate the digital signature on the issued certificate. Employers can also verify enrolment through the university registry and the National Academic Depository.",
+      },
+      {
+        heading: "What an online degree cannot do",
+        body: "Be realistic: online mode is not permitted for regulated professional programmes such as medicine, nursing, law practice enrolment, engineering B.Tech and pharmacy. If your target career needs one of those, an online degree is not the route.",
+      },
+    ],
+    faqs: [
+      { q: "Is an LPU Online degree valid for government jobs?", a: "Yes. It is UGC-DEB entitled and accepted for government, PSU and competitive exam eligibility." },
+      { q: "Does the certificate mention 'online'?", a: "No. The degree certificate is equivalent to the on-campus degree for the same program." },
+      { q: "Is the degree valid abroad?", a: "LPU is WES recognized, which supports credential evaluation for Canada and the USA. Individual universities and employers apply their own criteria." },
+      { q: "Can I do a PhD after an LPU Online master's?", a: "Yes. A UGC-entitled online master's degree makes you eligible for PhD admission and UGC-NET." },
+    ],
+  },
 ];
+
 
 export const findBlog = (slug: string) => blogs.find((b) => b.slug === slug);
