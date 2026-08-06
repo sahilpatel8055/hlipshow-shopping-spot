@@ -11,6 +11,7 @@ import {
   openModal,
 } from "@/components/site";
 import { comparisons, findComparison } from "@/lib/comparisons";
+import type { Comparison } from "@/lib/comparisons";
 import { CheckCircle2 } from "lucide-react";
 
 const CANONICAL = (slug: string) => `https://lpuonline.avedu.in/compare/${slug}`;
@@ -82,7 +83,7 @@ export const Route = createFileRoute("/compare/$slug")({
 });
 
 function ComparePage() {
-  const { item } = Route.useLoaderData();
+  const { item } = Route.useLoaderData() as { item: Comparison };
   const { open, setOpen } = useModalTrigger();
   const others = comparisons.filter((c) => c.slug !== item.slug);
 
