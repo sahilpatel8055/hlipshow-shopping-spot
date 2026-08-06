@@ -863,6 +863,16 @@ const popularSearches: { label: string; to: string }[] = [
   { label: "LPU Online Placement", to: "/lpu-online-placement" },
   { label: "LPU Online Scholarship", to: "/lpu-online-scholarship" },
   { label: "LPU Admission Last Date", to: "/lpu-online-admission-last-date" },
+  { label: "LPU Online MBA Review 2026", to: "/blog/lpu-online-mba-review-2026" },
+  { label: "LPU Online Fees 2026 Guide", to: "/blog/lpu-online-fees-2026" },
+  { label: "LPU Online Degree Validity", to: "/blog/lpu-online-degree-validity" },
+  { label: "LPU Online Exam Pattern", to: "/blog/lpu-online-exam-pattern-2026" },
+  { label: "LPU vs Manipal", to: "/compare/lpu-vs-manipal" },
+  { label: "LPU vs Amity", to: "/compare/lpu-vs-amity" },
+  { label: "LPU vs Chandigarh University", to: "/compare/lpu-vs-chandigarh" },
+  { label: "LPU vs Jain", to: "/compare/lpu-vs-jain" },
+  { label: "LPU vs DY Patil", to: "/compare/lpu-vs-dy-patil" },
+  { label: "LPU vs NMIMS", to: "/compare/lpu-vs-nmims" },
 ];
 
 export function PopularSearches() {

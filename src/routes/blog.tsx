@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Breadcrumb, StickyActionBar } from "@/components/site";
 import { blogs } from "@/lib/blogs";
+import { comparisons } from "@/lib/comparisons";
 
 const CANONICAL = "https://lpuonline.avedu.in/blog";
 
@@ -33,7 +34,44 @@ function BlogIndex() {
           <p className="mt-3 max-w-2xl text-muted-foreground">
             Guides, comparisons and how-tos on LPU Online admission, fees, specializations, placements and careers.
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8">
+            <h2 className="text-xl font-bold text-foreground sm:text-2xl">Must-read guides</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {blogs.filter((b) => b.featured).map((b) => (
+                <Link
+                  key={b.slug}
+                  to="/blog/$slug"
+                  params={{ slug: b.slug }}
+                  className="rounded-2xl border border-primary/30 bg-accent p-5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-brand)]"
+                >
+                  <span className="text-xs font-semibold text-primary">{b.category}</span>
+                  <h3 className="mt-2 text-base font-bold text-foreground">{b.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{b.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+            <h2 className="text-xl font-bold text-foreground">LPU Online vs other universities</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Side-by-side comparisons on fees, accreditation and placements.</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {comparisons.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    to="/compare/$slug"
+                    params={{ slug: c.slug }}
+                    className="inline-flex rounded-full border border-border bg-background px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-sm"
+                  >
+                    LPU vs {c.shortRival}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <h2 className="mt-12 text-xl font-bold text-foreground sm:text-2xl">All articles</h2>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {blogs.map((b) => (
               <Link
                 key={b.slug}

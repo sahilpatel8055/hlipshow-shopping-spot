@@ -12,6 +12,8 @@ import {
 } from "@/components/site";
 import { lpu } from "@/lib/lpu";
 import { CheckCircle2 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { comparisons } from "@/lib/comparisons";
 
 const CANONICAL = "https://lpuonline.avedu.in/compare-universities";
 
@@ -94,6 +96,26 @@ function Page() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        </section>
+        <section className="bg-background pb-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Detailed 1-on-1 comparisons</h2>
+            <p className="mt-2 text-sm text-muted-foreground">In-depth breakdowns of fees, accreditation, specializations and placement support.</p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {comparisons.map((c) => (
+                <Link
+                  key={c.slug}
+                  to="/compare/$slug"
+                  params={{ slug: c.slug }}
+                  className="rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]"
+                >
+                  <h3 className="text-base font-bold text-foreground">LPU Online vs {c.shortRival}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{c.description}</p>
+                  <span className="mt-3 inline-block text-sm font-semibold text-primary">Read comparison →</span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

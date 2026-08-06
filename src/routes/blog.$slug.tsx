@@ -2,6 +2,7 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter, Breadcrumb, StickyActionBar, LeadFormCompact, CounselingModal, useModalTrigger, SeoFaq, PopularSearches } from "@/components/site";
 import { blogs, findBlog } from "@/lib/blogs";
 import { lpu } from "@/lib/lpu";
+import { comparisons } from "@/lib/comparisons";
 
 const CANONICAL = (slug: string) => `https://lpuonline.avedu.in/blog/${slug}`;
 
@@ -33,6 +34,17 @@ export const Route = createFileRoute("/blog/$slug")({
             },
             mainEntityOfPage: url,
           },
+          ...(p.faqs && p.faqs.length
+            ? [{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: p.faqs.map((f) => ({
+                  "@type": "Question",
+                  name: f.q,
+                  acceptedAnswer: { "@type": "Answer", text: f.a },
+                })),
+              }]
+            : []),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -89,13 +101,59 @@ function BlogPost() {
               <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{post.category}</span>
               <h1 className="mt-4 text-3xl font-bold text-foreground sm:text-4xl">{post.title}</h1>
               <p className="mt-3 text-sm text-muted-foreground">{post.readTime} · {new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</p>
+              {post.keyTakeaways && post.keyTakeaways.length > 0 && (
+                <div className="mt-6 rounded-2xl border border-primary/25 bg-accent p-5">
+                  <h2 className="text-base font-bold text-foreground">Key takeaways</h2>
+                  <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                    {post.keyTakeaways.map((k: string) => (
+                      <li key={k}>• {k}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <div className="prose prose-slate mt-8 max-w-none">
-                {post.content.map((s: { heading?: string; body: string }, i: number) => (
+                {post.content.map((s: { heading?: string; body: string; bullets?: string[] }, i: number) => (
                   <div key={i} className="mb-6">
                     {s.heading && <h2 className="text-xl font-bold text-foreground sm:text-2xl">{s.heading}</h2>}
                     <p className="mt-2 leading-relaxed text-muted-foreground">{s.body}</p>
+                    {s.bullets && (
+                      <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                        {s.bullets.map((b) => (
+                          <li key={b}>• {b}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
+              </div>
+              {post.faqs && post.faqs.length > 0 && (
+                <div className="mt-10">
+                  <h2 className="text-xl font-bold text-foreground sm:text-2xl">Frequently asked questions</h2>
+                  <div className="mt-4 space-y-4">
+                    {post.faqs.map((f: { q: string; a: string }) => (
+                      <div key={f.q} className="rounded-xl border border-border bg-card p-5">
+                        <h3 className="font-semibold text-foreground">{f.q}</h3>
+                        <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className="mt-10">
+                <h2 className="text-xl font-bold text-foreground">Compare LPU Online with other universities</h2>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {comparisons.map((c) => (
+                    <li key={c.slug}>
+                      <Link
+                        to="/compare/$slug"
+                        params={{ slug: c.slug }}
+                        className="inline-flex rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-sm"
+                      >
+                        LPU vs {c.shortRival}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <div className="mt-10 rounded-2xl border border-primary/20 bg-accent p-6">
                 <h3 className="text-lg font-bold text-foreground">Talk to an LPU Online counselor</h3>
