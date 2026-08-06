@@ -5,8 +5,13 @@ export type BlogPost = {
   category: string;
   readTime: string;
   date: string;
-  content: { heading?: string; body: string }[];
+  /** Pinned to the top of the blog hub as a pillar article. */
+  featured?: boolean;
+  keyTakeaways?: string[];
+  content: { heading?: string; body: string; bullets?: string[] }[];
+  faqs?: { q: string; a: string }[];
 };
+
 
 export const blogs: BlogPost[] = [
   {
