@@ -777,7 +777,7 @@ function InfoBlock({
   items,
 }: {
   id: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   intro: string;
   items: string[];
