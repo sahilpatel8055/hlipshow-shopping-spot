@@ -258,14 +258,32 @@ function CoursePage() {
           </div>
         </section>
 
+        {/* On-page navigation — one pillar page, every intent anchored */}
+        <nav aria-label="On this page" className="sticky top-0 z-30 border-y border-border bg-background/95 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3 sm:px-6 lg:px-8">
+            {PILLAR_SECTIONS.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="whitespace-nowrap rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-sm"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+
         {/* Specializations — 2-per-row grid with arrow navigation */}
         {course.specializations && course.specializations.length > 0 && (
-          <SpecializationsSection specializations={course.specializations} />
+          <div id="specializations" className="scroll-mt-24">
+            <SpecializationsSection specializations={course.specializations} />
+          </div>
         )}
 
 
         {/* Curriculum — semester-wise, mobile-friendly nav */}
-        <section className="bg-secondary/40 py-16">
+        <section id="curriculum" className="scroll-mt-24 bg-secondary/40 py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
               <BookOpen className="h-7 w-7 text-primary" /> {course.name} Curriculum
