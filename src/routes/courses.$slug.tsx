@@ -742,7 +742,10 @@ function CoursePage() {
         <RelatedBlogsBlock keyword={course.name.replace("Online ", "")} />
 
         {/* SEO FAQ + Popular Searches */}
-        <SeoFaq items={lpu.faqs} />
+        <div id="faqs" className="scroll-mt-24">
+          <SeoFaq items={lpu.faqs} />
+        </div>
+
         <StudentToolsSection />
         <QuickLinksRow />
         <PopularSearches />
@@ -765,6 +768,38 @@ function FeeStat({ label, value, note }: { label: string; value: string; note: s
     </div>
   );
 }
+
+function InfoBlock({
+  id,
+  icon,
+  title,
+  intro,
+  items,
+}: {
+  id: string;
+  icon: React.ReactNode;
+  title: string;
+  intro: string;
+  items: string[];
+}) {
+  return (
+    <section id={id} className="scroll-mt-24 rounded-2xl border border-border bg-card p-6 sm:p-8">
+      <h2 className="flex items-center gap-2 text-xl font-bold text-foreground sm:text-2xl">
+        {icon} {title}
+      </h2>
+      <p className="mt-2 text-sm text-muted-foreground">{intro}</p>
+      <ul className="mt-5 space-y-3">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-3">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+            <span className="text-sm text-foreground">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 
 // Silence unused lint if any
 void lpu;
