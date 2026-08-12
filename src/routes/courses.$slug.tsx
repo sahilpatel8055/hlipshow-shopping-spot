@@ -584,7 +584,8 @@ function CoursePage() {
         </section>
 
         {/* Career Scope & Recruiters */}
-        <section className="bg-background py-16">
+        <section id="careers" className="scroll-mt-24 bg-background py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
               Career Scope & Top Recruiters
@@ -623,24 +624,47 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Internal links — helps SEO and gives visitors more useful paths */}
+        {/* Reviews */}
+        <section id="reviews" className="scroll-mt-24 bg-secondary/40 py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
+              <Star className="h-7 w-7 fill-primary text-primary" /> {course.name} Reviews
+            </h2>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Learners rate the LPU {course.name} {course.rating}/5 across{" "}
+              {course.reviews.toLocaleString()} reviews — with the strongest feedback on
+              flexibility, faculty support and the recognised degree.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {lpu.approvals.slice(0, 3).map((a) => (
+                <div key={a.name} className="rounded-2xl border border-border bg-card p-5">
+                  <p className="text-sm font-bold text-primary">{a.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{a.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Internal links — hub-and-spoke: sitewide hubs + in-page anchors */}
         <section className="bg-background pt-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-2xl border border-border bg-secondary/40 p-6">
               <h2 className="text-lg font-bold text-foreground">More about {course.name} at LPU Online</h2>
               <div className="mt-4 flex flex-wrap gap-2">
-                <Link to="/lpu-online-fees" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Fees & EMI</Link>
-                <Link to="/lpu-online-eligibility" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Eligibility</Link>
-                <Link to="/lpu-online-admission" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Admission process</Link>
-                <Link to="/lpu-online-admission-last-date" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Last date</Link>
-                <Link to="/lpu-online-placement" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Placements</Link>
-                <Link to="/lpu-online-scholarship" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Scholarships</Link>
-                <Link to="/lpu-online-review" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</Link>
+                <a href="#fees" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Fees & EMI</a>
+                <a href="#eligibility" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Eligibility</a>
+                <a href="#admission" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Admission process</a>
+                <a href="#placements" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Placements</a>
+                <a href="#scholarship" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Scholarships</a>
+                <a href="#reviews" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</a>
+                <Link to="/lpu-online-courses" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">All courses</Link>
                 <Link to="/compare-universities" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Compare universities</Link>
                 <Link to="/best-online-$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
                 <Link to="/blog" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Blog & guides</Link>
               </div>
             </div>
+
           </div>
         </section>
 
