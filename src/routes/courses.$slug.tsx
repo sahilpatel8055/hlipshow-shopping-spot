@@ -388,7 +388,8 @@ function CoursePage() {
         </section>
 
         {/* Fees — moved BELOW curriculum, with discount UI */}
-        <section className="bg-background py-16">
+        <section id="fees" className="scroll-mt-24 bg-background py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
               <IndianRupee className="h-7 w-7 text-primary" /> Online {course.name} Fee
