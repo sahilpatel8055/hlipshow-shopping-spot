@@ -515,7 +515,8 @@ function CoursePage() {
         </section>
 
         {/* Sample Degree */}
-        <section className="bg-background py-16">
+        <section id="sample-degree" className="scroll-mt-24 bg-background py-16">
+
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
@@ -551,7 +552,8 @@ function CoursePage() {
         <CareerAssistance />
 
         {/* Placement Support */}
-        <section className="bg-primary/10 py-16">
+        <section id="placements" className="scroll-mt-24 bg-primary/10 py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
