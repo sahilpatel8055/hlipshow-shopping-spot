@@ -105,14 +105,11 @@ export const Route = createFileRoute("/$")({
 
 function TopicalPage() {
   const d = Route.useLoaderData();
-  const crumbs =
-    d.kind === "topic" && d.program && d.topic && d.courseName
-      ? [
-          { label: "Courses", to: "/lpu-online-courses" },
-          { label: d.courseName, to: `/courses/${d.program}` },
-          { label: TOPIC_LABELS[d.topic as TopicSlug] },
-        ]
-      : [{ label: "LPU Online", to: "/lpu-online-courses" }, { label: d.h1 }];
+  const crumbs = [
+    { label: "LPU Online", to: "/lpu-online-courses" },
+    { label: d.h1 },
+  ];
+
 
   return (
     <TopicalPageLayout
