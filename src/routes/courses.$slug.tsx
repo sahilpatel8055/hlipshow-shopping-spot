@@ -424,6 +424,54 @@ function CoursePage() {
           </div>
         </section>
 
+        {/* Eligibility + Admission + Exam pattern + Scholarships — consolidated spokes */}
+        <section className="bg-secondary/40 py-16">
+          <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <InfoBlock
+              id="eligibility"
+              icon={<BadgeCheck className="h-6 w-6 text-primary" />}
+              title={`${course.name} Eligibility`}
+              intro={`Minimum eligibility for the LPU ${course.name} programme in 2026.`}
+              items={[
+                ...lpu.eligibility
+                  .filter((e) => e.level.toLowerCase().includes(course.level === "pg" ? "pg" : "ug"))
+                  .map((e) => e.criteria),
+                "Marksheets of all qualifying examinations",
+                "Government photo ID and passport-size photograph",
+              ]}
+            />
+            <InfoBlock
+              id="admission"
+              icon={<GraduationCap className="h-6 w-6 text-primary" />}
+              title={`${course.name} Admission Process`}
+              intro="Merit-based admission — no entrance exam. Most admissions confirm within 48 hours."
+              items={lpu.process}
+            />
+            <InfoBlock
+              id="exam-pattern"
+              icon={<BookOpen className="h-6 w-6 text-primary" />}
+              title={`${course.name} Exam Pattern`}
+              intro="Remote proctored examinations you can take from home."
+              items={[
+                "30% continuous internal assessment (assignments and quizzes)",
+                "70% end-term remote proctored examination",
+                "Objective and descriptive question types",
+                "Laptop with webcam, stable internet and photo ID needed on exam day",
+                "Re-appear allowed in the next examination cycle",
+              ]}
+            />
+            <InfoBlock
+              id="scholarship"
+              icon={<Award className="h-6 w-6 text-primary" />}
+              title={`${course.name} Scholarships`}
+              intro="Scholarships that reduce your programme fee — one award applies per learner."
+              items={lpu.scholarships}
+            />
+          </div>
+        </section>
+
+
+
         {/* LPU Online Advantages — numbered list + image (matches reference) */}
         <section className="relative overflow-hidden bg-background py-16">
           <div className="container mx-auto px-4">
