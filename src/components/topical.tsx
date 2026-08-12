@@ -213,11 +213,12 @@ export function TopicLinkGrid({ program, courseName, current }: { program: strin
           </li>
           {TOPIC_SLUGS.filter((t) => t !== current).map((t) => (
             <li key={t}>
-              <a href={`/lpu-online-${program}-${t}`} className="inline-flex rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-sm">
+              <a href={pillarHref(program, t)} className="inline-flex rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-sm">
                 LPU Online {courseName.replace("Online ", "")} {TOPIC_LABELS[t]}
               </a>
             </li>
           ))}
+
         </ul>
       </div>
     </section>
