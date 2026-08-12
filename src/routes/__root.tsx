@@ -77,12 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "LPU Online - Avedu | UGC-Entitled Online Degrees" },
+      { title: "LPUONLINE AVEDU | UGC-Entitled Online Degrees" },
       { name: "description", content: "Apply for LPU Online admission 2026 — UGC-entitled online BBA, BCA, MBA, MCA degrees from NAAC A++ Lovely Professional University. Fees, eligibility & EMI options." },
-      { name: "author", content: "LPU Online - Avedu" },
-      { name: "application-name", content: "LPU Online - Avedu" },
-      { name: "apple-mobile-web-app-title", content: "LPU Online - Avedu" },
-      { property: "og:site_name", content: "LPU Online - Avedu" },
+      { name: "author", content: "LPUONLINE AVEDU" },
+      { name: "application-name", content: "LPUONLINE AVEDU" },
+      { name: "apple-mobile-web-app-title", content: "LPUONLINE AVEDU" },
+      { property: "og:site_name", content: "LPUONLINE AVEDU" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       
@@ -103,8 +103,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "LPU Online - Avedu",
-          alternateName: ["LPU Online Avedu", "LPU Online"],
+          name: "LPUONLINE AVEDU",
+          alternateName: ["LPU Online Avedu", "LPU Online", "lpuonline.avedu.in"],
           url: "https://lpuonline.avedu.in/",
           logo: "https://lpuonline.avedu.in/lpu-logo.png",
           sameAs: ["https://www.lpuonline.com/", "https://www.lpu.in/"],
@@ -115,10 +115,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "LPU Online - Avedu",
-          alternateName: ["LPU Online Avedu", "LPU Online"],
+          name: "LPUONLINE AVEDU",
+          alternateName: ["LPU Online Avedu", "LPU Online", "lpuonline.avedu.in"],
           url: "https://lpuonline.avedu.in/",
-          publisher: { "@type": "Organization", name: "LPU Online - Avedu" },
+          publisher: { "@type": "Organization", name: "LPUONLINE AVEDU" },
           potentialAction: {
             "@type": "SearchAction",
             target: "https://lpuonline.avedu.in/?q={search_term_string}",
