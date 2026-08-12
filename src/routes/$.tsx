@@ -73,25 +73,15 @@ export const Route = createFileRoute("/$")({
         dateModified: LAST_UPDATED,
       },
     ];
-    if (loaderData.kind === "topic") {
-      schemas.push({
-        "@context": "https://schema.org",
-        "@type": "Course",
-        name: `LPU ${loaderData.courseName}`,
-        description: loaderData.description,
-        url,
-        provider: {
-          "@type": "CollegeOrUniversity",
-          name: "Lovely Professional University (LPU Online)",
-          sameAs: "https://www.lpuonline.com/",
-        },
-        hasCourseInstance: {
-          "@type": "CourseInstance",
-          courseMode: "online",
-          courseWorkload: loaderData.duration,
-        },
-      });
-    }
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+        { "@type": "ListItem", position: 2, name: loaderData.h1, item: url },
+      ],
+    });
+
     return {
       meta: [
         { title: loaderData.title },
