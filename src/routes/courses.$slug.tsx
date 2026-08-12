@@ -89,6 +89,24 @@ export const Route = createFileRoute("/courses/$slug")({
           },
         }
       : null;
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://lpuonline.avedu.in/" },
+        { "@type": "ListItem", position: 2, name: "Courses", item: "https://lpuonline.avedu.in/lpu-online-courses" },
+        { "@type": "ListItem", position: 3, name: c ? c.name : "Course", item: canonical },
+      ],
+    };
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: lpu.faqs.slice(0, 8).map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
     return {
       meta: [
         { title },
@@ -100,10 +118,15 @@ export const Route = createFileRoute("/courses/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: canonical }],
-      scripts: courseSchema
-        ? [{ type: "application/ld+json", children: JSON.stringify(courseSchema) }]
-        : [],
+      scripts: [
+        ...(courseSchema
+          ? [{ type: "application/ld+json", children: JSON.stringify(courseSchema) }]
+          : []),
+        { type: "application/ld+json", children: JSON.stringify(breadcrumbSchema) },
+        { type: "application/ld+json", children: JSON.stringify(faqSchema) },
+      ],
     };
+
   },
 
   notFoundComponent: () => (
