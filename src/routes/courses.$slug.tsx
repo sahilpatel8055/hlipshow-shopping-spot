@@ -3,7 +3,7 @@ import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
 const lpuCertificate = { url: "/sample-degree.webp" };
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   SiteHeader,
   SiteFooter,
@@ -50,6 +50,22 @@ import {
 
 const LOGO_SRC = "/lpu-logo.png";
 
+const PILLAR_SECTIONS: { id: string; label: string }[] = [
+  { id: "specializations", label: "Specializations" },
+  { id: "curriculum", label: "Syllabus" },
+  { id: "fees", label: "Fees & EMI" },
+  { id: "eligibility", label: "Eligibility" },
+  { id: "admission", label: "Admission" },
+  { id: "exam-pattern", label: "Exam Pattern" },
+  { id: "scholarship", label: "Scholarships" },
+  { id: "placements", label: "Placements" },
+  { id: "careers", label: "Careers & Salary" },
+  { id: "sample-degree", label: "Sample Degree" },
+  { id: "reviews", label: "Reviews" },
+  { id: "faqs", label: "FAQs" },
+];
+
+
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
@@ -89,6 +105,24 @@ export const Route = createFileRoute("/courses/$slug")({
           },
         }
       : null;
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://lpuonline.avedu.in/" },
+        { "@type": "ListItem", position: 2, name: "Courses", item: "https://lpuonline.avedu.in/lpu-online-courses" },
+        { "@type": "ListItem", position: 3, name: c ? c.name : "Course", item: canonical },
+      ],
+    };
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: lpu.faqs.slice(0, 8).map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
     return {
       meta: [
         { title },
@@ -100,10 +134,15 @@ export const Route = createFileRoute("/courses/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: canonical }],
-      scripts: courseSchema
-        ? [{ type: "application/ld+json", children: JSON.stringify(courseSchema) }]
-        : [],
+      scripts: [
+        ...(courseSchema
+          ? [{ type: "application/ld+json", children: JSON.stringify(courseSchema) }]
+          : []),
+        { type: "application/ld+json", children: JSON.stringify(breadcrumbSchema) },
+        { type: "application/ld+json", children: JSON.stringify(faqSchema) },
+      ],
     };
+
   },
 
   notFoundComponent: () => (
@@ -235,14 +274,32 @@ function CoursePage() {
           </div>
         </section>
 
+        {/* On-page navigation — one pillar page, every intent anchored */}
+        <nav aria-label="On this page" className="sticky top-0 z-30 border-y border-border bg-background/95 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3 sm:px-6 lg:px-8">
+            {PILLAR_SECTIONS.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="whitespace-nowrap rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-sm"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+
         {/* Specializations — 2-per-row grid with arrow navigation */}
         {course.specializations && course.specializations.length > 0 && (
-          <SpecializationsSection specializations={course.specializations} />
+          <div id="specializations" className="scroll-mt-24">
+            <SpecializationsSection specializations={course.specializations} />
+          </div>
         )}
 
 
         {/* Curriculum — semester-wise, mobile-friendly nav */}
-        <section className="bg-secondary/40 py-16">
+        <section id="curriculum" className="scroll-mt-24 bg-secondary/40 py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
               <BookOpen className="h-7 w-7 text-primary" /> {course.name} Curriculum
@@ -331,7 +388,8 @@ function CoursePage() {
         </section>
 
         {/* Fees — moved BELOW curriculum, with discount UI */}
-        <section className="bg-background py-16">
+        <section id="fees" className="scroll-mt-24 bg-background py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
               <IndianRupee className="h-7 w-7 text-primary" /> Online {course.name} Fee
@@ -365,6 +423,54 @@ function CoursePage() {
             </div>
           </div>
         </section>
+
+        {/* Eligibility + Admission + Exam pattern + Scholarships — consolidated spokes */}
+        <section className="bg-secondary/40 py-16">
+          <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <InfoBlock
+              id="eligibility"
+              icon={<BadgeCheck className="h-6 w-6 text-primary" />}
+              title={`${course.name} Eligibility`}
+              intro={`Minimum eligibility for the LPU ${course.name} programme in 2026.`}
+              items={[
+                ...lpu.eligibility
+                  .filter((e) => e.level.toLowerCase().includes(course.level === "pg" ? "pg" : "ug"))
+                  .map((e) => e.criteria),
+                "Marksheets of all qualifying examinations",
+                "Government photo ID and passport-size photograph",
+              ]}
+            />
+            <InfoBlock
+              id="admission"
+              icon={<GraduationCap className="h-6 w-6 text-primary" />}
+              title={`${course.name} Admission Process`}
+              intro="Merit-based admission — no entrance exam. Most admissions confirm within 48 hours."
+              items={lpu.process}
+            />
+            <InfoBlock
+              id="exam-pattern"
+              icon={<BookOpen className="h-6 w-6 text-primary" />}
+              title={`${course.name} Exam Pattern`}
+              intro="Remote proctored examinations you can take from home."
+              items={[
+                "30% continuous internal assessment (assignments and quizzes)",
+                "70% end-term remote proctored examination",
+                "Objective and descriptive question types",
+                "Laptop with webcam, stable internet and photo ID needed on exam day",
+                "Re-appear allowed in the next examination cycle",
+              ]}
+            />
+            <InfoBlock
+              id="scholarship"
+              icon={<Award className="h-6 w-6 text-primary" />}
+              title={`${course.name} Scholarships`}
+              intro="Scholarships that reduce your programme fee — one award applies per learner."
+              items={lpu.scholarships}
+            />
+          </div>
+        </section>
+
+
 
         {/* LPU Online Advantages — numbered list + image (matches reference) */}
         <section className="relative overflow-hidden bg-background py-16">
@@ -409,7 +515,8 @@ function CoursePage() {
         </section>
 
         {/* Sample Degree */}
-        <section className="bg-background py-16">
+        <section id="sample-degree" className="scroll-mt-24 bg-background py-16">
+
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
@@ -445,7 +552,8 @@ function CoursePage() {
         <CareerAssistance />
 
         {/* Placement Support */}
-        <section className="bg-primary/10 py-16">
+        <section id="placements" className="scroll-mt-24 bg-primary/10 py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
@@ -476,7 +584,8 @@ function CoursePage() {
         </section>
 
         {/* Career Scope & Recruiters */}
-        <section className="bg-background py-16">
+        <section id="careers" className="scroll-mt-24 bg-background py-16">
+
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
               Career Scope & Top Recruiters
@@ -515,24 +624,47 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Internal links — helps SEO and gives visitors more useful paths */}
+        {/* Reviews */}
+        <section id="reviews" className="scroll-mt-24 bg-secondary/40 py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
+              <Star className="h-7 w-7 fill-primary text-primary" /> {course.name} Reviews
+            </h2>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Learners rate the LPU {course.name} {course.rating}/5 across{" "}
+              {course.reviews.toLocaleString()} reviews — with the strongest feedback on
+              flexibility, faculty support and the recognised degree.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {lpu.approvals.slice(0, 3).map((a) => (
+                <div key={a.name} className="rounded-2xl border border-border bg-card p-5">
+                  <p className="text-sm font-bold text-primary">{a.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{a.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Internal links — hub-and-spoke: sitewide hubs + in-page anchors */}
         <section className="bg-background pt-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-2xl border border-border bg-secondary/40 p-6">
               <h2 className="text-lg font-bold text-foreground">More about {course.name} at LPU Online</h2>
               <div className="mt-4 flex flex-wrap gap-2">
-                <Link to="/lpu-online-fees" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Fees & EMI</Link>
-                <Link to="/lpu-online-eligibility" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Eligibility</Link>
-                <Link to="/lpu-online-admission" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Admission process</Link>
-                <Link to="/lpu-online-admission-last-date" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Last date</Link>
-                <Link to="/lpu-online-placement" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Placements</Link>
-                <Link to="/lpu-online-scholarship" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Scholarships</Link>
-                <Link to="/lpu-online-review" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</Link>
+                <a href="#fees" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Fees & EMI</a>
+                <a href="#eligibility" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Eligibility</a>
+                <a href="#admission" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Admission process</a>
+                <a href="#placements" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Placements</a>
+                <a href="#scholarship" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Scholarships</a>
+                <a href="#reviews" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</a>
+                <Link to="/lpu-online-courses" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">All courses</Link>
                 <Link to="/compare-universities" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Compare universities</Link>
                 <Link to="/best-online-$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
                 <Link to="/blog" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Blog & guides</Link>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -610,7 +742,10 @@ function CoursePage() {
         <RelatedBlogsBlock keyword={course.name.replace("Online ", "")} />
 
         {/* SEO FAQ + Popular Searches */}
-        <SeoFaq items={lpu.faqs} />
+        <div id="faqs" className="scroll-mt-24">
+          <SeoFaq items={lpu.faqs} />
+        </div>
+
         <StudentToolsSection />
         <QuickLinksRow />
         <PopularSearches />
@@ -633,6 +768,38 @@ function FeeStat({ label, value, note }: { label: string; value: string; note: s
     </div>
   );
 }
+
+function InfoBlock({
+  id,
+  icon,
+  title,
+  intro,
+  items,
+}: {
+  id: string;
+  icon: ReactNode;
+  title: string;
+  intro: string;
+  items: string[];
+}) {
+  return (
+    <section id={id} className="scroll-mt-24 rounded-2xl border border-border bg-card p-6 sm:p-8">
+      <h2 className="flex items-center gap-2 text-xl font-bold text-foreground sm:text-2xl">
+        {icon} {title}
+      </h2>
+      <p className="mt-2 text-sm text-muted-foreground">{intro}</p>
+      <ul className="mt-5 space-y-3">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-3">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+            <span className="text-sm text-foreground">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 
 // Silence unused lint if any
 void lpu;

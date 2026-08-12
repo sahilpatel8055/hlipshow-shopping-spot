@@ -52,6 +52,30 @@ export const TOPIC_LABELS: Record<TopicSlug, string> = {
   "sample-degree": "Sample Degree",
 };
 
+/**
+ * Hub-and-spoke: every topic intent is served by an anchored section on the
+ * course pillar page (/courses/{program}#{anchor}) instead of a separate URL.
+ */
+export const TOPIC_ANCHORS: Record<TopicSlug, string> = {
+  fees: "fees",
+  admission: "admission",
+  eligibility: "eligibility",
+  placements: "placements",
+  reviews: "reviews",
+  curriculum: "curriculum",
+  syllabus: "curriculum",
+  specializations: "specializations",
+  "career-opportunities": "careers",
+  salary: "careers",
+  scholarship: "scholarship",
+  "exam-pattern": "exam-pattern",
+  "sample-degree": "sample-degree",
+};
+
+export const pillarHref = (program: string, topic?: TopicSlug) =>
+  topic ? `/courses/${program}#${TOPIC_ANCHORS[topic]}` : `/courses/${program}`;
+
+
 export type Section = { heading: string; body?: string; bullets?: string[] };
 
 export type TopicPage = {
