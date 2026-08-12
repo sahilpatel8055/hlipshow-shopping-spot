@@ -50,6 +50,22 @@ import {
 
 const LOGO_SRC = "/lpu-logo.png";
 
+const PILLAR_SECTIONS: { id: string; label: string }[] = [
+  { id: "specializations", label: "Specializations" },
+  { id: "curriculum", label: "Syllabus" },
+  { id: "fees", label: "Fees & EMI" },
+  { id: "eligibility", label: "Eligibility" },
+  { id: "admission", label: "Admission" },
+  { id: "exam-pattern", label: "Exam Pattern" },
+  { id: "scholarship", label: "Scholarships" },
+  { id: "placements", label: "Placements" },
+  { id: "careers", label: "Careers & Salary" },
+  { id: "sample-degree", label: "Sample Degree" },
+  { id: "reviews", label: "Reviews" },
+  { id: "faqs", label: "FAQs" },
+];
+
+
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
