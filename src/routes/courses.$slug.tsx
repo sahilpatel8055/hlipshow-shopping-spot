@@ -3,7 +3,7 @@ import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
 const lpuCertificate = { url: "/sample-degree.webp" };
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   SiteHeader,
   SiteFooter,
