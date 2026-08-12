@@ -1,11 +1,10 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { TopicalPageLayout } from "@/components/topical";
 import { allCourses } from "@/lib/lpu";
-import type { TopicSlug } from "@/lib/topics";
 import {
   SITE,
   LAST_UPDATED,
-  TOPIC_LABELS,
+  TOPIC_ANCHORS,
   findInfoPage,
   parseTopicPath,
   type Section,
@@ -16,22 +15,15 @@ export const Route = createFileRoute("/$")({
     const raw = (params._splat ?? "").replace(/^\/+|\/+$/g, "");
     const topicPage = parseTopicPath(raw);
     if (topicPage) {
-      return {
-        kind: "topic" as const,
-        path: topicPage.path,
-        h1: topicPage.h1,
-        title: topicPage.title,
-        description: topicPage.description,
-        intro: topicPage.intro,
-        sections: topicPage.sections,
-        faqs: topicPage.faqs,
-        program: topicPage.program,
-        topic: topicPage.topic,
-        courseName: topicPage.course.name,
-        duration: topicPage.course.duration,
-        keyword: topicPage.course.name.replace("Online ", ""),
-      };
+      // Hub-and-spoke consolidation: every /lpu-online-{program}-{topic} spoke
+      // is permanently merged into the course pillar page.
+      throw redirect({
+        href: `/courses/${topicPage.program}#${TOPIC_ANCHORS[topicPage.topic]}`,
+        statusCode: 301,
+        throw: true,
+      });
     }
+
     const info = findInfoPage(raw);
     if (info) {
       const sections: Section[] =
