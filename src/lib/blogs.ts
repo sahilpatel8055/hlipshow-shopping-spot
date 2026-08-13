@@ -37,7 +37,7 @@ export const blogs: BlogPost[] = [
     date: "2026-01-12",
     content: [
       { body: "An online MBA and an online MCA both open up strong careers, but the roles and salary bands are very different. This guide breaks down average CTC, top job roles and 5-year growth for each." },
-      { heading: "Average starting salary", body: "MBA freshers: ₹5–8 LPA (up to ₹15 LPA for top specializations like Finance/Business Analytics). MCA freshers: ₹5–9 LPA in software roles, ₹8–15 LPA for AI/ML and cyber security specializations." },
+      { heading: "Average starting salary", body: "MBA freshers: Rs. 5–8 LPA (up to Rs. 15 LPA for top specializations like Finance/Business Analytics). MCA freshers: Rs. 5–9 LPA in software roles, Rs. 8–15 LPA for AI/ML and cyber security specializations." },
       { heading: "Top roles", body: "MBA: Product Manager, Business Analyst, Marketing Manager, Financial Analyst. MCA: Full Stack Developer, Data Scientist, Cloud Engineer, Cyber Security Analyst." },
       { heading: "Which should you pick?", body: "Pick MBA if you want leadership, sales, marketing or operations roles. Pick MCA if you love coding and want a technical career in software, AI or cloud." },
     ],
@@ -53,7 +53,7 @@ export const blogs: BlogPost[] = [
       { heading: "Eligibility", body: "Bachelor's degree in any discipline from a recognized university with a minimum of 50% marks (45% for reserved categories)." },
       { heading: "Step 1 — Free counseling", body: "Book a free counseling session with an AVEDU advisor to shortlist the right MBA specialization." },
       { heading: "Step 2 — Fill the application form", body: "Register on the LPU Online portal, complete personal and academic details and upload documents (10th, 12th, graduation marksheets, ID proof and passport photo)." },
-      { heading: "Step 3 — Pay the fees", body: "Choose full payment or 0% interest EMI. Total MBA fee after discount: ₹1,61,600 (₹6,733/mo EMI)." },
+      { heading: "Step 3 — Pay the fees", body: "Choose full payment or 0% interest EMI. Total MBA fee after discount: Rs. 1,61,600 (Rs. 6,733/mo EMI)." },
       { heading: "Step 4 — LMS access", body: "You receive LMS credentials within 24–48 hours of fee confirmation and can start attending live and recorded classes." },
     ],
   },
@@ -65,8 +65,8 @@ export const blogs: BlogPost[] = [
     readTime: "4 min read",
     date: "2026-01-18",
     content: [
-      { body: "The LPU Online BBA program has a total fee of ₹1,50,000, currently available at a discounted price of ₹1,22,400 (about ₹20,400 per semester)." },
-      { heading: "EMI options", body: "0% interest EMI starting from ₹5,100 per month for eligible candidates." },
+      { body: "The LPU Online BBA program has a total fee of Rs. 1,50,000, currently available at a discounted price of Rs. 1,22,400 (about Rs. 20,400 per semester)." },
+      { heading: "EMI options", body: "0% interest EMI starting from Rs. 5,100 per month for eligible candidates." },
       { heading: "Scholarships", body: "Merit scholarship up to 30%, Defence & Government employee scholarship, Divyaang scholarship and Sports scholarship." },
       { heading: "What's included", body: "LMS access, live and recorded classes, e-books, mentor support and placement assistance are all included in the fee." },
     ],
@@ -79,10 +79,10 @@ export const blogs: BlogPost[] = [
     readTime: "5 min read",
     date: "2026-01-20",
     content: [
-      { body: "LPU Online MCA has a total fee of ₹1,60,000, available at a discounted price of ₹1,29,600 (about ₹32,400 per semester)." },
-      { heading: "EMI", body: "EMI options start at ₹5,400/month with 0% interest for eligible applicants." },
+      { body: "LPU Online MCA has a total fee of Rs. 1,60,000, available at a discounted price of Rs. 1,29,600 (about Rs. 32,400 per semester)." },
+      { heading: "EMI", body: "EMI options start at Rs. 5,400/month with 0% interest for eligible applicants." },
       { heading: "Specializations", body: "Data Science, Full Stack Development, Machine Learning & AI, Cyber Security, AR/VR (Game Development)." },
-      { heading: "Return on investment", body: "MCA freshers earn ₹5–9 LPA on average, with AI/ML and cyber security specializations touching ₹15+ LPA in 3–4 years." },
+      { heading: "Return on investment", body: "MCA freshers earn Rs. 5–9 LPA on average, with AI/ML and cyber security specializations touching Rs. 15+ LPA in 3–4 years." },
     ],
   },
   {
@@ -123,7 +123,7 @@ export const blogs: BlogPost[] = [
     date: "2026-01-26",
     content: [
       { body: "LPU's online B.Com is a 3-year UGC-entitled program built for working professionals, family business owners and students who want a career in commerce, finance and analytics." },
-      { heading: "Fees", body: "Total fee: ₹99,000 (approx. ₹16,500 per semester). EMI plans from ₹2,899/month." },
+      { heading: "Fees", body: "Total fee: Rs. 99,000 (approx. Rs. 16,500 per semester). EMI plans from Rs. 2,899/month." },
       { heading: "Specializations", body: "Financial Analytics and Accounts & Finance." },
       { heading: "Career paths", body: "Accountant, Financial Analyst, Tax Consultant, Auditor, Investment Analyst and Banking Officer." },
     ],
@@ -152,7 +152,7 @@ export const blogs: BlogPost[] = [
     date: "2026-01-30",
     content: [
       { heading: "Recognition", body: "UGC-entitled online MA is treated at par with a regular MA for higher studies (M.Phil, PhD) and government jobs." },
-      { heading: "Cost", body: "Online MA at LPU: ₹65,600 total. Regular MA at a Tier-1 university can cost 2–3× more when you factor in hostel and travel." },
+      { heading: "Cost", body: "Online MA at LPU: Rs. 65,600 total. Regular MA at a Tier-1 university can cost 2–3× more when you factor in hostel and travel." },
       { heading: "Flexibility", body: "Online MA allows you to work, study and appear for competitive exams (UPSC, NET, TET) in parallel." },
       { heading: "Verdict", body: "For working professionals and civil services aspirants, online MA is the better choice in 2026." },
     ],
@@ -165,7 +165,7 @@ export const blogs: BlogPost[] = [
     readTime: "5 min read",
     date: "2026-02-02",
     content: [
-      { heading: "Placement highlights", body: "100% placement assistance, 400+ hiring partners, highest package ₹10 LPA and average package ₹5 LPA." },
+      { heading: "Placement highlights", body: "100% placement assistance, 400+ hiring partners, highest package Rs. 10 LPA and average package Rs. 5 LPA." },
       { heading: "Top recruiters", body: "Cognizant, Wipro, HDFC Bank, Amazon, Byju's and 400+ other hiring partners." },
       { heading: "Support you get", body: "1-on-1 mentor, resume building, mock interviews, LinkedIn optimization and dedicated job alerts on the LMS." },
     ],
@@ -193,7 +193,7 @@ export const blogs: BlogPost[] = [
     content: [
       { heading: "Curriculum", body: "BCA is application-focused (programming, DBMS, web tech, cloud). B.Sc IT is more theory-heavy (networks, math, OS)." },
       { heading: "Career scope", body: "BCA grads move directly into software developer, full-stack and cloud roles. B.Sc IT grads often pursue MCA/M.Sc for research/data roles." },
-      { heading: "Verdict", body: "For faster job entry, pick Online BCA. LPU Online BCA fee: ₹1,22,400 (after discount)." },
+      { heading: "Verdict", body: "For faster job entry, pick Online BCA. LPU Online BCA fee: Rs. 1,22,400 (after discount)." },
     ],
   },
   {
@@ -205,7 +205,7 @@ export const blogs: BlogPost[] = [
     date: "2026-02-08",
     content: [
       { heading: "Job roles", body: "Financial Analyst, Tax Consultant, Auditor, Investment Analyst, Banking Officer, Cost Accountant." },
-      { heading: "Salary", body: "Freshers ₹4–7 LPA, senior professionals ₹10–20 LPA in banking, tax and audit firms." },
+      { heading: "Salary", body: "Freshers Rs. 4–7 LPA, senior professionals Rs. 10–20 LPA in banking, tax and audit firms." },
       { heading: "Higher studies", body: "M.Com makes you eligible for UGC-NET, PhD, and civil services attempts." },
     ],
   },
@@ -235,7 +235,7 @@ export const blogs: BlogPost[] = [
     featured: true,
     keyTakeaways: [
       "UGC-DEB entitled, NAAC A++ university — degree is treated at par with the on-campus MBA.",
-      "Total MBA fee ₹2,02,000, currently ₹1,61,600 after discount, with 0% EMI from ₹6,733/month.",
+      "Total MBA fee Rs. 2,02,000, currently Rs. 1,61,600 after discount, with 0% EMI from Rs. 6,733/month.",
       "11 specializations including Business Analytics, Finance, Marketing, HR and Data Science.",
       "Best suited to working professionals who need weekend live classes plus recorded lectures.",
     ],
@@ -268,11 +268,11 @@ export const blogs: BlogPost[] = [
       },
       {
         heading: "Fees: what you actually pay",
-        body: "The published total MBA fee is ₹2,02,000. With the current discount it comes down to ₹1,61,600, payable per semester or on 0% interest EMI starting around ₹6,733 per month. Scholarships (merit, defence, government employee, Divyaang, sports) apply on top for eligible candidates, so your final number is often lower than the sticker price. Use the fee and EMI calculator on this site to see your exact monthly outgo before you apply.",
+        body: "The published total MBA fee is Rs. 2,02,000. With the current discount it comes down to Rs. 1,61,600, payable per semester or on 0% interest EMI starting around Rs. 6,733 per month. Scholarships (merit, defence, government employee, Divyaang, sports) apply on top for eligible candidates, so your final number is often lower than the sticker price. Use the fee and EMI calculator on this site to see your exact monthly outgo before you apply.",
       },
       {
         heading: "Placement support — realistic expectations",
-        body: "LPU runs a dedicated online placement cell with 400+ hiring partners, resume workshops, mock interviews and job alerts inside the LMS. Average reported packages sit around ₹5 LPA with highs near ₹10 LPA, and outcomes skew heavily toward candidates who already have 2+ years of work experience. Treat placement support as a genuine accelerator, not a guaranteed job — the degree plus your existing experience is what moves your salary.",
+        body: "LPU runs a dedicated online placement cell with 400+ hiring partners, resume workshops, mock interviews and job alerts inside the LMS. Average reported packages sit around Rs. 5 LPA with highs near Rs. 10 LPA, and outcomes skew heavily toward candidates who already have 2+ years of work experience. Treat placement support as a genuine accelerator, not a guaranteed job — the degree plus your existing experience is what moves your salary.",
       },
       {
         heading: "Who should and shouldn't pick this MBA",
@@ -285,7 +285,7 @@ export const blogs: BlogPost[] = [
     ],
     faqs: [
       { q: "Is the LPU Online MBA valid for government jobs?", a: "Yes. It is UGC-DEB entitled, so it is accepted for government jobs, PSU roles and higher studies including PhD." },
-      { q: "How much does the LPU Online MBA cost in 2026?", a: "Total fee is ₹2,02,000, discounted to ₹1,61,600, with 0% interest EMI from about ₹6,733 per month." },
+      { q: "How much does the LPU Online MBA cost in 2026?", a: "Total fee is Rs. 2,02,000, discounted to Rs. 1,61,600, with 0% interest EMI from about Rs. 6,733 per month." },
       { q: "Are there live classes?", a: "Yes — live weekend and evening sessions are held and every class is recorded for later viewing on the LMS." },
       { q: "Does LPU Online provide placement assistance?", a: "Yes, through a dedicated online placement cell with 400+ hiring partners, resume support and mock interviews." },
     ],
@@ -299,7 +299,7 @@ export const blogs: BlogPost[] = [
     date: "2026-03-04",
     featured: true,
     keyTakeaways: [
-      "UG programs start around ₹99,000 total; PG programs from about ₹65,600.",
+      "UG programs start around Rs. 99,000 total; PG programs from about Rs. 65,600.",
       "Discounted fees apply automatically on full payment; 0% EMI is available on every program.",
       "LMS, e-books, live classes, exams and placement support are included — no separate charges.",
       "Scholarships can reduce your fee by up to 30% on top of the discount.",
@@ -310,10 +310,10 @@ export const blogs: BlogPost[] = [
         heading: "Postgraduate fee structure 2026",
         body: "PG programs run 2 years across 4 semesters.",
         bullets: [
-          "Online MBA — ₹2,02,000 total, ₹1,61,600 after discount, EMI from ₹6,733/mo",
-          "Online MCA — ₹1,60,000 total, ₹1,29,600 after discount, EMI from ₹5,400/mo",
+          "Online MBA — Rs. 2,02,000 total, Rs. 1,61,600 after discount, EMI from Rs. 6,733/mo",
+          "Online MCA — Rs. 1,60,000 total, Rs. 1,29,600 after discount, EMI from Rs. 5,400/mo",
           "Online M.Com — mid-range PG fee with per-semester payment option",
-          "Online MA — ₹65,600 total, one of the most affordable UGC-entitled PG degrees",
+          "Online MA — Rs. 65,600 total, one of the most affordable UGC-entitled PG degrees",
           "Online M.Sc — competitive fee with specialization-based variation",
         ],
       },
@@ -321,9 +321,9 @@ export const blogs: BlogPost[] = [
         heading: "Undergraduate fee structure 2026",
         body: "UG programs run 3 years across 6 semesters.",
         bullets: [
-          "Online BBA — ₹1,50,000 total, ₹1,22,400 after discount, EMI from ₹5,100/mo",
-          "Online BCA — ₹1,22,400 after discount, EMI options available",
-          "Online B.Com — ₹99,000 total (about ₹16,500 per semester), EMI from ₹2,899/mo",
+          "Online BBA — Rs. 1,50,000 total, Rs. 1,22,400 after discount, EMI from Rs. 5,100/mo",
+          "Online BCA — Rs. 1,22,400 after discount, EMI options available",
+          "Online B.Com — Rs. 99,000 total (about Rs. 16,500 per semester), EMI from Rs. 2,899/mo",
           "Online BA — lowest-cost UG route with UGC entitlement",
         ],
       },
@@ -341,7 +341,7 @@ export const blogs: BlogPost[] = [
       },
       {
         heading: "How LPU Online fees compare",
-        body: "Against Manipal Online (₹1,66,000 for MBA) and Amity Online (around ₹2,00,000), LPU's discounted MBA at ₹1,61,600 with NAAC A++ accreditation is one of the better cost-to-brand ratios in the Indian online degree market.",
+        body: "Against Manipal Online (Rs. 1,66,000 for MBA) and Amity Online (around Rs. 2,00,000), LPU's discounted MBA at Rs. 1,61,600 with NAAC A++ accreditation is one of the better cost-to-brand ratios in the Indian online degree market.",
       },
     ],
     faqs: [
@@ -578,7 +578,7 @@ export const blogs: BlogPost[] = [
     featured: true,
     keyTakeaways: [
       "LPU Online offers UG (BBA, BCA, BA), PG (MBA, MCA, M.Sc, MA, M.Com) and diploma (DBA, DCA) programs.",
-      "Program fees range from ₹50,000 for diplomas to ₹2,00,000 for the MBA (before discounts).",
+      "Program fees range from Rs. 50,000 for diplomas to Rs. 2,00,000 for the MBA (before discounts).",
       "Every program is UGC-DEB entitled; LPU is NAAC A++ and ranked among the top universities in NIRF.",
       "Admission is open twice a year (January and July cycles) and is fully online with no entrance exam.",
     ],
@@ -608,30 +608,30 @@ export const blogs: BlogPost[] = [
         heading: "Management courses and fees",
         body: "Management is LPU Online's largest vertical. The Online MBA carries a wide specialization menu, and BBA is the feeder UG program.",
         bullets: [
-          "Online BBA — 3 years — ₹1,50,000 total (indicative full fee before scholarship)",
-          "Online MBA — 2 years — ₹2,00,000 total, all specializations priced the same",
+          "Online BBA — 3 years — Rs. 1,50,000 total (indicative full fee before scholarship)",
+          "Online MBA — 2 years — Rs. 2,00,000 total, all specializations priced the same",
           "MBA specializations: Finance, Marketing, HRM, Business Analytics, Data Science, Digital Marketing, Information Technology, Operations, International Business, Logistics & Supply Chain, Hospital & Healthcare Management",
-          "Diploma in Business Administration (DBA) — 1 year — ₹50,000",
+          "Diploma in Business Administration (DBA) — 1 year — Rs. 50,000",
         ],
       },
       {
         heading: "Computer application courses and fees",
         body: "For IT and software careers, LPU Online offers BCA at UG level and MCA at PG level, both with modern electives.",
         bullets: [
-          "Online BCA — 3 years — ₹1,50,000 total",
-          "Online MCA — 2 years — ₹1,48,000 total",
+          "Online BCA — 3 years — Rs. 1,50,000 total",
+          "Online MCA — 2 years — Rs. 1,48,000 total",
           "MCA specializations: Data Science, Machine Learning & AI, Cyber Security, Full Stack Web Development",
-          "Diploma in Computer Applications (DCA) — 1 year — ₹50,000",
+          "Diploma in Computer Applications (DCA) — 1 year — Rs. 50,000",
         ],
       },
       {
         heading: "Commerce, arts and science courses and fees",
         body: "These are the most affordable degrees in the portfolio and are popular with working professionals, teachers and competitive-exam aspirants.",
         bullets: [
-          "Online BA — 3 years — ₹1,20,000 total",
-          "Online M.Com — 2 years — ₹1,00,000 total",
-          "Online MA (English, Sociology, Political Science, History, Economics) — 2 years — ₹80,000 total",
-          "Online M.Sc (Mathematics, Economics) — 2 years — ₹80,000 total",
+          "Online BA — 3 years — Rs. 1,20,000 total",
+          "Online M.Com — 2 years — Rs. 1,00,000 total",
+          "Online MA (English, Sociology, Political Science, History, Economics) — 2 years — Rs. 80,000 total",
+          "Online M.Sc (Mathematics, Economics) — 2 years — Rs. 80,000 total",
         ],
       },
       {
@@ -663,7 +663,7 @@ export const blogs: BlogPost[] = [
     ],
     faqs: [
       { q: "How many courses does LPU Online offer?", a: "Ten core programs — BBA, BCA, BA at UG level; MBA, MCA, M.Sc, MA and M.Com at PG level; and two one-year diplomas (DBA, DCA) — with multiple specializations inside MBA and MCA." },
-      { q: "Which is the cheapest LPU Online degree?", a: "Online MA and Online M.Sc at ₹80,000 total are the most affordable degrees; the one-year diplomas cost ₹50,000." },
+      { q: "Which is the cheapest LPU Online degree?", a: "Online MA and Online M.Sc at Rs. 80,000 total are the most affordable degrees; the one-year diplomas cost Rs. 50,000." },
       { q: "Is there an entrance exam for LPU Online?", a: "No. Admission is merit-based on your previous qualification; there is no entrance test." },
       { q: "Can I pay LPU Online fees in instalments?", a: "Yes. You can pay semester-wise or use a 0% interest EMI plan through partner lenders." },
       { q: "Are LPU Online degrees valid for government jobs?", a: "Yes. They are UGC-DEB entitled and treated at par with on-campus degrees for government and private employment." },
@@ -678,7 +678,7 @@ export const blogs: BlogPost[] = [
     date: "2026-02-03",
     featured: true,
     keyTakeaways: [
-      "LPU Online BBA total fee is ₹1,50,000 for 3 years (indicative full fee before scholarship).",
+      "LPU Online BBA total fee is Rs. 1,50,000 for 3 years (indicative full fee before scholarship).",
       "Fees can be paid per semester or via 0% interest EMI — no lump sum required.",
       "The fee covers LMS access, recorded and live classes, e-content and online exams.",
       "Eligibility is only 10+2 in any stream; there is no entrance exam.",
@@ -698,18 +698,18 @@ export const blogs: BlogPost[] = [
       },
       {
         heading: "LPU Online BBA fee structure 2026",
-        body: "The indicative total programme fee is ₹1,50,000 for the full three years. Split across six semesters, that is roughly ₹25,000 per semester, or about ₹50,000 per year. Scholarships and early-bird discounts reduce this — our counselors apply the current cycle's discount on your application, and the reduced amount is what appears on your fee receipt.",
+        body: "The indicative total programme fee is Rs. 1,50,000 for the full three years. Split across six semesters, that is roughly Rs. 25,000 per semester, or about Rs. 50,000 per year. Scholarships and early-bird discounts reduce this — our counselors apply the current cycle's discount on your application, and the reduced amount is what appears on your fee receipt.",
         bullets: [
-          "Total programme fee: ₹1,50,000 (indicative, before discount)",
-          "Per semester: approximately ₹25,000",
-          "Per year: approximately ₹50,000",
+          "Total programme fee: Rs. 1,50,000 (indicative, before discount)",
+          "Per semester: approximately Rs. 25,000",
+          "Per year: approximately Rs. 50,000",
           "Registration/application fee: paid once at admission",
           "Examination fee: charged per semester as per university norms",
         ],
       },
       {
         heading: "EMI and instalment options",
-        body: "You do not have to pay the full programme fee upfront. Three routes exist: pay semester-wise (the default), pay yearly, or convert a semester's fee into a 0% interest EMI through partner financing. Monthly EMIs typically land in the ₹4,000–₹6,500 range depending on tenure and the discount applied. Credit card EMI and net-banking instalments are also accepted.",
+        body: "You do not have to pay the full programme fee upfront. Three routes exist: pay semester-wise (the default), pay yearly, or convert a semester's fee into a 0% interest EMI through partner financing. Monthly EMIs typically land in the Rs. 4,000–Rs. 6,500 range depending on tenure and the discount applied. Credit card EMI and net-banking instalments are also accepted.",
       },
       {
         heading: "Scholarships that reduce your BBA fee",
@@ -735,7 +735,7 @@ export const blogs: BlogPost[] = [
       },
       {
         heading: "Is the LPU Online BBA fee worth it?",
-        body: "Compared with on-campus BBA programs at comparable private universities, which typically cost ₹3–6 lakh over three years plus hostel and travel, an online BBA at ₹1.5 lakh with no relocation is a strong ROI play — especially if you are working or running a family business while studying. The degree carries no 'online' mention on the certificate and is UGC-entitled for further study, including MBA admission.",
+        body: "Compared with on-campus BBA programs at comparable private universities, which typically cost Rs. 3–6 lakh over three years plus hostel and travel, an online BBA at Rs. 1.5 lakh with no relocation is a strong ROI play — especially if you are working or running a family business while studying. The degree carries no 'online' mention on the certificate and is UGC-entitled for further study, including MBA admission.",
       },
       {
         heading: "How to pay",
@@ -743,8 +743,8 @@ export const blogs: BlogPost[] = [
       },
     ],
     faqs: [
-      { q: "What is the total LPU Online BBA fee?", a: "The indicative total programme fee is ₹1,50,000 for three years, before any scholarship or early-bird discount." },
-      { q: "Can I pay LPU Online BBA fees semester-wise?", a: "Yes. Semester-wise payment is the default option, at roughly ₹25,000 per semester." },
+      { q: "What is the total LPU Online BBA fee?", a: "The indicative total programme fee is Rs. 1,50,000 for three years, before any scholarship or early-bird discount." },
+      { q: "Can I pay LPU Online BBA fees semester-wise?", a: "Yes. Semester-wise payment is the default option, at roughly Rs. 25,000 per semester." },
       { q: "Is EMI available with zero interest?", a: "Yes. 0% interest EMI plans are available through partner lenders and on most credit cards." },
       { q: "Are exam fees included in the programme fee?", a: "Examination fees are charged separately each semester as per university norms." },
       { q: "Do I get a refund if I withdraw?", a: "Refunds follow the UGC refund policy applicable at the time of withdrawal; timelines and the amount depend on when you cancel." },
@@ -758,7 +758,7 @@ export const blogs: BlogPost[] = [
     readTime: "10 min read",
     date: "2026-02-04",
     keyTakeaways: [
-      "LPU's commerce route online covers UG commerce study and the two-year Online M.Com at ₹1,00,000.",
+      "LPU's commerce route online covers UG commerce study and the two-year Online M.Com at Rs. 1,00,000.",
       "Commerce learners get accounting, taxation, audit and finance foundations mapped to CA/CS/CMA prep.",
       "Study is fully online with recorded lectures — ideal alongside a job or professional-course coaching.",
       "Degrees are UGC entitled and accepted for government jobs, PG admission and professional exams.",
@@ -769,10 +769,10 @@ export const blogs: BlogPost[] = [
         heading: "Commerce programs available online at LPU",
         body: "LPU Online's commerce and business portfolio spans UG and PG.",
         bullets: [
-          "Online BBA — 3 years — ₹1,50,000 (business + commerce foundation)",
-          "Online M.Com — 2 years — ₹1,00,000 (advanced accounting, finance and taxation)",
-          "Diploma in Business Administration — 1 year — ₹50,000",
-          "Online MBA (Finance) — 2 years — ₹2,00,000, the natural PG upgrade for commerce graduates",
+          "Online BBA — 3 years — Rs. 1,50,000 (business + commerce foundation)",
+          "Online M.Com — 2 years — Rs. 1,00,000 (advanced accounting, finance and taxation)",
+          "Diploma in Business Administration — 1 year — Rs. 50,000",
+          "Online MBA (Finance) — 2 years — Rs. 2,00,000, the natural PG upgrade for commerce graduates",
         ],
       },
       {
@@ -805,7 +805,7 @@ export const blogs: BlogPost[] = [
         heading: "Career scope after an online commerce degree",
         body: "A UGC-entitled commerce degree qualifies you for the same roles as a regular one.",
         bullets: [
-          "Accountant, Junior Accountant, Accounts Executive (₹2.5–5 LPA to start)",
+          "Accountant, Junior Accountant, Accounts Executive (Rs. 2.5–5 LPA to start)",
           "Tax Assistant / GST Practitioner support roles",
           "Financial Analyst and Audit Assistant in mid-size firms",
           "Banking and insurance roles, including IBPS and SBI recruitment eligibility",
@@ -820,7 +820,7 @@ export const blogs: BlogPost[] = [
     ],
     faqs: [
       { q: "Is an online commerce degree from LPU valid?", a: "Yes. LPU's online programs are UGC-DEB entitled and the university is NAAC A++ accredited, so the degree is valid for jobs, government exams and higher study." },
-      { q: "What does the LPU Online M.Com cost?", a: "The indicative total fee is ₹1,00,000 for two years, payable semester-wise or via 0% interest EMI." },
+      { q: "What does the LPU Online M.Com cost?", a: "The indicative total fee is Rs. 1,00,000 for two years, payable semester-wise or via 0% interest EMI." },
       { q: "Can I do CA along with an online commerce degree?", a: "Yes. Since there is no attendance requirement and lectures are recorded, most learners pair the degree with CA, CS or CMA preparation." },
       { q: "Are there placements for online commerce learners?", a: "Yes. LPU Online's career services offer resume building, mock interviews and access to recruiter drives open to online learners." },
       { q: "Can I appear for banking exams after this degree?", a: "Yes. IBPS, SBI, RBI and SSC recruitment accept any UGC-recognised graduation, including online degrees." },
@@ -829,15 +829,15 @@ export const blogs: BlogPost[] = [
   {
     slug: "lpu-online-ba-guide-2026",
     title: "LPU Online BA 2026 — Fees, Subjects, Eligibility & Career Options",
-    description: "LPU Online BA guide for 2026 — ₹1,20,000 total fee, subject combinations, eligibility, admission process, exam pattern and career paths after graduation.",
+    description: "LPU Online BA guide for 2026 — Rs. 1,20,000 total fee, subject combinations, eligibility, admission process, exam pattern and career paths after graduation.",
     category: "Courses",
     readTime: "9 min read",
     date: "2026-02-05",
     keyTakeaways: [
-      "LPU Online BA is a 3-year UGC-entitled degree with an indicative total fee of ₹1,20,000.",
+      "LPU Online BA is a 3-year UGC-entitled degree with an indicative total fee of Rs. 1,20,000.",
       "Eligibility is 10+2 in any stream — no entrance exam, no age limit.",
       "It is the most popular route for UPSC/state PSC aspirants who want a flexible degree.",
-      "Graduates can move to Online MA (₹80,000) or Online MBA at LPU without leaving their job.",
+      "Graduates can move to Online MA (Rs. 80,000) or Online MBA at LPU without leaving their job.",
     ],
     content: [
       { body: "The Online BA from Lovely Professional University is designed for learners who want a recognised undergraduate degree without giving up work, coaching or family commitments. It is a three-year, six-semester humanities degree delivered fully online through LPU's LMS, with online proctored exams." },
@@ -847,7 +847,7 @@ export const blogs: BlogPost[] = [
         bullets: [
           "Program: Online Bachelor of Arts (BA)",
           "Duration: 3 years / 6 semesters",
-          "Indicative total fee: ₹1,20,000 (about ₹20,000 per semester before discount)",
+          "Indicative total fee: Rs. 1,20,000 (about Rs. 20,000 per semester before discount)",
           "Eligibility: 10+2 from a recognised board, any stream",
           "Approval: UGC entitled; LPU is NAAC A++ and UGC Category-1",
         ],
@@ -891,12 +891,12 @@ export const blogs: BlogPost[] = [
           "Teaching after B.Ed or an MA plus UGC-NET",
           "Content writing, editing, digital marketing and communications",
           "HR, customer success and operations executive roles",
-          "Higher study: Online MA (₹80,000), MBA, MSW or LLB (three-year)",
+          "Higher study: Online MA (Rs. 80,000), MBA, MSW or LLB (three-year)",
         ],
       },
     ],
     faqs: [
-      { q: "What is the LPU Online BA fee?", a: "The indicative total programme fee is ₹1,20,000 for three years, payable semester-wise or through 0% interest EMI." },
+      { q: "What is the LPU Online BA fee?", a: "The indicative total programme fee is Rs. 1,20,000 for three years, payable semester-wise or through 0% interest EMI." },
       { q: "Is LPU Online BA valid for UPSC?", a: "Yes. UPSC accepts any degree from a UGC-recognised university, including UGC-entitled online degrees." },
       { q: "Do I need to visit the campus?", a: "No. Classes, assignments and exams are all online; the degree is delivered without any mandatory campus visit." },
       { q: "Can I do a B.Ed after an online BA?", a: "Yes. A UGC-recognised BA makes you eligible for B.Ed admission, subject to each institution's entrance requirements." },
@@ -906,13 +906,13 @@ export const blogs: BlogPost[] = [
   {
     slug: "lpu-online-mba-complete-guide-2026",
     title: "LPU Online MBA 2026 — Fees, Specializations, Syllabus & Placements",
-    description: "The complete LPU Online MBA guide for 2026 — ₹2,00,000 fee structure, all 11 specializations, semester syllabus, eligibility, exam pattern and placement outcomes.",
+    description: "The complete LPU Online MBA guide for 2026 — Rs. 2,00,000 fee structure, all 11 specializations, semester syllabus, eligibility, exam pattern and placement outcomes.",
     category: "MBA",
     readTime: "14 min read",
     date: "2026-02-06",
     featured: true,
     keyTakeaways: [
-      "LPU Online MBA: 2 years, 4 semesters, indicative total fee ₹2,00,000 (EMI from ~₹6,700/month).",
+      "LPU Online MBA: 2 years, 4 semesters, indicative total fee Rs. 2,00,000 (EMI from ~Rs. 6,700/month).",
       "Eleven specializations, all priced the same — Finance, Marketing, HR, Business Analytics, Data Science and more.",
       "UGC entitled, NAAC A++, WES recognised — accepted by employers and for PhD admission.",
       "Placement support includes recruiter drives, resume clinics and mock interviews for online learners.",
@@ -924,8 +924,8 @@ export const blogs: BlogPost[] = [
         body: "Key facts before we go deeper.",
         bullets: [
           "Duration: 2 years / 4 semesters (maximum 4 years)",
-          "Indicative total fee: ₹2,00,000; roughly ₹50,000 per semester before discount",
-          "EMI: 0% interest plans, commonly ₹6,500–₹8,500 per month depending on tenure",
+          "Indicative total fee: Rs. 2,00,000; roughly Rs. 50,000 per semester before discount",
+          "EMI: 0% interest plans, commonly Rs. 6,500–Rs. 8,500 per month depending on tenure",
           "Eligibility: bachelor's degree in any discipline, typically 50% aggregate (45% for reserved categories)",
           "Entrance exam: none",
         ],
@@ -963,7 +963,7 @@ export const blogs: BlogPost[] = [
       },
       {
         heading: "Placement support and outcomes",
-        body: "Online learners get access to LPU's Division of Career Services. The realistic picture: freshers with an online MBA typically enter at ₹3.5–6 LPA, while working professionals more often use the degree for an internal promotion or a switch that lifts their existing CTC by 20–40%.",
+        body: "Online learners get access to LPU's Division of Career Services. The realistic picture: freshers with an online MBA typically enter at Rs. 3.5–6 LPA, while working professionals more often use the degree for an internal promotion or a switch that lifts their existing CTC by 20–40%.",
         bullets: [
           "Resume and LinkedIn profile building workshops",
           "Mock interviews and group discussion practice",
@@ -982,7 +982,7 @@ export const blogs: BlogPost[] = [
       },
     ],
     faqs: [
-      { q: "What is the total LPU Online MBA fee in 2026?", a: "The indicative total programme fee is ₹2,00,000 for two years, before scholarships or early-bird discounts. All specializations are priced the same." },
+      { q: "What is the total LPU Online MBA fee in 2026?", a: "The indicative total programme fee is Rs. 2,00,000 for two years, before scholarships or early-bird discounts. All specializations are priced the same." },
       { q: "How many specializations does the LPU Online MBA offer?", a: "Eleven, including Finance, Marketing, HRM, Business Analytics, Data Science, Digital Marketing, IT, Operations, International Business, Logistics & Supply Chain and Healthcare Management." },
       { q: "Is the LPU Online MBA good for working professionals?", a: "Yes. Lectures are recorded, live sessions are scheduled outside standard work hours and exams are taken online from home." },
       { q: "Is there an entrance exam like CAT?", a: "No. Admission is based on your graduation marks; CAT/MAT scores are not required." },
@@ -1053,7 +1053,7 @@ export const blogs: BlogPost[] = [
       },
       {
         heading: "Online BBA fees to budget for",
-        body: "At LPU Online the indicative total BBA fee is ₹1,50,000 across three years — roughly ₹25,000 per semester. Add a one-time registration fee and per-semester examination fees. Compare this with ₹3–6 lakh for a comparable on-campus BBA plus living costs, and the online route saves both money and relocation.",
+        body: "At LPU Online the indicative total BBA fee is Rs. 1,50,000 across three years — roughly Rs. 25,000 per semester. Add a one-time registration fee and per-semester examination fees. Compare this with Rs. 3–6 lakh for a comparable on-campus BBA plus living costs, and the online route saves both money and relocation.",
       },
       {
         heading: "How to choose the right online BBA university",
@@ -1083,16 +1083,16 @@ export const blogs: BlogPost[] = [
   {
     slug: "lpu-online-bca-guide-2026",
     title: "LPU Online BCA 2026 — Fees, Syllabus, Eligibility & IT Career Scope",
-    description: "LPU Online BCA guide 2026 — ₹1,50,000 total fee, semester syllabus, programming languages covered, eligibility, admission steps and salary expectations.",
+    description: "LPU Online BCA guide 2026 — Rs. 1,50,000 total fee, semester syllabus, programming languages covered, eligibility, admission steps and salary expectations.",
     category: "Courses",
     readTime: "11 min read",
     date: "2026-02-08",
     featured: true,
     keyTakeaways: [
-      "LPU Online BCA: 3 years, indicative total fee ₹1,50,000 (~₹25,000 per semester).",
+      "LPU Online BCA: 3 years, indicative total fee Rs. 1,50,000 (~Rs. 25,000 per semester).",
       "Curriculum covers C, Python, Java, DBMS, web development, networking and cloud basics.",
       "Eligibility is 10+2 in any stream — Mathematics is preferred but not mandatory everywhere.",
-      "Natural progression is Online MCA (₹1,48,000) with Data Science, AI/ML or Cyber Security tracks.",
+      "Natural progression is Online MCA (Rs. 1,48,000) with Data Science, AI/ML or Cyber Security tracks.",
     ],
     content: [
       { body: "The Online BCA is LPU's undergraduate route into software and IT careers, and one of its most in-demand programs. It packs the same computing fundamentals as an on-campus BCA — programming, data structures, databases, web and networking — into a flexible online format you can study alongside a job, a freelance practice or self-taught coding work." },
@@ -1102,7 +1102,7 @@ export const blogs: BlogPost[] = [
         bullets: [
           "Program: Online Bachelor of Computer Applications (BCA)",
           "Duration: 3 years / 6 semesters",
-          "Indicative total fee: ₹1,50,000 (~₹25,000 per semester before discount)",
+          "Indicative total fee: Rs. 1,50,000 (~Rs. 25,000 per semester before discount)",
           "Eligibility: 10+2 from a recognised board; Mathematics or Computer Science at 12th is preferred",
           "Approval: UGC entitled; LPU is NAAC A++",
         ],
@@ -1134,17 +1134,17 @@ export const blogs: BlogPost[] = [
         heading: "Career scope and salary after BCA",
         body: "BCA is a genuine entry ticket into IT services and product startups, provided you build a portfolio alongside the degree.",
         bullets: [
-          "Software Developer / Junior Developer — ₹3–6 LPA to start",
-          "Web Developer / Front-end Developer — ₹3–5.5 LPA",
-          "Data Analyst — ₹3.5–6 LPA",
-          "Quality Assurance / Test Engineer — ₹3–5 LPA",
-          "Technical Support and System Administrator roles — ₹2.5–4.5 LPA",
+          "Software Developer / Junior Developer — Rs. 3–6 LPA to start",
+          "Web Developer / Front-end Developer — Rs. 3–5.5 LPA",
+          "Data Analyst — Rs. 3.5–6 LPA",
+          "Quality Assurance / Test Engineer — Rs. 3–5 LPA",
+          "Technical Support and System Administrator roles — Rs. 2.5–4.5 LPA",
           "Freelance development and app building alongside study",
         ],
       },
       {
         heading: "BCA then MCA — the strongest path",
-        body: "An online BCA followed by LPU's Online MCA (₹1,48,000, two years, with Data Science, Machine Learning & AI, Cyber Security or Full Stack Web Development specializations) is the highest-return combination in this portfolio. Specialised MCA graduates in AI/ML and cyber security consistently command the top salary bands among LPU Online learners.",
+        body: "An online BCA followed by LPU's Online MCA (Rs. 1,48,000, two years, with Data Science, Machine Learning & AI, Cyber Security or Full Stack Web Development specializations) is the highest-return combination in this portfolio. Specialised MCA graduates in AI/ML and cyber security consistently command the top salary bands among LPU Online learners.",
       },
       {
         heading: "How to make an online BCA count",
@@ -1156,7 +1156,7 @@ export const blogs: BlogPost[] = [
       },
     ],
     faqs: [
-      { q: "What is the LPU Online BCA fee?", a: "The indicative total programme fee is ₹1,50,000 for three years, roughly ₹25,000 per semester before scholarships." },
+      { q: "What is the LPU Online BCA fee?", a: "The indicative total programme fee is Rs. 1,50,000 for three years, roughly Rs. 25,000 per semester before scholarships." },
       { q: "Do I need Mathematics in 12th for online BCA?", a: "Mathematics or Computer Science at 10+2 is preferred, but students from other streams are generally eligible; confirm during counseling." },
       { q: "Can I get an IT job with an online BCA?", a: "Yes. The degree is UGC entitled and accepted by IT employers. Your project portfolio and certifications strongly influence which offers you get." },
       { q: "Is there any practical or lab work?", a: "Yes. Programming assignments and project work are submitted through the LMS, using your own machine and cloud-based environments." },
@@ -1173,7 +1173,7 @@ export const blogs: BlogPost[] = [
     featured: true,
     keyTakeaways: [
       "LPU Online learners get career services: resume clinics, mock interviews and virtual recruitment drives.",
-      "Realistic fresher bands: MBA ₹3.5–6 LPA, MCA ₹4–8 LPA, BBA/BCA ₹2.5–5 LPA.",
+      "Realistic fresher bands: MBA Rs. 3.5–6 LPA, MCA Rs. 4–8 LPA, BBA/BCA Rs. 2.5–5 LPA.",
       "Working professionals more often gain internal promotions or 20–40% CTC jumps than fresh placements.",
       "No online university guarantees placement — support is assistance, not a job offer.",
     ],
@@ -1199,12 +1199,12 @@ export const blogs: BlogPost[] = [
         heading: "Realistic salary expectations by program",
         body: "Averages published by any university skew high. These are practical bands for online learners.",
         bullets: [
-          "Online MBA (fresher): ₹3.5–6 LPA; Business Analytics and Finance at the upper end",
+          "Online MBA (fresher): Rs. 3.5–6 LPA; Business Analytics and Finance at the upper end",
           "Online MBA (experienced): usually a 20–40% raise on existing CTC or an internal promotion",
-          "Online MCA: ₹4–8 LPA; AI/ML and Cyber Security specializations reach higher",
-          "Online BCA: ₹2.5–5 LPA, portfolio dependent",
-          "Online BBA: ₹2.5–4.5 LPA into sales, operations and HR executive roles",
-          "Online M.Com / MA: ₹2.5–4.5 LPA, plus strong government-exam eligibility",
+          "Online MCA: Rs. 4–8 LPA; AI/ML and Cyber Security specializations reach higher",
+          "Online BCA: Rs. 2.5–5 LPA, portfolio dependent",
+          "Online BBA: Rs. 2.5–4.5 LPA into sales, operations and HR executive roles",
+          "Online M.Com / MA: Rs. 2.5–4.5 LPA, plus strong government-exam eligibility",
         ],
       },
       {
@@ -1239,7 +1239,7 @@ export const blogs: BlogPost[] = [
     ],
     faqs: [
       { q: "Does LPU Online guarantee placement?", a: "No. LPU Online provides placement assistance — resume support, mock interviews, drives and a job portal — but no university can guarantee a job offer." },
-      { q: "What is the average salary after LPU Online MBA?", a: "Realistic fresher bands are ₹3.5–6 LPA. Working professionals more commonly see a 20–40% CTC increase or an internal promotion." },
+      { q: "What is the average salary after LPU Online MBA?", a: "Realistic fresher bands are Rs. 3.5–6 LPA. Working professionals more commonly see a 20–40% CTC increase or an internal promotion." },
       { q: "Can online learners attend campus placement drives?", a: "Online learners access virtual drives and the online-learner job portal; flagship on-campus drives are generally reserved for full-time campus students." },
       { q: "Which LPU Online program has the best placement outcomes?", a: "MCA with AI/ML, Data Science or Cyber Security specializations, followed by MBA in Business Analytics and Finance." },
       { q: "Is placement support available after graduation?", a: "Yes. Alumni retain access to the career portal and alumni network for referrals after completing the program." },

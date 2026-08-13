@@ -45,6 +45,7 @@ const WA_LINK = `https://wa.me/918770012496?text=${encodeURIComponent(WA_TEXT)}`
 
 /* ---------------- Smart CTA ---------------- */
 
+import { SectionNav } from "@/components/section-nav";
 export function SmartCTA({ title = "Get free counselling for LPU Online admission 2026" }: { title?: string }) {
   return (
     <section className="relative overflow-hidden py-8">
@@ -318,7 +319,7 @@ export function FeeEmiCalculator({ defaultSlug }: { defaultSlug?: string }) {
       sems,
     };
   }, [course, scholarship, months]);
-  const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+  const inr = (n: number) => `Rs. ${n.toLocaleString("en-IN")}`;
 
   return (
     <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
@@ -529,6 +530,8 @@ export function TopicalPageLayout({
             </div>
           </div>
         </section>
+
+        <SectionNav />
 
         {sections.map((s, i) => (
           <div key={s.heading}>

@@ -1,6 +1,7 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
 const lpuCertificate = { url: "/sample-degree.webp" };
+import { SectionNav } from "@/components/section-nav";
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
 import { useState, type ReactNode } from "react";
@@ -231,7 +232,7 @@ function CoursePage() {
                     {course.name}
                   </h1>
                   <p className="mt-1 text-sm text-muted-foreground sm:text-base">
-                    Lovely Professional University Online
+                    Lovely Professional University (LPU)
                   </p>
                 </div>
               </div>
@@ -274,20 +275,7 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* On-page navigation — one pillar page, every intent anchored */}
-        <nav aria-label="On this page" className="sticky top-0 z-30 border-y border-border bg-background/95 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3 sm:px-6 lg:px-8">
-            {PILLAR_SECTIONS.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="whitespace-nowrap rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-sm"
-              >
-                {s.label}
-              </a>
-            ))}
-          </div>
-        </nav>
+        <SectionNav items={PILLAR_SECTIONS.map((s) => ({ id: s.id, label: s.label }))} />
 
         {/* Specializations — 2-per-row grid with arrow navigation */}
         {course.specializations && course.specializations.length > 0 && (
@@ -568,8 +556,8 @@ function CoursePage() {
               {[
                 { v: "100%", l: "Placement Assistance" },
                 { v: "400+", l: "Hiring Partners" },
-                { v: "₹10L", l: "Highest Package" },
-                { v: "₹5L", l: "Average Package" },
+                { v: "Rs. 10L", l: "Highest Package" },
+                { v: "Rs. 5L", l: "Average Package" },
               ].map((s) => (
                 <div
                   key={s.l}
@@ -660,7 +648,7 @@ function CoursePage() {
                 <a href="#reviews" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</a>
                 <Link to="/lpu-online-courses" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">All courses</Link>
                 <Link to="/compare-universities" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Compare universities</Link>
-                <Link to="/best-online-$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
+                <Link to="/best-online/$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
                 <Link to="/blog" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Blog & guides</Link>
               </div>
             </div>

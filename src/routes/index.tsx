@@ -35,18 +35,19 @@ import {
   StickyActionBar,
   PopularSearches,
 } from "@/components/site";
+import { SectionNav } from "@/components/section-nav";
 import { StudentToolsSection, StudentToolsHost } from "@/components/topical";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LPU Online - Avedu | UGC-Entitled Online Degrees" },
+      { title: "LPU Online 2026 — Admission, Fees, Courses & Reviews | LPUONLINE AVEDU" },
       {
         name: "description",
         content:
           "Apply for LPU Online admission 2026. UGC-entitled BBA, BCA, MBA, MCA and more from NAAC A++ Lovely Professional University. 100% online, EMI options, placement support.",
       },
-      { property: "og:title", content: "LPU Online - Avedu | Same Degree, Now Online" },
+      { property: "og:title", content: "LPU Online 2026 — Admission, Fees, Courses & Reviews" },
       {
         property: "og:description",
         content:
@@ -594,6 +595,7 @@ function LpuPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>
+        <SectionNav />
         <Hero />
         <RankingsCarousel />
         <Courses />
