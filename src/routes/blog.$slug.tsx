@@ -1,4 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { SectionNav } from "@/components/section-nav";
 import { SiteHeader, SiteFooter, Breadcrumb, StickyActionBar, LeadFormCompact, CounselingModal, useModalTrigger, SeoFaq, PopularSearches } from "@/components/site";
 import { blogs, findBlog } from "@/lib/blogs";
 import { lpu } from "@/lib/lpu";
@@ -92,6 +93,7 @@ function BlogPost() {
       <SiteHeader />
       <Breadcrumb items={[{ label: "Blog", to: "/blog" }, { label: post.title }]} />
       <main>
+        <SectionNav />
         <section
           className="py-12 sm:py-16"
           style={{ backgroundImage: "linear-gradient(135deg, color-mix(in oklab, var(--primary) 8%, transparent), transparent 60%)" }}

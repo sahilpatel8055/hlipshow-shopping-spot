@@ -594,6 +594,7 @@ function LpuPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>
+        <SectionNav />
         <Hero />
         <RankingsCarousel />
         <Courses />
