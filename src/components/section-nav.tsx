@@ -37,7 +37,7 @@ export function SectionNav({ items: explicit }: { items?: NavItem[] }) {
         if (!id || document.getElementById(id)) return;
         host.id = id;
       }
-      host.classList.add("scroll-mt-28");
+      host.classList.add("scroll-mt-40");
       if (!found.some((f) => f.id === id)) found.push({ id, label });
     });
     setItems(found.slice(0, 14));
@@ -49,7 +49,7 @@ export function SectionNav({ items: explicit }: { items?: NavItem[] }) {
       let current = items[0].id;
       for (const it of items) {
         const el = document.getElementById(it.id);
-        if (el && el.getBoundingClientRect().top - 120 <= 0) current = it.id;
+        if (el && el.getBoundingClientRect().top - 160 <= 0) current = it.id;
       }
       setActive(current);
     };
@@ -72,7 +72,7 @@ export function SectionNav({ items: explicit }: { items?: NavItem[] }) {
   return (
     <nav
       aria-label="On this page"
-      className="sticky top-0 z-30 border-y border-border/60 bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
+      className="sticky top-16 z-30 sm:top-20 border-y border-border/60 bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
     >
       <div
         ref={barRef}
@@ -92,7 +92,7 @@ export function SectionNav({ items: explicit }: { items?: NavItem[] }) {
                 e.preventDefault();
                 window.history.replaceState(null, "", `#${s.id}`);
                 window.scrollTo({
-                  top: el.getBoundingClientRect().top + window.scrollY - 100,
+                  top: el.getBoundingClientRect().top + window.scrollY - 150,
                   behavior: "smooth",
                 });
               }}
