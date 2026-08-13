@@ -5,7 +5,7 @@ import { comparisons } from "@/lib/comparisons";
 
 const CANONICAL = "https://lpuonline.avedu.in/blog";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "LPU Online Blog — Admission, Fees, Careers & Guides 2026" },
