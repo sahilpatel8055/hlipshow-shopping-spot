@@ -22,7 +22,7 @@ const providers = [
   { name: "Jain Online", rating: 4.2, note: "NAAC A++, career support" },
 ];
 
-export const Route = createFileRoute("/best-online-$program")({
+export const Route = createFileRoute("/best-online-{$program}")({
   loader: ({ params }) => {
     const course = findCourse(params.program);
     if (!course) throw notFound();
