@@ -24,6 +24,7 @@ const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
 
 type ModalCtx = { open: () => void };
 const modalCtx: { current: ModalCtx | null } = { current: null };
+import { SectionNav as SectionNavImpl } from "@/components/section-nav";
 export { SectionNav } from "@/components/section-nav";
 
 export const openModal = () => modalCtx.current?.open();
