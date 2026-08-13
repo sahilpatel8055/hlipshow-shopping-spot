@@ -24,6 +24,8 @@ const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
 
 type ModalCtx = { open: () => void };
 const modalCtx: { current: ModalCtx | null } = { current: null };
+export { SectionNav } from "@/components/section-nav";
+
 export const openModal = () => modalCtx.current?.open();
 
 const FILLED_KEY = "lpu_lead_filled";
@@ -572,10 +574,10 @@ export function SiteFooter() {
             <p className="text-sm font-bold text-foreground">Talk to us</p>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
               <li className="inline-flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" /> 1800-000-000
+                <a href={CALL_TEL} className="inline-flex items-center gap-2 hover:text-primary"><Phone className="h-4 w-4 text-primary" /> +91 87700 12496</a>
               </li>
               <li className="inline-flex items-center gap-2">
-                <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp counseling
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-primary"><MessageCircle className="h-4 w-4 text-primary" /> WhatsApp counselling — 87700 12496</a>
               </li>
             </ul>
           </div>
@@ -976,6 +978,8 @@ export function SeoPageLayout({
             </div>
           </div>
         </section>
+
+        <SectionNavImpl />
 
         {/* Sections with CTAs every 2 sections */}
         {sections.map((s, i) => (
