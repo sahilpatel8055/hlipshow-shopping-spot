@@ -648,7 +648,7 @@ function CoursePage() {
                 <a href="#reviews" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Reviews</a>
                 <Link to="/lpu-online-courses" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">All courses</Link>
                 <Link to="/compare-universities" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Compare universities</Link>
-                <Link to="/best-online-$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
+                <Link to="/best-online/$program" params={{ program: course.slug }} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Best online {course.name}</Link>
                 <Link to="/blog" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Blog & guides</Link>
               </div>
             </div>

@@ -24,6 +24,11 @@ export const Route = createFileRoute("/$")({
       });
     }
 
+    const bestMatch = /^best-online-(.+)$/.exec(raw);
+    if (bestMatch && allCourses.some((c) => c.slug === bestMatch[1])) {
+      throw redirect({ href: `/best-online/${bestMatch[1]}`, statusCode: 301, throw: true });
+    }
+
     const info = findInfoPage(raw);
     if (info) {
       const sections: Section[] =

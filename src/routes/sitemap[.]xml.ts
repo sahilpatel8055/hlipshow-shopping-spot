@@ -32,7 +32,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           ...infoPages.map((i) => `/${i.slug}`),
         ];
         const coursePaths = allCourses.map((c) => `/courses/${c.slug}`);
-        const bestPaths = allCourses.map((c) => `/best-online-${c.slug}`);
+        const bestPaths = allCourses.map((c) => `/best-online/${c.slug}`);
         const blogPaths = blogs.map((b) => `/blog/${b.slug}`);
         // Topic spokes (/lpu-online-{program}-{topic}) 301 to course pillar
         // pages and are intentionally excluded from the sitemap.

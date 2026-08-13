@@ -26,13 +26,13 @@ import { Route as FeesRouteImport } from './routes/fees'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
 import { Route as BlogRouteImport } from './routes/blog'
-import { Route as BestOnlineChar123programChar125RouteImport } from './routes/best-online-{$program}'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as CompareSlugRouteImport } from './routes/compare.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as BestOnlineProgramRouteImport } from './routes/best-online.$program'
 
 const TermsConditionsRoute = TermsConditionsRouteImport.update({
   id: '/terms-conditions',
@@ -120,12 +120,6 @@ const BlogRoute = BlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BestOnlineChar123programChar125Route =
-  BestOnlineChar123programChar125RouteImport.update({
-    id: '/best-online-{$program}',
-    path: '/best-online-{$program}',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const SplatRoute = SplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -156,11 +150,15 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
+  id: '/best-online/$program',
+  path: '/best-online/$program',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/best-online-{$program}': typeof BestOnlineChar123programChar125Route
   '/blog': typeof BlogRouteWithChildren
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -178,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
+  '/best-online/$program': typeof BestOnlineProgramRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/$slug': typeof CompareSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
@@ -186,7 +185,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/best-online-{$program}': typeof BestOnlineChar123programChar125Route
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
@@ -203,6 +201,7 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
+  '/best-online/$program': typeof BestOnlineProgramRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/$slug': typeof CompareSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
@@ -212,7 +211,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
-  '/best-online-{$program}': typeof BestOnlineChar123programChar125Route
   '/blog': typeof BlogRouteWithChildren
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -230,6 +228,7 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
+  '/best-online/$program': typeof BestOnlineProgramRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/compare/$slug': typeof CompareSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
@@ -240,7 +239,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$'
-    | '/best-online-{$program}'
     | '/blog'
     | '/compare-universities'
     | '/disclaimer'
@@ -258,6 +256,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
+    | '/best-online/$program'
     | '/blog/$slug'
     | '/compare/$slug'
     | '/courses/$slug'
@@ -266,7 +265,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/$'
-    | '/best-online-{$program}'
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
@@ -283,6 +281,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
+    | '/best-online/$program'
     | '/blog/$slug'
     | '/compare/$slug'
     | '/courses/$slug'
@@ -291,7 +290,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/$'
-    | '/best-online-{$program}'
     | '/blog'
     | '/compare-universities'
     | '/disclaimer'
@@ -309,6 +307,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
+    | '/best-online/$program'
     | '/blog/$slug'
     | '/compare/$slug'
     | '/courses/$slug'
@@ -318,7 +317,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
-  BestOnlineChar123programChar125Route: typeof BestOnlineChar123programChar125Route
   BlogRoute: typeof BlogRouteWithChildren
   CompareUniversitiesRoute: typeof CompareUniversitiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
@@ -336,6 +334,7 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsConditionsRoute: typeof TermsConditionsRoute
+  BestOnlineProgramRoute: typeof BestOnlineProgramRoute
   CompareSlugRoute: typeof CompareSlugRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
 }
@@ -461,13 +460,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/best-online-{$program}': {
-      id: '/best-online-{$program}'
-      path: '/best-online-{$program}'
-      fullPath: '/best-online-{$program}'
-      preLoaderRoute: typeof BestOnlineChar123programChar125RouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/$': {
       id: '/$'
       path: '/$'
@@ -510,6 +502,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/best-online/$program': {
+      id: '/best-online/$program'
+      path: '/best-online/$program'
+      fullPath: '/best-online/$program'
+      preLoaderRoute: typeof BestOnlineProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -528,7 +527,6 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
-  BestOnlineChar123programChar125Route: BestOnlineChar123programChar125Route,
   BlogRoute: BlogRouteWithChildren,
   CompareUniversitiesRoute: CompareUniversitiesRoute,
   DisclaimerRoute: DisclaimerRoute,
@@ -546,6 +544,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsConditionsRoute: TermsConditionsRoute,
+  BestOnlineProgramRoute: BestOnlineProgramRoute,
   CompareSlugRoute: CompareSlugRoute,
   CoursesSlugRoute: CoursesSlugRoute,
 }
