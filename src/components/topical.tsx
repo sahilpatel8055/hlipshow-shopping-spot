@@ -318,7 +318,7 @@ export function FeeEmiCalculator({ defaultSlug }: { defaultSlug?: string }) {
       sems,
     };
   }, [course, scholarship, months]);
-  const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+  const inr = (n: number) => `Rs. ${n.toLocaleString("en-IN")}`;
 
   return (
     <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">

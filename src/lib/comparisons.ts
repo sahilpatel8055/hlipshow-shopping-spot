@@ -26,8 +26,8 @@ export const comparisons: Comparison[] = [
     rows: [
       { label: "NAAC Grade", lpu: "A++", rival: "A+" },
       { label: "UGC-DEB Entitlement", lpu: "Yes", rival: "Yes" },
-      { label: "Online MBA Fee (Total)", lpu: "₹2,02,000 (₹1,61,600 after discount)", rival: "₹1,66,000 – ₹1,75,000" },
-      { label: "Online MCA Fee", lpu: "₹1,60,000 (₹1,29,600 after discount)", rival: "₹1,70,000+" },
+      { label: "Online MBA Fee (Total)", lpu: "Rs. 2,02,000 (Rs. 1,61,600 after discount)", rival: "Rs. 1,66,000 – Rs. 1,75,000" },
+      { label: "Online MCA Fee", lpu: "Rs. 1,60,000 (Rs. 1,29,600 after discount)", rival: "Rs. 1,70,000+" },
       { label: "MBA Specializations", lpu: "11", rival: "8–10" },
       { label: "EMI", lpu: "0% interest EMI", rival: "EMI available" },
       { label: "Placement Support", lpu: "Dedicated online cell, 400+ partners", rival: "Placement assistance portal" },
@@ -48,7 +48,7 @@ export const comparisons: Comparison[] = [
       "If cost-to-accreditation ratio matters most, LPU Online wins — NAAC A++ at a lower effective fee with more specializations. Manipal Online remains a solid alternative for candidates who value its legacy brand.",
     faqs: [
       { q: "Is LPU Online better than Manipal Online?", a: "LPU Online holds a higher NAAC grade (A++ vs A+) and offers a lower effective fee with more MBA specializations. Both are UGC-DEB entitled and valid for jobs and higher studies." },
-      { q: "Which is cheaper, LPU or Manipal online MBA?", a: "The LPU Online MBA at ₹1,61,600 after discount is generally cheaper than the comparable Manipal Online MBA." },
+      { q: "Which is cheaper, LPU or Manipal online MBA?", a: "The LPU Online MBA at Rs. 1,61,600 after discount is generally cheaper than the comparable Manipal Online MBA." },
     ],
   },
   {
@@ -62,8 +62,8 @@ export const comparisons: Comparison[] = [
     rows: [
       { label: "NAAC Grade", lpu: "A++", rival: "A+" },
       { label: "UGC-DEB Entitlement", lpu: "Yes", rival: "Yes" },
-      { label: "Online MBA Fee (Total)", lpu: "₹2,02,000 (₹1,61,600 after discount)", rival: "₹1,99,000 – ₹2,20,000" },
-      { label: "Online BBA Fee", lpu: "₹1,50,000 (₹1,22,400 after discount)", rival: "₹1,60,000+" },
+      { label: "Online MBA Fee (Total)", lpu: "Rs. 2,02,000 (Rs. 1,61,600 after discount)", rival: "Rs. 1,99,000 – Rs. 2,20,000" },
+      { label: "Online BBA Fee", lpu: "Rs. 1,50,000 (Rs. 1,22,400 after discount)", rival: "Rs. 1,60,000+" },
       { label: "MBA Specializations", lpu: "11", rival: "10+" },
       { label: "EMI", lpu: "0% interest EMI", rival: "EMI available" },
       { label: "Scholarships", lpu: "Merit up to 30%, defence, govt, sports, Divyaang", rival: "Merit and category scholarships" },
@@ -96,7 +96,7 @@ export const comparisons: Comparison[] = [
     rows: [
       { label: "NAAC Grade", lpu: "A++", rival: "A+" },
       { label: "UGC-DEB Entitlement", lpu: "Yes", rival: "Yes" },
-      { label: "Online MBA Fee (Total)", lpu: "₹2,02,000 (₹1,61,600 after discount)", rival: "₹1,60,000 – ₹1,80,000" },
+      { label: "Online MBA Fee (Total)", lpu: "Rs. 2,02,000 (Rs. 1,61,600 after discount)", rival: "Rs. 1,60,000 – Rs. 1,80,000" },
       { label: "Program Catalogue", lpu: "MBA, MCA, MA, M.Sc, M.Com, BBA, BCA, BA, B.Com", rival: "MBA, MCA, BBA, BCA, B.Com and select PG" },
       { label: "MBA Specializations", lpu: "11", rival: "8" },
       { label: "EMI", lpu: "0% interest EMI", rival: "EMI available" },
@@ -130,8 +130,8 @@ export const comparisons: Comparison[] = [
     rows: [
       { label: "NAAC Grade", lpu: "A++", rival: "A++" },
       { label: "UGC-DEB Entitlement", lpu: "Yes", rival: "Yes" },
-      { label: "Online MBA Fee (Total)", lpu: "₹2,02,000 (₹1,61,600 after discount)", rival: "₹1,80,000 – ₹2,00,000" },
-      { label: "Online BBA Fee", lpu: "₹1,50,000 (₹1,22,400 after discount)", rival: "₹1,50,000+" },
+      { label: "Online MBA Fee (Total)", lpu: "Rs. 2,02,000 (Rs. 1,61,600 after discount)", rival: "Rs. 1,80,000 – Rs. 2,00,000" },
+      { label: "Online BBA Fee", lpu: "Rs. 1,50,000 (Rs. 1,22,400 after discount)", rival: "Rs. 1,50,000+" },
       { label: "MBA Specializations", lpu: "11", rival: "10+ including dual specialization" },
       { label: "EMI", lpu: "0% interest EMI", rival: "EMI available" },
       { label: "Regional Strength", lpu: "Pan-India, strong in North & Central India", rival: "Strong in South India" },
@@ -164,7 +164,7 @@ export const comparisons: Comparison[] = [
     rows: [
       { label: "NAAC Grade", lpu: "A++", rival: "A++" },
       { label: "UGC-DEB Entitlement", lpu: "Yes", rival: "Yes" },
-      { label: "Online MBA Fee (Total)", lpu: "₹2,02,000 (₹1,61,600 after discount)", rival: "₹1,80,000 – ₹2,10,000" },
+      { label: "Online MBA Fee (Total)", lpu: "Rs. 2,02,000 (Rs. 1,61,600 after discount)", rival: "Rs. 1,80,000 – Rs. 2,10,000" },
       { label: "Standout Specializations", lpu: "Business Analytics, Data Science, Finance, Marketing", rival: "Hospital & Healthcare Management" },
       { label: "Program Catalogue", lpu: "9 UG and PG programs", rival: "Mainly MBA, MCA and BBA" },
       { label: "EMI", lpu: "0% interest EMI", rival: "EMI available" },
@@ -198,7 +198,7 @@ export const comparisons: Comparison[] = [
     rows: [
       { label: "NAAC Grade", lpu: "A++", rival: "A+" },
       { label: "UGC-DEB Entitlement", lpu: "Yes", rival: "Yes" },
-      { label: "Online MBA / PGDM Fee", lpu: "₹2,02,000 (₹1,61,600 after discount)", rival: "₹2,40,000 – ₹3,00,000+" },
+      { label: "Online MBA / PGDM Fee", lpu: "Rs. 2,02,000 (Rs. 1,61,600 after discount)", rival: "Rs. 2,40,000 – Rs. 3,00,000+" },
       { label: "Brand Perception (Management)", lpu: "Strong national", rival: "Premium, especially in Mumbai/BFSI" },
       { label: "MBA Specializations", lpu: "11", rival: "8–10" },
       { label: "EMI", lpu: "0% interest EMI", rival: "EMI available" },

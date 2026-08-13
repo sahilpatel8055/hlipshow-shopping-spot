@@ -568,8 +568,8 @@ function CoursePage() {
               {[
                 { v: "100%", l: "Placement Assistance" },
                 { v: "400+", l: "Hiring Partners" },
-                { v: "₹10L", l: "Highest Package" },
-                { v: "₹5L", l: "Average Package" },
+                { v: "Rs. 10L", l: "Highest Package" },
+                { v: "Rs. 5L", l: "Average Package" },
               ].map((s) => (
                 <div
                   key={s.l}

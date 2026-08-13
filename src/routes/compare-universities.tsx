@@ -21,7 +21,7 @@ const rows: { label: string; lpu: string; manipal: string; amity: string }[] = [
   { label: "NAAC Grade", lpu: "A++", manipal: "A+", amity: "A+" },
   { label: "UGC Entitlement", lpu: "Yes", manipal: "Yes", amity: "Yes" },
   { label: "NIRF Rank Band", lpu: "Top 50", manipal: "Top 100", amity: "Top 100" },
-  { label: "Online MBA Fee (Total)", lpu: "₹1,50,000", manipal: "₹1,66,000", amity: "₹2,00,000" },
+  { label: "Online MBA Fee (Total)", lpu: "Rs. 1,50,000", manipal: "Rs. 1,66,000", amity: "Rs. 2,00,000" },
   { label: "EMI Available", lpu: "0% EMI", manipal: "EMI", amity: "EMI" },
   { label: "Placement Cell", lpu: "Yes · Dedicated", manipal: "Yes", amity: "Yes" },
   { label: "LMS Access", lpu: "24×7", manipal: "24×7", amity: "24×7" },
