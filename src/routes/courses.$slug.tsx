@@ -196,7 +196,7 @@ function CoursePage() {
   const { open, setOpen } = useModalTrigger();
 
   const semesters = course.curriculum.map((y, i) => ({
-    label: `Semester ${i + 1}`,
+    label: y.year || `Semester ${i + 1}`,
     subjects: y.subjects,
   }));
   const [semIdx, setSemIdx] = useState(0);

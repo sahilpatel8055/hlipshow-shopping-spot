@@ -125,11 +125,14 @@ export const lpu = {
         reviews: 1240,
         tagline: "Bachelor of Business Administration — build a strong business foundation.",
         feesBreakdown: { fullFees: "Rs. 1,50,000", appliedFee: "Rs. 1,22,400", perSemester: "Rs. 20,400", emi: "Rs. 5,100/mo" },
-        curriculum: ugYears([
-          ["Principles of Management", "Business Communication", "Financial Accounting", "Microeconomics", "Business Mathematics"],
-          ["Marketing Management", "Human Resource Management", "Business Law", "Cost Accounting", "Organizational Behavior"],
-          ["Strategic Management", "Entrepreneurship", "Project Work"],
-        ]),
+        curriculum: [
+          { year: "Semester 1", subjects: ["Business Economics", "Business Environment", "Business Organisation and Management", "Office Automation Tools", "English Communication Skills"] },
+          { year: "Semester 2", subjects: ["Principles of Marketing", "Research Methodology", "Business Mathematics and Statistics", "Cost and Management Accounting", "Generic Elective I", "Community Development Project"] },
+          { year: "Semester 3", subjects: ["Business Ethics", "Human Resource Management", "Financial Accounting", "Environmental Sciences", "Advanced English Communication Skills"] },
+          { year: "Semester 4", subjects: ["Business Law", "Fundamentals of Financial Management", "Generic Elective II", "Skill Enhancement Course I", "Skill Enhancement Course II"] },
+          { year: "Semester 5", subjects: ["Discipline Specific Elective I", "Discipline Specific Elective II", "Generic Elective III", "Skill Enhancement Course III"] },
+          { year: "Semester 6", subjects: ["E-commerce", "Discipline Specific Elective III", "Discipline Specific Elective IV", "Generic Elective IV", "Skill Enhancement Course IV"] },
+        ],
         careers: defaultCareers,
       },
       {
@@ -143,11 +146,14 @@ export const lpu = {
         reviews: 1580,
         tagline: "Bachelor of Computer Applications — launch a career in tech.",
         feesBreakdown: { fullFees: "Rs. 1,50,000", appliedFee: "Rs. 1,22,400", perSemester: "Rs. 20,400", emi: "Rs. 5,100/mo" },
-        curriculum: ugYears([
-          ["Programming in C", "Digital Electronics", "Mathematics", "PC Software", "Communication Skills"],
-          ["Data Structures", "Operating Systems", "DBMS", "Web Technologies", "Java"],
-          ["Software Engineering", "Cloud Computing", "Capstone Project"],
-        ]),
+        curriculum: [
+          { year: "Semester 1", subjects: ["Introduction to Information Technology", "Digital Computer and Fundamentals", "Mathematics-I", "Communicative English", "Programming in C"] },
+          { year: "Semester 2", subjects: ["Discrete Mathematics", "Accounting and Financial Management", "Data Structure Using 'C' Lab", "Core Java", "Environmental Studies"] },
+          { year: "Semester 3", subjects: ["Management Information Systems", "Mathematics-III (Numerical Analysis)", "Operating Systems", "Computer Organization and Architecture", "Object-Oriented Programming in C++"] },
+          { year: "Semester 4", subjects: ["PC Applications and Internet Technology", "Database Management Systems", "Computer Networking", "Software Engineering", "Programming in Python"] },
+          { year: "Semester 5", subjects: ["Analysis and Design of Algorithms", "Computer Graphics", ".NET Technology", "Linux Administration", "Project-I"] },
+          { year: "Semester 6", subjects: ["IOT Based Application", "Web Development Using PHP", "Business Intelligence", "Project-II"] },
+        ],
         careers: techCareers,
       },
       {
@@ -213,10 +219,12 @@ export const lpu = {
         reviews: 2140,
         tagline: "Master of Business Administration — accelerate your leadership career.",
         feesBreakdown: { fullFees: "Rs. 2,00,000", appliedFee: "Rs. 1,61,600", perSemester: "Rs. 40,400", emi: "Rs. 6,733/mo" },
-        curriculum: pgYears([
-          ["Managerial Economics", "Financial Accounting", "Marketing Management", "Organizational Behaviour", "Business Statistics"],
-          ["Strategic Management", "Operations", "Business Research", "Specialization Electives", "Capstone Project"],
-        ]),
+        curriculum: [
+          { year: "Semester 1", subjects: ["Financial Reporting, Statements and Analysis", "Managerial Economics", "International Business Environment", "Marketing Management", "Organizational Behaviour & Human Resource Dynamics"] },
+          { year: "Semester 2", subjects: ["Corporate Finance", "Operations Management & Research", "Business Analytics", "Research Methodology", "Legal Aspects of Business", "Communication for Leaders"] },
+          { year: "Semester 3", subjects: ["Discipline Specific Elective I", "Discipline Specific Elective II", "Discipline Specific Elective III", "Seminar on Summer Training", "Generic Elective I"] },
+          { year: "Semester 4", subjects: ["Discipline Specific Elective IV", "Discipline Specific Elective V", "Discipline Specific Elective VI"] },
+        ],
         careers: defaultCareers,
       },
       {
@@ -237,10 +245,12 @@ export const lpu = {
         reviews: 1360,
         tagline: "Master of Computer Applications — go deep on modern software.",
         feesBreakdown: { fullFees: "Rs. 1,60,000", appliedFee: "Rs. 1,29,600", perSemester: "Rs. 32,400", emi: "Rs. 5,400/mo" },
-        curriculum: pgYears([
-          ["Advanced DBMS", "Object-Oriented Programming", "Data Structures & Algorithms", "Software Engineering"],
-          ["AI & Machine Learning", "Cloud Computing", "Specialization Electives", "Major Project"],
-        ]),
+        curriculum: [
+          { year: "Semester 1", subjects: ["Software Engineering Practices", "Object Oriented Programming using C++", "Data Warehousing and Data Mining", "Linux and Shell Scripting", "Data Communication and Networking", "Skill Enhancement Course I", "Programming in C (S/U)", "Database Management System (S/U)"] },
+          { year: "Semester 2", subjects: ["Programming in Java", "Advanced Data Structures", "Introduction to Big Data", "Cloud Computing", "Mathematical Foundation for Computer Science", "Web Technologies", "Skill Enhancement Course II"] },
+          { year: "Semester 3", subjects: ["Programming in Python", "Skill Enhancement Course III", "Discipline Specific Elective I", "Discipline Specific Elective II", "Generic Elective I", "Generic Elective II"] },
+          { year: "Semester 4", subjects: ["Skill Enhancement Course IV", "Discipline Specific Elective III", "Discipline Specific Elective IV", "Generic Elective III", "Generic Elective IV", "Project Work"] },
+        ],
         careers: techCareers,
       },
       {
@@ -254,10 +264,12 @@ export const lpu = {
         reviews: 640,
         tagline: "Master of Commerce — advance in finance, taxation and analytics.",
         feesBreakdown: { fullFees: "Rs. 1,00,000", appliedFee: "Rs. 81,600", perSemester: "Rs. 20,400", emi: "Rs. 3,400/mo" },
-        curriculum: pgYears([
-          ["Advanced Financial Accounting", "Managerial Economics", "Corporate Law", "Business Research"],
-          ["Strategic Financial Management", "Taxation", "Electives", "Dissertation"],
-        ]),
+        curriculum: [
+          { year: "Semester 1", subjects: ["Managerial Economics", "Organizational Behaviour and Human Resource Dynamics", "Financial Reporting, Statements and Analysis", "Fundamental of Research", "Fundamentals of Information Technology"] },
+          { year: "Semester 2", subjects: ["Corporate Tax Structure and Planning", "Research Methodology", "International Business Environment", "Marketing Management", "Generic Elective I"] },
+          { year: "Semester 3", subjects: ["Corporate Strategy and Entrepreneurship", "Forensic Accounting and Fraud Examination", "International Banking and Forex Management", "International Accounting", "Generic Elective II"] },
+          { year: "Semester 4", subjects: ["Management Science", "International Financial Management", "Generic Elective III", "Generic Elective IV"] },
+        ],
         careers: commerceCareers,
       },
       {
@@ -272,10 +284,12 @@ export const lpu = {
         reviews: 420,
         tagline: "Master of Arts — an advanced humanities degree, 100% online.",
         feesBreakdown: { fullFees: "Rs. 80,000", appliedFee: "Rs. 65,600", perSemester: "Rs. 16,400", emi: "Rs. 3,644/mo" },
-        curriculum: pgYears([
-          ["Core Discipline I", "Core Discipline II", "Research Methods", "Communication"],
-          ["Advanced Electives", "Contemporary Studies", "Dissertation"],
-        ]),
+        curriculum: [
+          { year: "MA Economics", subjects: ["Microeconomics Theory and Analysis-I", "Macroeconomics Theory and Analysis-I", "Fundamentals of Information Technology", "Fundamental of Research", "Indian Economic Development", "Microeconomics Theory and Analysis-II", "Macroeconomics Theory and Analysis-II", "Mathematics for Economists", "Research Methodology", "International Economics", "Monetary Theory and Policy", "Environmental Economics", "Public Economics", "Economics of Development", "Dissertation"] },
+          { year: "MA History", subjects: ["History of India: Polity and Economy from 1200 AD to 1750 AD", "Fundamental of Research", "Fundamentals of Information Technology", "Society and Culture of India 1200 AD-1750 AD", "History of India from 650-1200 AD", "History of India 1858-1964 AD", "Teaching Aptitude", "Women in Indian History", "Economic History of India from 1757 AD to 1947 AD", "History of Modern Europe", "Twentieth Century World", "Dissertation"] },
+          { year: "MA English", subjects: ["Academic English", "British Drama", "British Poetry", "Fundamental of Research", "Fundamentals of Information Technology", "British Fiction", "Literary Criticism", "Introduction to the Study of Language", "Teaching Aptitude", "Discursive Prose", "Post-Independence Indian Literature", "Literary Theory", "Post World War II Postcolonial Literatures and Cultural Studies", "Dissertation"] },
+          { year: "MA Sociology", subjects: ["Classical Sociological Tradition", "Fundamentals of Sociology", "Science, Technology and Society", "Fundamental of Research", "Fundamentals of Information Technology", "Globalisation and Society", "Methodology of Social Research", "Criminal Justice and Correctional Management", "Teaching Aptitude", "Gender and Society", "Sociology of Kinship, Family and Marriage", "Sociology of Demography", "Sociology of Health", "Dissertation"] },
+        ],
         careers: artsCareers,
       },
       {
@@ -290,10 +304,16 @@ export const lpu = {
         reviews: 380,
         tagline: "Master of Science — build deep analytical and quantitative expertise.",
         feesBreakdown: { fullFees: "Rs. 1,00,000", appliedFee: "Rs. 81,600", perSemester: "Rs. 20,400", emi: "Rs. 3,400/mo" },
-        curriculum: pgYears([
-          ["Advanced Calculus / Microeconomics", "Linear Algebra / Macroeconomics", "Probability & Statistics", "Research Methods"],
-          ["Specialization Electives", "Computational Methods", "Dissertation"],
-        ]),
+        curriculum: [
+          { year: "M.Sc Maths — Semester 1", subjects: ["Real Analysis-I", "Advanced Abstract Algebra-I", "Theory of Differential Equations", "Fundamentals of Research", "Fundamentals of Information Technology"] },
+          { year: "M.Sc Maths — Semester 2", subjects: ["Real Analysis-II", "Advanced Abstract Algebra-II", "Research Methods and Design", "Complex Analysis-I", "Calculus of Variation and Integral Equation", "Generic Elective I"] },
+          { year: "M.Sc Maths — Semester 3", subjects: ["Partial Differential Equations", "Complex Analysis-II", "Topology", "Generic Elective II", "Generic Elective III", "Term Paper"] },
+          { year: "M.Sc Maths — Semester 4", subjects: ["Mechanics", "Functional Analysis", "Dissertation", "Generic Elective IV"] },
+          { year: "M.Sc Economics — Semester 1", subjects: ["Microeconomics Theory and Analysis-I", "Macroeconomics Theory and Analysis-I", "Fundamentals of Information Technology", "Indian Economic Development", "Fundamental of Research"] },
+          { year: "M.Sc Economics — Semester 2", subjects: ["Microeconomics Theory and Analysis-II", "Macroeconomics Theory and Analysis-II", "Mathematics for Economists", "Generic Elective I", "Research Methodology"] },
+          { year: "M.Sc Economics — Semester 3", subjects: ["International Economics", "Environmental Economics", "Monetary Theory and Policy", "Public Economics", "Generic Elective II", "Term Paper"] },
+          { year: "M.Sc Economics — Semester 4", subjects: ["Economics of Development", "Trade and Development", "Generic Elective III", "Generic Elective IV", "Dissertation"] },
+        ],
         careers: scienceCareers,
       },
     ] as Course[],

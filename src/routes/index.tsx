@@ -35,13 +35,12 @@ import {
   StickyActionBar,
   PopularSearches,
 } from "@/components/site";
-import { SectionNav } from "@/components/section-nav";
 import { StudentToolsSection, StudentToolsHost } from "@/components/topical";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LPU Online 2026 — Admission, Fees, Courses & Reviews | LPUONLINE AVEDU" },
+      { title: "LPU Online 2026 — Admission, Fees, Courses & Reviews" },
       {
         name: "description",
         content:
@@ -595,7 +594,6 @@ function LpuPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>
-        <SectionNav />
         <Hero />
         <RankingsCarousel />
         <Courses />

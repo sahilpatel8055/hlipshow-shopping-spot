@@ -27,10 +27,10 @@ export const Route = createFileRoute("/blog/$slug")({
             description: p.description,
             datePublished: p.date,
             dateModified: p.date,
-            author: { "@type": "Organization", name: "LPU Online - Avedu" },
+            author: { "@type": "Organization", name: "LPU Online" },
             publisher: {
               "@type": "Organization",
-              name: "LPU Online - Avedu",
+              name: "LPU Online",
               logo: { "@type": "ImageObject", url: "https://lpuonline.avedu.in/lpu-logo.png" },
             },
             mainEntityOfPage: url,
