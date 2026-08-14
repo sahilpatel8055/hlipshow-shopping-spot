@@ -1245,6 +1245,471 @@ export const blogs: BlogPost[] = [
       { q: "Is placement support available after graduation?", a: "Yes. Alumni retain access to the career portal and alumni network for referrals after completing the program." },
     ],
   },
+  {
+    "slug": "lpu-online-mca-review-2026",
+    "title": "LPU Online MCA Review 2026 — Is It Good or Bad? Fees, Syllabus & Jobs",
+    "description": "Honest LPU Online MCA review for 2026: semester-wise syllabus, specializations, real fees and EMI, LMS and exam experience, placement outcomes and who should avoid it.",
+    "category": "Review",
+    "readTime": "10 min read",
+    "date": "2026-04-02",
+    "keyTakeaways": [
+      "UGC-DEB entitled MCA from a NAAC A++ university — valid for IT jobs, PSUs and PhD.",
+      "Total fee Rs. 1,62,000, applied fee Rs. 1,29,600, EMI from about Rs. 5,400 per month.",
+      "Specializations: Data Science, Full Stack Development, Machine Learning & AI, Cyber Security, AR/VR.",
+      "Best for working IT professionals and BCA/B.Sc IT graduates who want a master's without quitting a job."
+    ],
+    "content": [
+      {
+        "body": "The LPU Online MCA is one of the few UGC-entitled online master's programs in computer applications that carries a NAAC A++ brand at a mid-range fee. This review covers the syllabus, the actual money you pay, how classes and exams work, and the kind of jobs graduates realistically land in 2026."
+      },
+      {
+        "heading": "Programme at a glance",
+        "body": "A 2-year, 4-semester fully online master's degree. Semesters 1 and 2 build core software, data and networking foundations; semesters 3 and 4 move into your specialization electives and a project.",
+        "bullets": [
+          "Duration: 2 years / 4 semesters",
+          "Mode: recorded lectures + live weekend sessions",
+          "Assessment: internal assessment + online proctored end-term exams",
+          "Eligibility: Bachelor's degree with Mathematics at 10+2 or graduation level, 50% marks"
+        ]
+      },
+      {
+        "heading": "Syllabus — what you actually study",
+        "body": "The curriculum stays close to industry stacks rather than pure theory.",
+        "bullets": [
+          "Semester 1: Software Engineering Practices, OOP using C++, Data Warehousing & Data Mining, Linux and Shell Scripting, Data Communication and Networking",
+          "Semester 2: Programming in Java, Advanced Data Structures, Introduction to Big Data, Cloud Computing, Web Technologies",
+          "Semester 3: Programming in Python, discipline electives and generic electives",
+          "Semester 4: Skill enhancement, discipline electives and Project Work"
+        ]
+      },
+      {
+        "heading": "Specializations that pay in 2026",
+        "body": "Data Science and Full Stack Development attract the most hiring interest, followed by Cyber Security. AR/VR is niche but useful if you already work in gaming or simulation.",
+        "bullets": [
+          "Data Science — analyst, ML support, BI roles",
+          "Full Stack Development — MERN/Java stack developer roles",
+          "Machine Learning & AI — model support and AI engineering roles",
+          "Cyber Security — SOC analyst, security engineer",
+          "AR/VR (Game Development) — niche studio and simulation roles"
+        ]
+      },
+      {
+        "heading": "Fees and EMI",
+        "body": "Published fee is Rs. 1,62,000 for the full programme. The applied fee after the running discount is Rs. 1,29,600 — roughly Rs. 32,400 per semester, or 0% interest EMI from about Rs. 5,400 a month. Merit, defence and Divyaang scholarships can reduce it further."
+      },
+      {
+        "heading": "Classes, LMS and exams",
+        "body": "Everything runs through the LMS: recorded lectures, e-books, practice sets and discussion boards. Live sessions are weekend-heavy and recorded. End-term exams are online and remotely proctored, so you never travel to a centre. The practical labs are self-paced, which is fine if you already code daily and harder if you are switching into tech from scratch."
+      },
+      {
+        "heading": "Placements — the honest picture",
+        "body": "LPU's online placement cell offers resume reviews, mock interviews and job alerts, with hiring partners across IT services and product companies. Freshers typically start in the Rs. 3.5–6 LPA band; experienced candidates use the degree for internal promotions and role changes rather than fresh placement."
+      },
+      {
+        "heading": "Good or bad? The verdict",
+        "body": "Good if you are working in IT, need a recognised master's for eligibility or promotion, and want flexible timings at a fair price. Not ideal if you want a campus cohort, on-site labs or guaranteed placement — an on-campus MCA suits that better."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is LPU Online MCA valid?",
+        "a": "Yes. It is UGC-DEB entitled and NAAC A++ accredited, so it is accepted for jobs, government roles and further study."
+      },
+      {
+        "q": "What is the LPU Online MCA fee in 2026?",
+        "a": "Total Rs. 1,62,000, applied fee Rs. 1,29,600, with EMI from about Rs. 5,400 per month."
+      },
+      {
+        "q": "Do I need Mathematics to apply?",
+        "a": "Yes, Mathematics at 10+2 or at graduation level is typically required for MCA admission."
+      },
+      {
+        "q": "Are the exams online?",
+        "a": "Yes, end-term exams are conducted online with remote proctoring."
+      }
+    ]
+  },
+  {
+    "slug": "lpu-online-bba-review-2026",
+    "title": "LPU Online BBA Review 2026 — Good or Bad? Fees, Syllabus & Career Scope",
+    "description": "A full LPU Online BBA review for 2026: six-semester syllabus, fee structure and EMI, class experience, career options after BBA and whether it is worth it.",
+    "category": "Review",
+    "readTime": "9 min read",
+    "date": "2026-04-04",
+    "keyTakeaways": [
+      "3-year UGC-entitled BBA, valid for MBA admission and government exams.",
+      "Total fee Rs. 1,50,000, applied fee Rs. 1,22,400, EMI from about Rs. 5,100 per month.",
+      "Six semesters covering management, marketing, finance, HR and electives.",
+      "Best for 12th-pass students who are working, running a family business or preparing for competitive exams."
+    ],
+    "content": [
+      {
+        "body": "An online BBA only makes sense if the degree is recognised and the syllabus is current. LPU Online scores on both, but it is not the right pick for every student. Here is the detailed breakdown."
+      },
+      {
+        "heading": "Programme at a glance",
+        "body": "3 years across 6 semesters, fully online, with no attendance requirement at campus.",
+        "bullets": [
+          "Eligibility: 10+2 from a recognised board with 50% marks (45% for reserved categories)",
+          "Mode: recorded lectures with live doubt sessions",
+          "Exams: online, remotely proctored",
+          "Degree: same BBA degree as the on-campus program"
+        ]
+      },
+      {
+        "heading": "Semester-wise syllabus",
+        "body": "The structure moves from broad business foundations to electives and a community project.",
+        "bullets": [
+          "Semester 1: Business Economics, Business Environment, Business Organisation and Management, Office Automation Tools, English Communication Skills",
+          "Semester 2: Principles of Marketing, Research Methodology, Business Mathematics and Statistics, Cost and Management Accounting, Community Development Project",
+          "Semester 3: Business Ethics, Human Resource Management, Financial Accounting, Environmental Sciences",
+          "Semester 4: Business Law, Fundamentals of Financial Management, Skill Enhancement Courses",
+          "Semester 5 and 6: Discipline specific electives, Generic electives and E-commerce"
+        ]
+      },
+      {
+        "heading": "Fees and payment options",
+        "body": "Full fee Rs. 1,50,000, applied fee Rs. 1,22,400 — about Rs. 20,400 per semester or 0% EMI from roughly Rs. 5,100 per month. LMS access, e-books and online exams are included; there are no separate lab or campus charges."
+      },
+      {
+        "heading": "What the learning experience feels like",
+        "body": "Content is bite-sized and mobile friendly, which suits students who study between shifts. Live sessions are optional but recommended for finance and accounting subjects. Self-discipline matters more than in a classroom — students who schedule two study slots a week finish comfortably."
+      },
+      {
+        "heading": "Career scope after an online BBA",
+        "body": "Most graduates use the BBA either as a stepping stone to an MBA or to move into structured corporate roles.",
+        "bullets": [
+          "Business development and sales executive",
+          "Marketing and social media coordinator",
+          "HR and recruitment associate",
+          "Operations and supply chain executive",
+          "Family business management or entrepreneurship",
+          "MBA admission and competitive exams"
+        ]
+      },
+      {
+        "heading": "Verdict",
+        "body": "Good value for working students and 12th-pass learners who need a recognised degree with flexibility. If you want campus placements, internships and college life, choose a regular BBA instead."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is an online BBA accepted for MBA admission?",
+        "a": "Yes. A UGC-entitled online BBA is accepted for MBA admission in Indian and most foreign universities."
+      },
+      {
+        "q": "What is the LPU Online BBA fee?",
+        "a": "Rs. 1,50,000 total, currently Rs. 1,22,400 after discount, with EMI options."
+      },
+      {
+        "q": "How long is the BBA?",
+        "a": "3 years across 6 semesters, with a flexible completion window."
+      },
+      {
+        "q": "Do employers accept online BBA degrees?",
+        "a": "Yes, as the degree is UGC-DEB entitled and identical in title to the on-campus degree."
+      }
+    ]
+  },
+  {
+    "slug": "lpu-online-bca-review-2026",
+    "title": "LPU Online BCA Review 2026 — Good or Bad? Syllabus, Fees & IT Jobs",
+    "description": "LPU Online BCA review 2026 covering the six-semester syllabus, coding practice, fee structure and EMI, exam format, IT job prospects and who should not enrol.",
+    "category": "Review",
+    "readTime": "9 min read",
+    "date": "2026-04-06",
+    "keyTakeaways": [
+      "UGC-entitled 3-year BCA accepted for MCA admission and IT jobs.",
+      "Total fee Rs. 1,50,000, applied fee Rs. 1,22,400, EMI from about Rs. 5,100 per month.",
+      "Syllabus covers C, Java, Python, DBMS, networking, PHP and two projects.",
+      "Suits self-driven learners who will practise coding outside the recorded lectures."
+    ],
+    "content": [
+      {
+        "body": "An online BCA can genuinely start an IT career — but only if you treat the recorded lectures as the floor, not the ceiling. This review breaks down what LPU Online delivers and what you must add yourself."
+      },
+      {
+        "heading": "Programme at a glance",
+        "body": "3 years, 6 semesters, 100% online with proctored online exams and no campus visits.",
+        "bullets": [
+          "Eligibility: 10+2 in any stream with 50% marks (45% for reserved categories)",
+          "Mode: recorded lectures, live sessions and LMS practice sets",
+          "Projects: Project-I in semester 5 and Project-II in semester 6"
+        ]
+      },
+      {
+        "heading": "Semester-wise syllabus",
+        "body": "The stack is broad and progresses from fundamentals to applied development.",
+        "bullets": [
+          "Semester 1: Introduction to Information Technology, Digital Computer and Fundamentals, Mathematics-I, Communicative English, Programming in C",
+          "Semester 2: Discrete Mathematics, Accounting and Financial Management, Data Structures using C, Core Java, Environmental Studies",
+          "Semester 3: Management Information Systems, Numerical Analysis, Operating Systems, Computer Organization and Architecture, C++",
+          "Semester 4: Internet Technology, DBMS, Computer Networking, Software Engineering, Programming in Python",
+          "Semester 5: Analysis and Design of Algorithms, Computer Graphics, .NET, Linux Administration, Project-I",
+          "Semester 6: IoT Based Application, Web Development using PHP, Business Intelligence, Project-II"
+        ]
+      },
+      {
+        "heading": "Fees and EMI",
+        "body": "Rs. 1,50,000 in total, applied fee Rs. 1,22,400, about Rs. 20,400 per semester, or 0% interest EMI from roughly Rs. 5,100 a month. Scholarships apply for merit, defence and Divyaang categories."
+      },
+      {
+        "heading": "How to make this degree actually pay",
+        "body": "The syllabus gives you the theory; hiring is decided by what you build.",
+        "bullets": [
+          "Push every subject into a small project — a CRUD app after DBMS, an API after Java",
+          "Keep a public GitHub profile from semester 2 onwards",
+          "Add one industry certification (cloud or data) alongside the degree",
+          "Practise DSA weekly rather than only before exams"
+        ]
+      },
+      {
+        "heading": "Job prospects after online BCA",
+        "body": "Entry roles typically land in the Rs. 3–6 LPA band: junior developer, support engineer, QA analyst, data entry to data analyst transitions and web developer. Graduates who build a portfolio move up considerably faster than those who only clear exams."
+      },
+      {
+        "heading": "Verdict",
+        "body": "Good if you are disciplined, already working, or cannot attend a campus. Bad if you expect the degree alone to place you — online BCA rewards portfolio builders."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is LPU Online BCA valid for MCA admission?",
+        "a": "Yes, the UGC-entitled online BCA is accepted for MCA admission in Indian universities."
+      },
+      {
+        "q": "What is the BCA fee at LPU Online?",
+        "a": "Rs. 1,50,000 total, currently Rs. 1,22,400 after discount, payable per semester or on EMI."
+      },
+      {
+        "q": "Are there practical labs?",
+        "a": "Lab work is self-paced through assignments and two projects, submitted online."
+      },
+      {
+        "q": "Can I get an IT job with an online BCA?",
+        "a": "Yes, especially with a project portfolio and one relevant certification."
+      }
+    ]
+  },
+  {
+    "slug": "lpu-online-ma-review-2026",
+    "title": "LPU Online MA Review 2026 — Specializations, Syllabus, Fees & Careers",
+    "description": "LPU Online MA review 2026: English, History, Economics and Sociology syllabus, fee structure and EMI, dissertation, teaching career scope and UGC NET eligibility.",
+    "category": "Review",
+    "readTime": "8 min read",
+    "date": "2026-04-08",
+    "keyTakeaways": [
+      "Four specializations — Economics, History, English and Sociology.",
+      "Total fee Rs. 80,000, applied fee Rs. 65,600, EMI from about Rs. 3,644 per month.",
+      "UGC-entitled, so it is valid for UGC NET, B.Ed and PhD eligibility.",
+      "Includes a dissertation, which matters if you plan to move into research or teaching."
+    ],
+    "content": [
+      {
+        "body": "The LPU Online MA is one of the most affordable UGC-entitled master's degrees for humanities students, and it is built for people who are already working or preparing for competitive exams."
+      },
+      {
+        "heading": "Specializations offered",
+        "body": "Each stream has its own subject list culminating in a dissertation.",
+        "bullets": [
+          "MA Economics — micro, macro, mathematics for economists, international economics, public economics, development economics",
+          "MA History — India 650–1964 AD, society and culture, women in Indian history, economic history, modern Europe, twentieth century world",
+          "MA English — British drama, poetry and fiction, literary criticism, linguistics, post-independence Indian literature, postcolonial studies",
+          "MA Sociology — classical sociological tradition, social research methodology, gender and society, kinship and family, demography, sociology of health"
+        ]
+      },
+      {
+        "heading": "Programme structure",
+        "body": "2 years across 4 semesters, fully online, with a dissertation in the final semester. Every stream includes Fundamentals of Research and Fundamentals of Information Technology, and Teaching Aptitude appears in the humanities streams — useful if UGC NET is your goal."
+      },
+      {
+        "heading": "Fees",
+        "body": "Full fee Rs. 80,000, applied fee Rs. 65,600 — roughly Rs. 16,400 per semester or EMI from about Rs. 3,644 per month. This makes it one of the cheapest recognised online master's options in India."
+      },
+      {
+        "heading": "Career scope",
+        "body": "Most learners use the MA for eligibility rather than direct placement.",
+        "bullets": [
+          "UGC NET / JRF and college lecturer eligibility",
+          "B.Ed and school teaching roles",
+          "Content writing, editing and publishing",
+          "Civil services and state PSC preparation",
+          "Research assistant and policy roles (Economics, Sociology)",
+          "HR, CSR and NGO programme roles"
+        ]
+      },
+      {
+        "heading": "Verdict",
+        "body": "Good if you need a recognised master's for teaching eligibility, exam preparation or a career shift into content and research, at a low cost. Less useful if you want corporate placement — an MBA or M.Com fits that better."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is an online MA valid for UGC NET?",
+        "a": "Yes, a UGC-entitled online MA is accepted for UGC NET and for PhD eligibility."
+      },
+      {
+        "q": "Which MA specializations does LPU Online offer?",
+        "a": "Economics, History, English and Sociology."
+      },
+      {
+        "q": "What is the LPU Online MA fee?",
+        "a": "Rs. 80,000 total, currently Rs. 65,600 after discount."
+      },
+      {
+        "q": "Is a dissertation required?",
+        "a": "Yes, the final semester includes a dissertation submitted online."
+      }
+    ]
+  },
+  {
+    "slug": "lpu-online-mcom-review-2026",
+    "title": "LPU Online M.Com Review 2026 — Syllabus, Fees, Scope & Is It Worth It?",
+    "description": "LPU Online M.Com review 2026: semester-wise syllabus including forensic accounting and international finance, fees and EMI, career scope and comparison with an MBA Finance.",
+    "category": "Review",
+    "readTime": "8 min read",
+    "date": "2026-04-10",
+    "keyTakeaways": [
+      "2-year UGC-entitled M.Com with a finance and accounting focus.",
+      "Total fee Rs. 1,00,000, applied fee Rs. 81,600, EMI from about Rs. 3,400 per month.",
+      "Syllabus includes forensic accounting, corporate tax planning and international financial management.",
+      "Ideal for CA/CS aspirants, accountants and commerce graduates targeting teaching or banking."
+    ],
+    "content": [
+      {
+        "body": "For commerce graduates deciding between an M.Com and an MBA, the M.Com is the cheaper, more technical route — deeper on accounting and taxation, lighter on general management. Here is how LPU Online's version stacks up."
+      },
+      {
+        "heading": "Semester-wise syllabus",
+        "body": "Four semesters that stay close to professional accounting practice.",
+        "bullets": [
+          "Semester 1: Managerial Economics, Organizational Behaviour and Human Resource Dynamics, Financial Reporting Statements and Analysis, Fundamental of Research, Fundamentals of Information Technology",
+          "Semester 2: Corporate Tax Structure and Planning, Research Methodology, International Business Environment, Marketing Management, Generic Elective I",
+          "Semester 3: Corporate Strategy and Entrepreneurship, Forensic Accounting and Fraud Examination, International Banking and Forex Management, International Accounting, Generic Elective II",
+          "Semester 4: Management Science, International Financial Management, Generic Electives III and IV"
+        ]
+      },
+      {
+        "heading": "Fees",
+        "body": "Rs. 1,00,000 total, applied fee Rs. 81,600 — about Rs. 20,400 per semester or 0% EMI from roughly Rs. 3,400 a month. Working accountants often finish it entirely on EMI without touching savings."
+      },
+      {
+        "heading": "Career scope after M.Com",
+        "body": "The degree supports both employment and eligibility goals.",
+        "bullets": [
+          "Accountant, senior accountant and finance executive roles",
+          "Taxation and GST consulting",
+          "Audit and forensic accounting support roles",
+          "Banking and financial services officer roles",
+          "UGC NET Commerce and college lecturer eligibility",
+          "A strong complement while pursuing CA, CS or CMA"
+        ]
+      },
+      {
+        "heading": "M.Com or MBA Finance?",
+        "body": "Choose the M.Com if your work is technical — accounts, audit, tax, compliance — or if you want teaching eligibility. Choose an MBA Finance if you are aiming at managerial and business-partnering roles where breadth matters more than accounting depth."
+      },
+      {
+        "heading": "Verdict",
+        "body": "Worth it for commerce professionals who want depth, recognition and a low fee. Not the best pick if you want general management exposure or leadership roles."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is LPU Online M.Com UGC approved?",
+        "a": "Yes, it is UGC-DEB entitled and NAAC A++ accredited."
+      },
+      {
+        "q": "What is the M.Com fee?",
+        "a": "Rs. 1,00,000 total, currently Rs. 81,600 after discount."
+      },
+      {
+        "q": "Can I do M.Com along with CA?",
+        "a": "Yes, many students pair the online M.Com with CA/CS preparation because of the flexible schedule."
+      },
+      {
+        "q": "Is M.Com valid for UGC NET Commerce?",
+        "a": "Yes, it meets the eligibility requirement for UGC NET Commerce."
+      }
+    ]
+  },
+  {
+    "slug": "lpu-online-msc-review-2026",
+    "title": "LPU Online M.Sc Review 2026 — Maths & Economics Syllabus, Fees, Careers",
+    "description": "LPU Online M.Sc review 2026: Mathematics and Economics specialization syllabus, fees and EMI, dissertation requirements, analytics career paths and who it suits.",
+    "category": "Review",
+    "readTime": "8 min read",
+    "date": "2026-04-12",
+    "keyTakeaways": [
+      "Two specializations — M.Sc Mathematics and M.Sc Economics.",
+      "Total fee Rs. 1,00,000, applied fee Rs. 81,600, EMI from about Rs. 3,400 per month.",
+      "Rigorous quantitative syllabus with a dissertation in the final semester.",
+      "Strong feeder degree for data, analytics, actuarial and teaching careers."
+    ],
+    "content": [
+      {
+        "body": "The LPU Online M.Sc is the most quantitative option in the online portfolio. It is demanding — real analysis, topology and econometrics do not get easier online — but it opens analytics and academic doors that softer degrees do not."
+      },
+      {
+        "heading": "M.Sc Mathematics syllabus",
+        "body": "Four semesters of core pure and applied mathematics.",
+        "bullets": [
+          "Semester 1: Real Analysis-I, Advanced Abstract Algebra-I, Theory of Differential Equations, Fundamentals of Research, Fundamentals of Information Technology",
+          "Semester 2: Real Analysis-II, Advanced Abstract Algebra-II, Research Methods and Design, Complex Analysis-I, Calculus of Variation and Integral Equation",
+          "Semester 3: Partial Differential Equations, Complex Analysis-II, Topology, Generic Electives, Term Paper",
+          "Semester 4: Mechanics, Functional Analysis, Dissertation, Generic Elective IV"
+        ]
+      },
+      {
+        "heading": "M.Sc Economics syllabus",
+        "body": "A theory-plus-policy structure with quantitative depth.",
+        "bullets": [
+          "Semester 1: Microeconomics Theory and Analysis-I, Macroeconomics Theory and Analysis-I, Fundamentals of Information Technology, Indian Economic Development, Fundamental of Research",
+          "Semester 2: Microeconomics-II, Macroeconomics-II, Mathematics for Economists, Research Methodology, Generic Elective",
+          "Semester 3: International Economics, Environmental Economics, Monetary Theory and Policy, Public Economics, Term Paper",
+          "Semester 4: Economics of Development, Trade and Development, Generic Electives, Dissertation"
+        ]
+      },
+      {
+        "heading": "Fees",
+        "body": "Rs. 1,00,000 total, applied fee Rs. 81,600 — about Rs. 20,400 per semester or EMI from roughly Rs. 3,400 per month."
+      },
+      {
+        "heading": "Where the degree leads",
+        "body": "Quantitative master's degrees convert well into analytics roles when paired with a tool skill such as Python, R or SQL.",
+        "bullets": [
+          "Data analyst and data scientist tracks",
+          "Statistician and research analyst roles",
+          "Actuarial and quantitative analysis",
+          "Economist and policy research roles",
+          "UGC NET, PhD and college teaching",
+          "Banking and financial risk roles"
+        ]
+      },
+      {
+        "heading": "Verdict",
+        "body": "Excellent value if you enjoy mathematics or economics and want a recognised, low-cost master's while working. Avoid it if you dislike proof-heavy study — an MBA or M.Com will be a smoother path."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Which M.Sc specializations are available?",
+        "a": "Mathematics and Economics."
+      },
+      {
+        "q": "What is the LPU Online M.Sc fee?",
+        "a": "Rs. 1,00,000 total, currently Rs. 81,600 after discount."
+      },
+      {
+        "q": "Is a dissertation mandatory?",
+        "a": "Yes, both specializations require a dissertation in the final semester."
+      },
+      {
+        "q": "Is the online M.Sc valid for PhD?",
+        "a": "Yes, it is UGC-DEB entitled and accepted for PhD admission and UGC NET."
+      }
+    ]
+  },
 ];
 
 
