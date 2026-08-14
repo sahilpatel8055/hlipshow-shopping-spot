@@ -35,7 +35,6 @@ import {
   StickyActionBar,
   PopularSearches,
 } from "@/components/site";
-import { SectionNav } from "@/components/section-nav";
 import { StudentToolsSection, StudentToolsHost } from "@/components/topical";
 
 export const Route = createFileRoute("/")({
@@ -595,7 +594,6 @@ function LpuPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main>
-        <SectionNav />
         <Hero />
         <RankingsCarousel />
         <Courses />
