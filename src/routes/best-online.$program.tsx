@@ -1,4 +1,4 @@
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-router";
 import {
   SiteHeader,
   SiteFooter,
