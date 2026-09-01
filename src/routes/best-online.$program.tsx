@@ -24,18 +24,26 @@ const providers = [
 
 export const Route = createFileRoute("/best-online/$program")({
   loader: ({ params }) => {
+    const canonicalSlug = canonicalCourseSlug(params.program);
+    if (canonicalSlug) {
+      throw redirect({ href: `/best-online/${canonicalSlug}`, statusCode: 301, throw: true });
+    }
     const course = findCourse(params.program);
     if (!course) throw notFound();
     return { course };
   },
   head: ({ loaderData, params }) => {
     const c = loaderData?.course;
-    const title = c ? `Best Online ${c.name} 2026 — Top Universities Ranked` : "Best Online Program";
-    const desc = c ? `Ranked list of the best online ${c.name} programs in India 2026 — accreditation, fees, placements and student ratings.` : "";
+    const shortName = c ? c.name.replace(/^Online\s+/i, "") : "";
+    const title = c ? `Best Online ${shortName} 2026 — Top Universities Ranked` : "Best Online Program";
+    const desc = c ? `Ranked list of the best online ${shortName} programs in India 2026 — accreditation, fees, placements and student ratings.` : "";
     return {
       meta: [
         { title },
         { name: "description", content: desc },
+        // Templated comparison listing — keep out of the index so it never competes
+        // with the course pillar for generic "LPU Online <course>" queries.
+        { name: "robots", content: "noindex,follow" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:url", content: CANONICAL(params.program) },
@@ -47,7 +55,7 @@ export const Route = createFileRoute("/best-online/$program")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: `Best Online ${c.name} 2026`,
+          name: `Best Online ${shortName} 2026`,
           itemListElement: providers.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.name })),
         }),
       }] : [],
