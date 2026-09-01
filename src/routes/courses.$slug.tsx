@@ -1,5 +1,7 @@
 import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-router";
 import { findCourse, canonicalCourseSlug, allCourses, lpu, type Course } from "@/lib/lpu";
+import { getCourseSeo, coursePillarUrl } from "@/lib/course-seo";
+
 const lpuCertificate = { url: "/sample-degree.webp" };
 import { SectionNav } from "@/components/section-nav";
 import hiringPartners from "@/assets/hiring-partners.png";
@@ -81,43 +83,45 @@ export const Route = createFileRoute("/courses/$slug")({
   },
   head: ({ loaderData, params }) => {
     const c = loaderData?.course;
-    const title = c
-      ? `${c.name} — LPU Online | UGC Entitled Degree, Fees & Admission 2026`
-      : "Course — LPU Online";
-    const desc = c
-      ? `${c.tagline} 100% online, UGC-entitled, NAAC A++ university. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}. Apply for LPU Online admission 2026.`
-      : "Explore online degree programs from LPU Online.";
-    const canonical = `https://lpuonline.avedu.in/courses/${params.slug}`;
-    const courseSchema = c
-      ? {
-          "@context": "https://schema.org",
-          "@type": "Course",
-          name: c.name,
-          description: c.tagline,
-          provider: {
-            "@type": "CollegeOrUniversity",
-            name: "Lovely Professional University",
-            sameAs: "https://www.lpu.in/",
-          },
-          hasCourseInstance: {
-            "@type": "CourseInstance",
-            courseMode: "online",
-            courseWorkload: c.duration,
-          },
-          offers: {
-            "@type": "Offer",
-            price: c.feesBreakdown.fullFees.replace(/[^0-9]/g, ""),
-            priceCurrency: "INR",
-          },
-        }
-      : null;
+    const seo = c ? getCourseSeo(c.slug, c.name) : null;
+    const title = seo ? seo.title : "Course — LPU Online";
+    const desc = seo ? seo.description : "Explore online degree programs from LPU Online.";
+    const canonical = c
+      ? coursePillarUrl(c.slug)
+      : `https://lpuonline.avedu.in/courses/${params.slug}`;
+    const courseSchema =
+      c && seo
+        ? {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            name: seo.seoName,
+            description: seo.intro,
+            url: canonical,
+            provider: {
+              "@type": "CollegeOrUniversity",
+              name: "Lovely Professional University",
+              sameAs: "https://www.lpu.in/",
+            },
+            hasCourseInstance: {
+              "@type": "CourseInstance",
+              courseMode: "online",
+              courseWorkload: c.duration,
+            },
+            offers: {
+              "@type": "Offer",
+              price: c.feesBreakdown.fullFees.replace(/[^0-9]/g, ""),
+              priceCurrency: "INR",
+              url: canonical,
+            },
+          }
+        : null;
     const breadcrumbSchema = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://lpuonline.avedu.in/" },
-        { "@type": "ListItem", position: 2, name: "Courses", item: "https://lpuonline.avedu.in/lpu-online-courses" },
-        { "@type": "ListItem", position: 3, name: c ? c.name : "Course", item: canonical },
+        { "@type": "ListItem", position: 2, name: "Online Courses", item: "https://lpuonline.avedu.in/lpu-online-courses" },
+        { "@type": "ListItem", position: 3, name: seo ? seo.seoName : "Course", item: canonical },
       ],
     };
     const faqSchema = {
@@ -148,6 +152,7 @@ export const Route = createFileRoute("/courses/$slug")({
         { type: "application/ld+json", children: JSON.stringify(faqSchema) },
       ],
     };
+
 
   },
 
