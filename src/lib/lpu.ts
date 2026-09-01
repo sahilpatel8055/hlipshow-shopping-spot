@@ -349,20 +349,22 @@ export const lpu = {
 
 export const allCourses: Course[] = [...lpu.courses.pg, ...lpu.courses.ug];
 
-// Short-form aliases so /courses/mba, /courses/mca etc. also work for SEO.
-const slugAliases: Record<string, string> = {
-  mba: "online-mba",
-  mca: "online-mca",
-  bca: "online-bca",
-  bba: "online-bba",
-  ba: "online-ba",
-  bcom: "online-bcom",
-  mcom: "online-mcom",
-  ma: "online-ma",
-  msc: "online-msc",
+// Legacy slugs kept ONLY for 301 redirect handling. They must never render a page.
+export const legacyCourseSlugs: Record<string, string> = {
+  "online-mba": "mba",
+  "online-mca": "mca",
+  "online-bca": "bca",
+  "online-bba": "bba",
+  "online-ba": "ba",
+  "online-bcom": "bcom",
+  "online-mcom": "mcom",
+  "online-ma": "ma",
+  "online-msc": "msc",
 };
 
-export const findCourse = (slug: string): Course | undefined => {
-  const normalized = slugAliases[slug] ?? slug;
-  return allCourses.find((c) => c.slug === normalized);
-};
+/** Canonical SEO slug for a legacy/alias slug, or undefined when not legacy. */
+export const canonicalCourseSlug = (slug: string): string | undefined =>
+  legacyCourseSlugs[slug];
+
+export const findCourse = (slug: string): Course | undefined =>
+  allCourses.find((c) => c.slug === slug);
