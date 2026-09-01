@@ -66,11 +66,12 @@ export const Route = createFileRoute("/best-online/$program")({
 
 function Page() {
   const { course } = Route.useLoaderData();
+  const shortName = course.name.replace(/^Online\s+/i, "");
   const { open, setOpen } = useModalTrigger();
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <Breadcrumb items={[{ label: `Best Online ${course.name}` }]} />
+      <Breadcrumb items={[{ label: `Best Online ${shortName}` }]} />
       <main>
         <section
           className="py-12 sm:py-16"
@@ -78,8 +79,8 @@ function Page() {
         >
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
-              <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Best Online {course.name} 2026</h1>
-              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Compare the top online {course.name} programs in India ranked by accreditation, fees, placements and student ratings.</p>
+              <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Best Online {shortName} 2026</h1>
+              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Compare the top online {shortName} programs in India ranked by accreditation, fees, placements and student ratings.</p>
             </div>
             <div className="lg:sticky lg:top-24"><LeadFormCompact /></div>
           </div>
