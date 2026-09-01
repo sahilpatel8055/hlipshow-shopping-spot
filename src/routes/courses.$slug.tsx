@@ -1,5 +1,7 @@
 import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-router";
 import { findCourse, canonicalCourseSlug, allCourses, lpu, type Course } from "@/lib/lpu";
+import { getCourseSeo, coursePillarUrl } from "@/lib/course-seo";
+
 const lpuCertificate = { url: "/sample-degree.webp" };
 import { SectionNav } from "@/components/section-nav";
 import hiringPartners from "@/assets/hiring-partners.png";
