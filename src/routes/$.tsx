@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { TopicalPageLayout } from "@/components/topical";
-import { allCourses } from "@/lib/lpu";
+import { allCourses, canonicalCourseSlug } from "@/lib/lpu";
 import {
   SITE,
   LAST_UPDATED,
