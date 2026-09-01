@@ -10,7 +10,7 @@ import {
   SeoFaq,
   LeadFormCompact,
 } from "@/components/site";
-import { findCourse, lpu } from "@/lib/lpu";
+import { findCourse, canonicalCourseSlug, lpu } from "@/lib/lpu";
 import { Star } from "lucide-react";
 
 const CANONICAL = (slug: string) => `https://lpuonline.avedu.in/best-online/${slug}`;
