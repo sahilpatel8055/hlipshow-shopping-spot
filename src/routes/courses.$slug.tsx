@@ -1,5 +1,5 @@
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
+import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-router";
+import { findCourse, canonicalCourseSlug, allCourses, lpu, type Course } from "@/lib/lpu";
 const lpuCertificate = { url: "/sample-degree.webp" };
 import { SectionNav } from "@/components/section-nav";
 import hiringPartners from "@/assets/hiring-partners.png";
@@ -70,6 +70,11 @@ const PILLAR_SECTIONS: { id: string; label: string }[] = [
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
+    const canonicalSlug = canonicalCourseSlug(params.slug);
+    if (canonicalSlug) {
+      // Legacy /courses/online-* URLs are permanently merged into the short pillar URL.
+      throw redirect({ href: `/courses/${canonicalSlug}`, statusCode: 301, throw: true });
+    }
     const course = findCourse(params.slug);
     if (!course) throw notFound();
     return { course };

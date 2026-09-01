@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { TopicalPageLayout } from "@/components/topical";
-import { allCourses } from "@/lib/lpu";
+import { allCourses, canonicalCourseSlug } from "@/lib/lpu";
 import {
   SITE,
   LAST_UPDATED,
@@ -24,9 +24,22 @@ export const Route = createFileRoute("/$")({
       });
     }
 
+    // Duplicate-intent consolidation: near-identical pages 301 into one preferred URL.
+    const CONSOLIDATED: Record<string, string> = {
+      "lpu-online-fee-structure": "/lpu-online-fees",
+      "lpu-online-admission-process": "/lpu-online-admission",
+      fees: "/lpu-online-fees",
+    };
+    if (CONSOLIDATED[raw]) {
+      throw redirect({ href: CONSOLIDATED[raw], statusCode: 301, throw: true });
+    }
+
     const bestMatch = /^best-online-(.+)$/.exec(raw);
-    if (bestMatch && allCourses.some((c) => c.slug === bestMatch[1])) {
-      throw redirect({ href: `/best-online/${bestMatch[1]}`, statusCode: 301, throw: true });
+    if (bestMatch) {
+      const target = canonicalCourseSlug(bestMatch[1]) ?? bestMatch[1];
+      if (allCourses.some((c) => c.slug === target)) {
+        throw redirect({ href: `/best-online/${target}`, statusCode: 301, throw: true });
+      }
     }
 
     const info = findInfoPage(raw);

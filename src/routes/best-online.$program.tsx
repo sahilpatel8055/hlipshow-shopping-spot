@@ -1,4 +1,4 @@
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect, Link } from "@tanstack/react-router";
 import {
   SiteHeader,
   SiteFooter,
@@ -10,7 +10,7 @@ import {
   SeoFaq,
   LeadFormCompact,
 } from "@/components/site";
-import { findCourse, lpu } from "@/lib/lpu";
+import { findCourse, canonicalCourseSlug, lpu } from "@/lib/lpu";
 import { Star } from "lucide-react";
 
 const CANONICAL = (slug: string) => `https://lpuonline.avedu.in/best-online/${slug}`;
@@ -24,18 +24,26 @@ const providers = [
 
 export const Route = createFileRoute("/best-online/$program")({
   loader: ({ params }) => {
+    const canonicalSlug = canonicalCourseSlug(params.program);
+    if (canonicalSlug) {
+      throw redirect({ href: `/best-online/${canonicalSlug}`, statusCode: 301, throw: true });
+    }
     const course = findCourse(params.program);
     if (!course) throw notFound();
     return { course };
   },
   head: ({ loaderData, params }) => {
     const c = loaderData?.course;
-    const title = c ? `Best Online ${c.name} 2026 — Top Universities Ranked` : "Best Online Program";
-    const desc = c ? `Ranked list of the best online ${c.name} programs in India 2026 — accreditation, fees, placements and student ratings.` : "";
+    const shortName = c ? c.name.replace(/^Online\s+/i, "") : "";
+    const title = c ? `Best Online ${shortName} 2026 — Top Universities Ranked` : "Best Online Program";
+    const desc = c ? `Ranked list of the best online ${shortName} programs in India 2026 — accreditation, fees, placements and student ratings.` : "";
     return {
       meta: [
         { title },
         { name: "description", content: desc },
+        // Templated comparison listing — keep out of the index so it never competes
+        // with the course pillar for generic "LPU Online <course>" queries.
+        { name: "robots", content: "noindex,follow" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:url", content: CANONICAL(params.program) },
@@ -47,7 +55,7 @@ export const Route = createFileRoute("/best-online/$program")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: `Best Online ${c.name} 2026`,
+          name: `Best Online ${shortName} 2026`,
           itemListElement: providers.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.name })),
         }),
       }] : [],
@@ -58,11 +66,12 @@ export const Route = createFileRoute("/best-online/$program")({
 
 function Page() {
   const { course } = Route.useLoaderData();
+  const shortName = course.name.replace(/^Online\s+/i, "");
   const { open, setOpen } = useModalTrigger();
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <Breadcrumb items={[{ label: `Best Online ${course.name}` }]} />
+      <Breadcrumb items={[{ label: `Best Online ${shortName}` }]} />
       <main>
         <section
           className="py-12 sm:py-16"
@@ -70,8 +79,8 @@ function Page() {
         >
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
-              <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Best Online {course.name} 2026</h1>
-              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Compare the top online {course.name} programs in India ranked by accreditation, fees, placements and student ratings.</p>
+              <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Best Online {shortName} 2026</h1>
+              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Compare the top online {shortName} programs in India ranked by accreditation, fees, placements and student ratings.</p>
             </div>
             <div className="lg:sticky lg:top-24"><LeadFormCompact /></div>
           </div>

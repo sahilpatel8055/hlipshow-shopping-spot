@@ -115,7 +115,7 @@ export const lpu = {
   courses: {
     ug: [
       {
-        slug: "online-bba",
+        slug: "bba",
         name: "Online BBA",
         level: "ug",
         duration: "3 Years",
@@ -136,7 +136,7 @@ export const lpu = {
         careers: defaultCareers,
       },
       {
-        slug: "online-bca",
+        slug: "bca",
         name: "Online BCA",
         level: "ug",
         duration: "3 Years",
@@ -157,7 +157,7 @@ export const lpu = {
         careers: techCareers,
       },
       {
-        slug: "online-bcom",
+        slug: "bcom",
         name: "Online B.Com",
         level: "ug",
         duration: "3 Years",
@@ -176,7 +176,7 @@ export const lpu = {
         careers: commerceCareers,
       },
       {
-        slug: "online-ba",
+        slug: "ba",
         name: "Online BA",
         level: "ug",
         duration: "3 Years",
@@ -196,7 +196,7 @@ export const lpu = {
     ] as Course[],
     pg: [
       {
-        slug: "online-mba",
+        slug: "mba",
         name: "Online MBA",
         level: "pg",
         duration: "2 Years",
@@ -228,7 +228,7 @@ export const lpu = {
         careers: defaultCareers,
       },
       {
-        slug: "online-mca",
+        slug: "mca",
         name: "Online MCA",
         level: "pg",
         duration: "2 Years",
@@ -254,7 +254,7 @@ export const lpu = {
         careers: techCareers,
       },
       {
-        slug: "online-mcom",
+        slug: "mcom",
         name: "Online M.Com",
         level: "pg",
         duration: "2 Years",
@@ -273,7 +273,7 @@ export const lpu = {
         careers: commerceCareers,
       },
       {
-        slug: "online-ma",
+        slug: "ma",
         name: "Online MA",
         level: "pg",
         duration: "2 Years",
@@ -293,7 +293,7 @@ export const lpu = {
         careers: artsCareers,
       },
       {
-        slug: "online-msc",
+        slug: "msc",
         name: "Online M.Sc",
         level: "pg",
         duration: "2 Years",
@@ -349,20 +349,22 @@ export const lpu = {
 
 export const allCourses: Course[] = [...lpu.courses.pg, ...lpu.courses.ug];
 
-// Short-form aliases so /courses/mba, /courses/mca etc. also work for SEO.
-const slugAliases: Record<string, string> = {
-  mba: "online-mba",
-  mca: "online-mca",
-  bca: "online-bca",
-  bba: "online-bba",
-  ba: "online-ba",
-  bcom: "online-bcom",
-  mcom: "online-mcom",
-  ma: "online-ma",
-  msc: "online-msc",
+// Legacy slugs kept ONLY for 301 redirect handling. They must never render a page.
+export const legacyCourseSlugs: Record<string, string> = {
+  "online-mba": "mba",
+  "online-mca": "mca",
+  "online-bca": "bca",
+  "online-bba": "bba",
+  "online-ba": "ba",
+  "online-bcom": "bcom",
+  "online-mcom": "mcom",
+  "online-ma": "ma",
+  "online-msc": "msc",
 };
 
-export const findCourse = (slug: string): Course | undefined => {
-  const normalized = slugAliases[slug] ?? slug;
-  return allCourses.find((c) => c.slug === normalized);
-};
+/** Canonical SEO slug for a legacy/alias slug, or undefined when not legacy. */
+export const canonicalCourseSlug = (slug: string): string | undefined =>
+  legacyCourseSlugs[slug];
+
+export const findCourse = (slug: string): Course | undefined =>
+  allCourses.find((c) => c.slug === slug);

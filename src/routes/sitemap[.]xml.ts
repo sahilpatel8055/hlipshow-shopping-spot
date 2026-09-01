@@ -11,6 +11,14 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        // Canonical, indexable URLs only. Excluded on purpose:
+        // - /fees, /lpu-online-fee-structure, /lpu-online-admission-process (301s)
+        // - /best-online/* (templated, noindex,follow)
+        // - /lpu-online-{program}-{topic} spokes (301 to course pillar anchors)
+        const CONSOLIDATED_OUT = new Set([
+          "lpu-online-fee-structure",
+          "lpu-online-admission-process",
+        ]);
         const staticPaths = [
           "/",
           "/lpu-online-admission",
@@ -21,7 +29,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/lpu-online-placement",
           "/lpu-online-review",
           "/lpu-online-scholarship",
-          "/fees",
           "/compare-universities",
           "/blog",
           "/disclaimer",
@@ -29,14 +36,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/terms-conditions",
           "/lpu-fee-calculator",
           "/lpu-eligibility-checker",
-          ...infoPages.map((i) => `/${i.slug}`),
+          ...infoPages.filter((i) => !CONSOLIDATED_OUT.has(i.slug)).map((i) => `/${i.slug}`),
         ];
         const coursePaths = allCourses.map((c) => `/courses/${c.slug}`);
-        const bestPaths = allCourses.map((c) => `/best-online/${c.slug}`);
         const blogPaths = blogs.map((b) => `/blog/${b.slug}`);
-        // Topic spokes (/lpu-online-{program}-{topic}) 301 to course pillar
-        // pages and are intentionally excluded from the sitemap.
-        const all = [...staticPaths, ...coursePaths, ...bestPaths, ...blogPaths, ...comparisonPaths];
+        const all = Array.from(
+          new Set([...staticPaths, ...coursePaths, ...blogPaths, ...comparisonPaths]),
+        );
 
         const urls = all
           .map((p) => `  <url><loc>${BASE_URL}${p}</loc><changefreq>weekly</changefreq></url>`)
