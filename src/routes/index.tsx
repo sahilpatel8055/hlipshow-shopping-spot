@@ -40,13 +40,13 @@ import { StudentToolsSection, StudentToolsHost } from "@/components/topical";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LPU Online 2026 — Admission, Fees, Courses & Reviews" },
+      { title: "LPU Online 2026 | Courses, Fees, Admission & Eligibility" },
       {
         name: "description",
         content:
           "Apply for LPU Online admission 2026. UGC-entitled BBA, BCA, MBA, MCA and more from NAAC A++ Lovely Professional University. 100% online, EMI options, placement support.",
       },
-      { property: "og:title", content: "LPU Online 2026 — Admission, Fees, Courses & Reviews" },
+      { property: "og:title", content: "LPU Online 2026 | Courses, Fees, Admission & Eligibility" },
       {
         property: "og:description",
         content:
@@ -77,7 +77,7 @@ function Hero() {
             <BadgeCheck className="h-3.5 w-3.5" /> UGC ENTITLED · NAAC A++
           </span>
           <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            {lpu.name}
+            LPU Online 2026
             <span className="mt-2 block text-primary">Same Degree, Now Online.</span>
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">

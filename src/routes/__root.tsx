@@ -103,11 +103,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "LPU Online",
-          alternateName: ["LPU Online", "LPU Online Admission", "lpuonline.avedu.in"],
-          url: "https://lpuonline.avedu.in/",
-          logo: "https://lpuonline.avedu.in/lpu-logo.png",
-          sameAs: ["https://www.lpuonline.com/", "https://www.lpu.in/"],
+          name: "AVEDU",
+          alternateName: ["AVEDU Education", "LPU Online by AVEDU"],
+          url: "https://avedu.in/",
+          logo: "https://lpuonline.avedu.in/avedu-logo.jpg",
         }),
       },
       {
@@ -115,10 +114,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "LPU Online",
+          name: "LPU Online Guide by AVEDU",
           alternateName: ["LPU Online", "LPU Online Admission", "lpuonline.avedu.in"],
           url: "https://lpuonline.avedu.in/",
-          publisher: { "@type": "Organization", name: "LPU Online" },
+          publisher: { "@type": "Organization", name: "AVEDU", url: "https://avedu.in/" },
           potentialAction: {
             "@type": "SearchAction",
             target: "https://lpuonline.avedu.in/?q={search_term_string}",
