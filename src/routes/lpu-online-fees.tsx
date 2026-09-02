@@ -7,7 +7,7 @@ const CANONICAL = "https://lpuonline.avedu.in/lpu-online-fees";
 export const Route = createFileRoute("/lpu-online-fees")({
   head: () => ({
     meta: [
-      { title: "LPU Online Fees Structure 2026 — Course Fee & EMI Options" },
+      { title: "LPU Online Fees 2026 — Programme-wise Fee Structure & EMI" },
       { name: "description", content: "LPU Online fee structure 2026 — full fee, per-semester fee and 0% EMI plans for every UG and PG program." },
       { property: "og:title", content: "LPU Online Fees 2026" },
       { property: "og:description", content: "Program-wise fees and EMI options for LPU Online." },
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/lpu-online-fees")({
 function Page() {
   return (
     <SeoPageLayout
-      title="LPU Online Fees Structure 2026"
+      title="LPU Online Fees 2026"
       intro="Transparent, program-wise fees for LPU Online. Pay in full or opt for 0% interest EMI plans with dedicated counselor support."
       breadcrumb={[{ label: "Fees" }]}
       sections={[
@@ -30,6 +30,7 @@ function Page() {
         { heading: "Scholarships Available", bullets: lpu.scholarships },
       ]}
       faqs={lpu.faqs}
+      courseLinks={{ heading: "Programme-wise fee details", suffix: "fees 2026" }}
     />
   );
 }
