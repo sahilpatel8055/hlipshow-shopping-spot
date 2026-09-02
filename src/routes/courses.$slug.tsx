@@ -640,6 +640,19 @@ function CoursePage() {
                 </div>
               ))}
             </div>
+            {seo.reviewSlug && (
+              <p className="mt-5 text-sm text-muted-foreground">
+                Read the detailed{" "}
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: seo.reviewSlug }}
+                  className="font-semibold text-primary underline-offset-2 hover:underline"
+                >
+                  {seo.seoName} review 2026
+                </Link>{" "}
+                for an honest breakdown of the syllabus, LMS experience and placement outcomes.
+              </p>
+            )}
           </div>
         </section>
 
