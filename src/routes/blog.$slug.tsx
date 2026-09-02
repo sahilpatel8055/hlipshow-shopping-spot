@@ -4,6 +4,16 @@ import { SiteHeader, SiteFooter, Breadcrumb, StickyActionBar, LeadFormCompact, C
 import { blogs, findBlog } from "@/lib/blogs";
 import { lpu } from "@/lib/lpu";
 import { comparisons } from "@/lib/comparisons";
+import { allCourses } from "@/lib/lpu";
+import { getCourseSeo } from "@/lib/course-seo";
+
+/** Review articles own review intent; link back to the pillar that owns the head term. */
+function pillarFor(slug: string) {
+  const m = /^lpu-online-([a-z]+)-review-2026$/.exec(slug);
+  if (!m) return null;
+  const course = allCourses.find((c) => c.slug === m[1]);
+  return course ? { slug: course.slug, seo: getCourseSeo(course.slug, course.name) } : null;
+}
 
 const CANONICAL = (slug: string) => `https://lpuonline.avedu.in/blog/${slug}`;
 
@@ -88,6 +98,7 @@ function BlogPost() {
   const { post } = Route.useLoaderData();
   const { open, setOpen } = useModalTrigger();
   const related = blogs.filter((b) => b.slug !== post.slug).slice(0, 3);
+  const pillar = pillarFor(post.slug);
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -102,6 +113,19 @@ function BlogPost() {
             <article>
               <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{post.category}</span>
               <h1 className="mt-4 text-3xl font-bold text-foreground sm:text-4xl">{post.title}</h1>
+              {pillar && (
+                <p className="mt-4 rounded-xl border border-primary/20 bg-accent p-4 text-sm text-muted-foreground">
+                  Looking for fees, eligibility and admission details instead? See the full{" "}
+                  <Link
+                    to="/courses/$slug"
+                    params={{ slug: pillar.slug }}
+                    className="font-semibold text-primary underline-offset-2 hover:underline"
+                  >
+                    {pillar.seo.h1} guide
+                  </Link>
+                  .
+                </p>
+              )}
               <p className="mt-3 text-sm text-muted-foreground">{post.readTime} · {new Date(post.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</p>
               {post.keyTakeaways && post.keyTakeaways.length > 0 && (
                 <div className="mt-6 rounded-2xl border border-primary/25 bg-accent p-5">

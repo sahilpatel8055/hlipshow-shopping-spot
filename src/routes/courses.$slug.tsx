@@ -203,6 +203,7 @@ const advantages = [
 function CoursePage() {
 
   const { course } = Route.useLoaderData() as { course: Course };
+  const seo = getCourseSeo(course.slug, course.name);
   const { open, setOpen } = useModalTrigger();
 
   const semesters = course.curriculum.map((y, i) => ({
@@ -239,7 +240,7 @@ function CoursePage() {
                 />
                 <div className="min-w-0">
                   <h1 className="truncate text-3xl font-bold text-foreground sm:text-4xl">
-                    {course.name}
+                    {seo.h1}
                   </h1>
                   <p className="mt-1 text-sm text-muted-foreground sm:text-base">
                     Lovely Professional University (LPU)
@@ -247,7 +248,7 @@ function CoursePage() {
                 </div>
               </div>
               <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-                {course.tagline}
+                {seo.intro}
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5">
@@ -258,8 +259,7 @@ function CoursePage() {
                   {course.level.toUpperCase()} Program
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Star className="h-4 w-4 fill-primary text-primary" />
-                  {course.rating} ({course.reviews.toLocaleString()} Reviews)
+                  <BadgeCheck className="h-4 w-4 text-primary" /> UGC Entitled · NAAC A++
                 </span>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -300,7 +300,7 @@ function CoursePage() {
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
-              <BookOpen className="h-7 w-7 text-primary" /> {course.name} Curriculum
+              <BookOpen className="h-7 w-7 text-primary" /> {seo.seoName} Syllabus 2026
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">
               Semester-wise breakdown of the {course.level.toUpperCase()} program curriculum.
@@ -390,7 +390,7 @@ function CoursePage() {
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
-              <IndianRupee className="h-7 w-7 text-primary" /> Online {course.name} Fee
+              <IndianRupee className="h-7 w-7 text-primary" /> {seo.seoName} Fees 2026
             </h2>
             <div className="mt-6 grid grid-cols-1 gap-6 rounded-2xl border border-primary/20 bg-accent p-6 md:grid-cols-3">
               {/* Full fee card with discount */}
@@ -428,7 +428,7 @@ function CoursePage() {
             <InfoBlock
               id="eligibility"
               icon={<BadgeCheck className="h-6 w-6 text-primary" />}
-              title={`${course.name} Eligibility`}
+              title={`${seo.seoName} Eligibility 2026`}
               intro={`Minimum eligibility for the LPU ${course.name} programme in 2026.`}
               items={[
                 ...lpu.eligibility
@@ -441,14 +441,14 @@ function CoursePage() {
             <InfoBlock
               id="admission"
               icon={<GraduationCap className="h-6 w-6 text-primary" />}
-              title={`${course.name} Admission Process`}
+              title={`${seo.seoName} Admission Process 2026`}
               intro="Merit-based admission — no entrance exam. Most admissions confirm within 48 hours."
               items={lpu.process}
             />
             <InfoBlock
               id="exam-pattern"
               icon={<BookOpen className="h-6 w-6 text-primary" />}
-              title={`${course.name} Exam Pattern`}
+              title={`${seo.seoName} Examination Pattern`}
               intro="Remote proctored examinations you can take from home."
               items={[
                 "30% continuous internal assessment (assignments and quizzes)",
@@ -461,7 +461,7 @@ function CoursePage() {
             <InfoBlock
               id="scholarship"
               icon={<Award className="h-6 w-6 text-primary" />}
-              title={`${course.name} Scholarships`}
+              title={`${seo.seoName} Scholarships 2026`}
               intro="Scholarships that reduce your programme fee — one award applies per learner."
               items={lpu.scholarships}
             />
@@ -518,7 +518,7 @@ function CoursePage() {
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-                Sample {course.name} Degree
+                {seo.seoName} Sample Degree
               </h2>
               <p className="mt-4 text-muted-foreground">
                 On successful completion of your {course.name}, you receive a UGC-entitled degree
@@ -555,19 +555,19 @@ function CoursePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-                Experience 100% Placement Support
+                {seo.seoName} Placement Support
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-                Our dedicated placement team works to connect you with top employers across
-                industries for guaranteed career advancement.
+                A dedicated placement assistance team supports you with resume building, mock
+                interviews, job-portal access and virtual recruitment drives.
               </p>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
-                { v: "100%", l: "Placement Assistance" },
-                { v: "400+", l: "Hiring Partners" },
-                { v: "Rs. 10L", l: "Highest Package" },
-                { v: "Rs. 5L", l: "Average Package" },
+                { v: "Dedicated", l: "Placement Assistance Cell" },
+                { v: "Resume", l: "Building & Profile Review" },
+                { v: "Mock", l: "Interviews & Soft Skills" },
+                { v: "Virtual", l: "Recruitment Drives" },
               ].map((s) => (
                 <div
                   key={s.l}
@@ -586,7 +586,7 @@ function CoursePage() {
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-              Career Scope & Top Recruiters
+              {seo.seoName} Career Opportunities
             </h2>
             <div className="mt-10 grid gap-10 lg:grid-cols-2">
               <div>
@@ -626,12 +626,11 @@ function CoursePage() {
         <section id="reviews" className="scroll-mt-24 bg-secondary/40 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
-              <Star className="h-7 w-7 fill-primary text-primary" /> {course.name} Reviews
+              <Star className="h-7 w-7 fill-primary text-primary" /> {seo.seoName} Reviews
             </h2>
             <p className="mt-3 max-w-3xl text-muted-foreground">
-              Learners rate the LPU {course.name} {course.rating}/5 across{" "}
-              {course.reviews.toLocaleString()} reviews — with the strongest feedback on
-              flexibility, faculty support and the recognised degree.
+              Learner feedback on {seo.seoName} focuses on schedule flexibility, LMS quality,
+              faculty support and the UGC-entitled degree.
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {lpu.approvals.slice(0, 3).map((a) => (
@@ -641,6 +640,19 @@ function CoursePage() {
                 </div>
               ))}
             </div>
+            {seo.reviewSlug && (
+              <p className="mt-5 text-sm text-muted-foreground">
+                Read the detailed{" "}
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: seo.reviewSlug }}
+                  className="font-semibold text-primary underline-offset-2 hover:underline"
+                >
+                  {seo.seoName} review 2026
+                </Link>{" "}
+                for an honest breakdown of the syllabus, LMS experience and placement outcomes.
+              </p>
+            )}
           </div>
         </section>
 
@@ -648,7 +660,7 @@ function CoursePage() {
         <section className="bg-background pt-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-2xl border border-border bg-secondary/40 p-6">
-              <h2 className="text-lg font-bold text-foreground">More about {course.name} at LPU Online</h2>
+              <h2 className="text-lg font-bold text-foreground">More about {seo.seoName}</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 <a href="#fees" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Fees & EMI</a>
                 <a href="#eligibility" className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground hover:border-primary hover:text-primary">Eligibility</a>

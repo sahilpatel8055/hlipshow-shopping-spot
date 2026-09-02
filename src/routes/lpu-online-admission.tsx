@@ -7,7 +7,7 @@ const CANONICAL = "https://lpuonline.avedu.in/lpu-online-admission";
 export const Route = createFileRoute("/lpu-online-admission")({
   head: () => ({
     meta: [
-      { title: "LPU Online Admission 2026 — Process, Dates & Apply Online" },
+      { title: "LPU Online Admission 2026 — Apply Online, Dates & Documents" },
       { name: "description", content: "LPU Online admission 2026 — step-by-step application process, required documents, key dates and eligibility for UGC-entitled online degrees." },
       { property: "og:title", content: "LPU Online Admission 2026" },
       { property: "og:description", content: "Apply to LPU Online — UGC-entitled online BBA, BCA, MBA, MCA and more." },
@@ -31,6 +31,7 @@ function Page() {
         { heading: "Documents Required", bullets: ["Class 10 & 12 marksheets", "Graduation marksheet (for PG)", "Government-issued photo ID", "Passport-size photograph", "Category certificate (if applicable)"] },
       ]}
       faqs={lpu.faqs}
+      courseLinks={{ heading: "Programme-wise admission details", suffix: "admission process" }}
     />
   );
 }
