@@ -203,6 +203,7 @@ const advantages = [
 function CoursePage() {
 
   const { course } = Route.useLoaderData() as { course: Course };
+  const seo = getCourseSeo(course.slug, course.name);
   const { open, setOpen } = useModalTrigger();
 
   const semesters = course.curriculum.map((y, i) => ({
