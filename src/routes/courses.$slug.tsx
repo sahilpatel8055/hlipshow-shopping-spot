@@ -240,7 +240,7 @@ function CoursePage() {
                 />
                 <div className="min-w-0">
                   <h1 className="truncate text-3xl font-bold text-foreground sm:text-4xl">
-                    {course.name}
+                    {seo.h1}
                   </h1>
                   <p className="mt-1 text-sm text-muted-foreground sm:text-base">
                     Lovely Professional University (LPU)
@@ -248,7 +248,7 @@ function CoursePage() {
                 </div>
               </div>
               <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-                {course.tagline}
+                {seo.intro}
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5">
@@ -259,8 +259,7 @@ function CoursePage() {
                   {course.level.toUpperCase()} Program
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Star className="h-4 w-4 fill-primary text-primary" />
-                  {course.rating} ({course.reviews.toLocaleString()} Reviews)
+                  <BadgeCheck className="h-4 w-4 text-primary" /> UGC Entitled · NAAC A++
                 </span>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
