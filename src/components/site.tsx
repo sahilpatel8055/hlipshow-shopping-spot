@@ -926,6 +926,7 @@ export function SeoPageLayout({
   sections,
   faqs,
   cta = "Talk to an LPU Online Counselor",
+  courseLinks,
 }: {
   title: string;
   intro: string;
@@ -933,6 +934,8 @@ export function SeoPageLayout({
   sections: SeoSection[];
   faqs: { q: string; a: string }[];
   cta?: string;
+  /** Heading for a hub-to-pillar internal link block (hub-and-spoke). */
+  courseLinks?: { heading: string; suffix: string };
 }) {
   const { open, setOpen } = useModalTrigger();
   return (
@@ -1031,6 +1034,31 @@ export function SeoPageLayout({
             )}
           </div>
         ))}
+
+        {courseLinks && (
+          <section className="bg-background py-14">
+            <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+              <h2 className="text-2xl font-bold text-foreground sm:text-3xl">{courseLinks.heading}</h2>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {allCourses.map((c) => {
+                  const seo = getCourseSeo(c.slug, c.name);
+                  return (
+                    <li key={c.slug}>
+                      <Link
+                        to="/courses/$slug"
+                        params={{ slug: c.slug }}
+                        className="flex items-start gap-2 rounded-lg border border-border bg-card p-4 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
+                      >
+                        <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>{seo.seoName} {courseLinks.suffix}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+        )}
 
         <SeoFaq items={faqs} />
         <PopularSearches />
