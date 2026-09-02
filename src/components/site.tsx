@@ -537,7 +537,7 @@ const footerLinks: { label: string; to: string }[] = [
   { label: "Fees", to: "/lpu-online-fees" },
   { label: "Eligibility", to: "/lpu-online-eligibility" },
   { label: "Placement", to: "/lpu-online-placement" },
-  { label: "Review", to: "/lpu-online-review" },
+  { label: "LPU Online Reviews", to: "/lpu-online-review" },
   { label: "Scholarship", to: "/lpu-online-scholarship" },
   { label: "Admission Last Date", to: "/lpu-online-admission-last-date" },
 ];
