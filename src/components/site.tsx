@@ -463,6 +463,68 @@ function WhatsAppTeaser() {
   );
 }
 
+/* ---------------- Social Proof Notifications (compact, low-footprint) ---------------- */
+
+const SOCIAL_PROOF: { name: string; city: string; action: string }[] = [
+  { name: "Rahul S.", city: "Delhi", action: "applied for Online MBA" },
+  { name: "Priya M.", city: "Pune", action: "downloaded the BCA brochure" },
+  { name: "Aman K.", city: "Lucknow", action: "booked free counseling" },
+  { name: "Sneha R.", city: "Hyderabad", action: "enquired about MCA fees" },
+  { name: "Vikas T.", city: "Jaipur", action: "checked BBA eligibility" },
+  { name: "Neha G.", city: "Kolkata", action: "started an M.Com application" },
+  { name: "Arjun P.", city: "Bengaluru", action: "requested a callback" },
+  { name: "Divya N.", city: "Indore", action: "applied for Online BA" },
+];
+
+function SocialProofToasts() {
+  const [item, setItem] = useState<(typeof SOCIAL_PROOF)[number] | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let i = Math.floor(Math.random() * SOCIAL_PROOF.length);
+    let hide: ReturnType<typeof setTimeout>;
+    const show = () => {
+      setItem(SOCIAL_PROOF[i % SOCIAL_PROOF.length]);
+      i += 1;
+      hide = setTimeout(() => setItem(null), 5000);
+    };
+    const first = setTimeout(show, 12000);
+    const loop = setInterval(show, 22000);
+    return () => {
+      clearTimeout(first);
+      clearTimeout(hide);
+      clearInterval(loop);
+    };
+  }, []);
+
+  if (!item) return null;
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      className="fixed bottom-20 left-3 z-40 max-w-[240px] animate-in fade-in slide-in-from-bottom-2 rounded-full border border-border bg-card/95 py-1.5 pl-2 pr-3 shadow-lg backdrop-blur md:bottom-20 md:left-4 md:max-w-[280px]"
+    >
+      <div className="flex items-center gap-2">
+        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
+          {item.name.charAt(0)}
+        </span>
+        <p className="truncate text-[11px] leading-tight text-foreground">
+          <span className="font-semibold">{item.name}</span>
+          <span className="text-muted-foreground"> from {item.city} {item.action}</span>
+        </p>
+        <button
+          type="button"
+          aria-label="Dismiss notification"
+          onClick={() => setItem(null)}
+          className="ml-0.5 shrink-0 text-muted-foreground hover:text-foreground"
+        >
+          <X className="h-3 w-3" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 
 export function StickyActionBar() {
   return (
@@ -521,6 +583,8 @@ export function StickyActionBar() {
       </div>
 
       <WhatsAppTeaser />
+      <SocialProofToasts />
+
 
       {/* Reserve space for mobile bar so page content isn't hidden */}
       <div aria-hidden className="h-14 md:hidden" />
