@@ -583,6 +583,8 @@ export function StickyActionBar() {
       </div>
 
       <WhatsAppTeaser />
+      <SocialProofToasts />
+
 
       {/* Reserve space for mobile bar so page content isn't hidden */}
       <div aria-hidden className="h-14 md:hidden" />
