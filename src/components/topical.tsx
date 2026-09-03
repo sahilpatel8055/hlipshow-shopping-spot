@@ -276,8 +276,8 @@ export function QuickLinksRow() {
           {[
             ["Home", "/"],
             ["All Courses", "/lpu-online-courses"],
-            ["Admission Guide", "/lpu-online-admission-process"],
-            ["Fee Structure", "/lpu-online-fee-structure"],
+            ["Admission Guide", "/lpu-online-admission"],
+            ["Fee Structure", "/lpu-online-fees"],
             ["Fee & EMI Calculator", "/lpu-fee-calculator"],
             ["Eligibility Checker", "/lpu-eligibility-checker"],
             ["Scholarship", "/lpu-online-scholarship"],
