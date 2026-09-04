@@ -308,13 +308,13 @@ function LeadFields({
         required
       />
       <LabeledInput
-        label="Email (optional)"
+        label="Email"
         type="email"
         placeholder="name@example.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         maxLength={255}
-
+        required
       />
       <LabeledSelect
         label="Select Program"
@@ -446,12 +446,6 @@ export function SiteHeader() {
           />
         </Link>
         <div className="flex items-center gap-2">
-          <a
-            href="tel:+918770012496"
-            className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-accent px-3 py-2 text-xs font-bold text-primary sm:hidden"
-          >
-            <Phone className="h-4 w-4" /> Call / Missed call
-          </a>
           <button
             type="button"
             onClick={openModal}
@@ -536,7 +530,7 @@ function SocialProofToasts() {
     let count = 0;
     let t: ReturnType<typeof setTimeout>;
     const run = () => {
-      setItem(SOCIAL_PROOF[i % SOCIAL_PROOF.length]);
+        setItem(SOCIAL_PROOF[i % SOCIAL_PROOF.length]);
       i += 1;
       count += 1;
       t = setTimeout(() => {
@@ -546,9 +540,9 @@ function SocialProofToasts() {
           window.dispatchEvent(new CustomEvent("lpu:show-tools"));
           t = setTimeout(run, 11000);
         } else {
-          t = setTimeout(run, 17000);
+          t = setTimeout(run, 15000);
         }
-      }, 5000);
+      }, 7000);
     };
     t = setTimeout(run, 12000);
     return () => clearTimeout(t);
@@ -560,13 +554,13 @@ function SocialProofToasts() {
     <div
       role="status"
       aria-live="polite"
-      className="fixed bottom-20 left-3 z-40 max-w-[240px] animate-in fade-in slide-in-from-bottom-2 rounded-full border border-border bg-card/95 py-1.5 pl-2 pr-3 shadow-lg backdrop-blur md:bottom-20 md:left-4 md:max-w-[280px]"
+      className="fixed bottom-20 left-3 z-40 max-w-[260px] animate-in fade-in slide-in-from-bottom-2 rounded-full border-2 border-primary/40 bg-card/95 py-1.5 pl-2 pr-3 shadow-lg backdrop-blur md:bottom-20 md:left-4 md:max-w-[280px]"
     >
       <div className="flex items-center gap-2">
         <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
           {item.name.charAt(0)}
         </span>
-        <p className="truncate text-[11px] leading-tight text-foreground">
+        <p className="line-clamp-2 text-[11px] leading-tight text-foreground md:truncate">
           <span className="font-semibold">{item.name}</span>
           <span className="text-muted-foreground"> from {item.city} {item.action}</span>
         </p>
