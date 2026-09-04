@@ -530,7 +530,7 @@ function SocialProofToasts() {
     let count = 0;
     let t: ReturnType<typeof setTimeout>;
     const run = () => {
-      setItem(SOCIAL_PROOF[i % SOCIAL_PROOF.length]);
+        setItem(SOCIAL_PROOF[i % SOCIAL_PROOF.length]);
       i += 1;
       count += 1;
       t = setTimeout(() => {
@@ -540,9 +540,9 @@ function SocialProofToasts() {
           window.dispatchEvent(new CustomEvent("lpu:show-tools"));
           t = setTimeout(run, 11000);
         } else {
-          t = setTimeout(run, 17000);
+          t = setTimeout(run, 15000);
         }
-      }, 5000);
+      }, 7000);
     };
     t = setTimeout(run, 12000);
     return () => clearTimeout(t);
