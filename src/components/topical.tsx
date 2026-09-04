@@ -646,36 +646,50 @@ export function StudentToolsSection() {
 
 export function StudentToolsHost() {
   const [tab, setTab] = useState<ToolTab | null>(null);
-  const [pulse, setPulse] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    toolsCtx.open = (t) => {
-      setTab(t);
-      setPulse(false);
-    };
+    toolsCtx.open = (t) => setTab(t);
     return () => {
       toolsCtx.open = undefined;
     };
   }, []);
 
+  // Share the bottom-left slot with the social-proof toasts: appear for 10s
+  // after every 5th message, then hand the slot back.
   useEffect(() => {
-    const t = setTimeout(() => setPulse(false), 12000);
-    return () => clearTimeout(t);
+    if (typeof window === "undefined") return;
+    let hide: ReturnType<typeof setTimeout>;
+    const onShow = () => {
+      setVisible(true);
+      clearTimeout(hide);
+      hide = setTimeout(() => setVisible(false), 10000);
+    };
+    const first = setTimeout(onShow, 6000);
+    window.addEventListener("lpu:show-tools", onShow);
+    return () => {
+      clearTimeout(first);
+      clearTimeout(hide);
+      window.removeEventListener("lpu:show-tools", onShow);
+    };
   }, []);
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => openTools("fees")}
-        aria-label="Open free student tools: fee calculator and eligibility checker"
-        className="fixed bottom-20 left-3 z-40 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card px-3.5 py-2.5 text-xs font-bold text-primary shadow-xl transition hover:bg-primary hover:text-primary-foreground md:bottom-20 md:left-4 md:text-sm"
-      >
-        <span className={`grid h-5 w-5 place-items-center rounded-full bg-primary/15 ${pulse ? "animate-pulse" : ""}`}>
-          <IndianRupee className="h-3.5 w-3.5" />
-        </span>
-        Fee &amp; Eligibility Tools
-      </button>
+      {visible && (
+        <button
+          type="button"
+          onClick={() => openTools("fees")}
+          aria-label="Open free student tools: fee calculator and eligibility checker"
+          className="fixed bottom-20 left-3 z-40 inline-flex animate-in fade-in slide-in-from-bottom-2 items-center gap-2 rounded-full border border-primary/40 bg-card px-3.5 py-2.5 text-xs font-bold text-primary shadow-xl transition hover:bg-primary hover:text-primary-foreground md:bottom-20 md:left-4 md:text-sm"
+        >
+          <span className="grid h-5 w-5 place-items-center rounded-full bg-primary/15">
+            <IndianRupee className="h-3.5 w-3.5" />
+          </span>
+          Fee &amp; Eligibility Tools
+        </button>
+      )}
+
 
       {tab && (
         <div

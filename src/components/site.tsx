@@ -308,13 +308,13 @@ function LeadFields({
         required
       />
       <LabeledInput
-        label="Email"
+        label="Email (optional)"
         type="email"
         placeholder="name@example.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         maxLength={255}
-        required
+
       />
       <LabeledSelect
         label="Select Program"
@@ -389,6 +389,48 @@ export function LeadFormCompact() {
   );
 }
 
+/* ---------------- Mini inline lead form (mid-article / bottom-funnel CTA) ---------------- */
+
+export function MiniLeadForm({
+  heading = "Talk to a counselor before you decide",
+  subtext = "Free 1-on-1 guidance on fees, EMI and eligibility. Name and mobile is all we need.",
+  source = "mini-inline",
+}: {
+  heading?: string;
+  subtext?: string;
+  source?: string;
+}) {
+  return (
+    <div className="my-10 rounded-2xl border-2 border-primary/30 bg-accent p-5 shadow-sm sm:p-6">
+      <div className="flex items-start gap-3">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/15 text-primary">
+          <PhoneCall className="h-5 w-5" />
+        </span>
+        <div className="min-w-0">
+          <h3 className="text-lg font-bold text-foreground">{heading}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{subtext}</p>
+        </div>
+      </div>
+      <LeadFields
+        className="mt-4 grid gap-3 sm:grid-cols-2"
+        submitLabel="Request a free call back"
+        source={source}
+        grouped
+        footer={
+          <p className="text-[11px] text-muted-foreground sm:col-span-2">
+            Prefer talking now?{" "}
+            <a href="tel:+918770012496" className="font-semibold text-primary">
+              Call +91 87700 12496
+            </a>
+          </p>
+        }
+      />
+    </div>
+  );
+}
+
+
+
 
 /* ---------------- Header ---------------- */
 
@@ -403,13 +445,22 @@ export function SiteHeader() {
             className="h-10 w-auto sm:h-14"
           />
         </Link>
-        <button
-          type="button"
-          onClick={openModal}
-          className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
-        >
-          Enroll Now
-        </button>
+        <div className="flex items-center gap-2">
+          <a
+            href="tel:+918770012496"
+            className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-accent px-3 py-2 text-xs font-bold text-primary sm:hidden"
+          >
+            <Phone className="h-4 w-4" /> Call / Missed call
+          </a>
+          <button
+            type="button"
+            onClick={openModal}
+            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
+          >
+            Enroll Now
+          </button>
+        </div>
+
       </div>
     </header>
   );
@@ -482,20 +533,27 @@ function SocialProofToasts() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     let i = Math.floor(Math.random() * SOCIAL_PROOF.length);
-    let hide: ReturnType<typeof setTimeout>;
-    const show = () => {
+    let count = 0;
+    let t: ReturnType<typeof setTimeout>;
+    const run = () => {
       setItem(SOCIAL_PROOF[i % SOCIAL_PROOF.length]);
       i += 1;
-      hide = setTimeout(() => setItem(null), 5000);
+      count += 1;
+      t = setTimeout(() => {
+        setItem(null);
+        if (count % 5 === 0) {
+          // hand the bottom-left slot to the tools launcher for 10s
+          window.dispatchEvent(new CustomEvent("lpu:show-tools"));
+          t = setTimeout(run, 11000);
+        } else {
+          t = setTimeout(run, 17000);
+        }
+      }, 5000);
     };
-    const first = setTimeout(show, 12000);
-    const loop = setInterval(show, 22000);
-    return () => {
-      clearTimeout(first);
-      clearTimeout(hide);
-      clearInterval(loop);
-    };
+    t = setTimeout(run, 12000);
+    return () => clearTimeout(t);
   }, []);
+
 
   if (!item) return null;
   return (
