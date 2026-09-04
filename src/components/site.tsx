@@ -308,13 +308,13 @@ function LeadFields({
         required
       />
       <LabeledInput
-        label="Email (optional)"
+        label="Email"
         type="email"
         placeholder="name@example.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         maxLength={255}
-
+        required
       />
       <LabeledSelect
         label="Select Program"
