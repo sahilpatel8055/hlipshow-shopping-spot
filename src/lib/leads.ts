@@ -44,8 +44,10 @@ export function validateLead(p: LeadPayload): string | null {
   if (name.length < 2 || name.length > 100) return "Please enter your full name.";
   const phone = p.phoneNumber.replace(/\D/g, "");
   if (!/^[6-9]\d{9}$/.test(phone)) return "Please enter a valid 10-digit mobile number.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(p.email.trim()) || p.email.length > 255)
+  const em = p.email.trim();
+  if (em && (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em) || em.length > 255))
     return "Please enter a valid email address.";
+
   if (!p.interestedCourse.trim()) return "Please select a program.";
   return null;
 }
