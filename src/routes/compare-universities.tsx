@@ -9,6 +9,7 @@ import {
   PopularSearches,
   SeoFaq,
   LeadFormCompact,
+  MiniLeadForm,
 } from "@/components/site";
 import { lpu } from "@/lib/lpu";
 import { CheckCircle2 } from "lucide-react";
@@ -117,6 +118,11 @@ function Page() {
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+        <section className="bg-background">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <MiniLeadForm source="comparison-hub" />
           </div>
         </section>
         <SeoFaq items={lpu.faqs} />
