@@ -139,19 +139,29 @@ function BlogPost() {
               )}
               <div className="prose prose-slate mt-8 max-w-none">
                 {post.content.map((s: { heading?: string; body: string; bullets?: string[] }, i: number) => (
-                  <div key={i} className="mb-6">
-                    {s.heading && <h2 className="text-xl font-bold text-foreground sm:text-2xl">{s.heading}</h2>}
-                    <p className="mt-2 leading-relaxed text-muted-foreground">{s.body}</p>
-                    {s.bullets && (
-                      <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                        {s.bullets.map((b) => (
-                          <li key={b}>• {b}</li>
-                        ))}
-                      </ul>
+                  <div key={i}>
+                    <div className="mb-6">
+                      {s.heading && <h2 className="text-xl font-bold text-foreground sm:text-2xl">{s.heading}</h2>}
+                      <p className="mt-2 leading-relaxed text-muted-foreground">{s.body}</p>
+                      {s.bullets && (
+                        <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                          {s.bullets.map((b) => (
+                            <li key={b}>• {b}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                    {i === Math.floor(post.content.length / 2) - 1 && (
+                      <MiniLeadForm
+                        heading="Still comparing options? Talk to an LPU Online counselor"
+                        subtext="Get fees, EMI plans and eligibility clarified on a free call — Name and mobile is enough."
+                        source="blog-mid-article"
+                      />
                     )}
                   </div>
                 ))}
               </div>
+
               {post.faqs && post.faqs.length > 0 && (
                 <div className="mt-10">
                   <h2 className="text-xl font-bold text-foreground sm:text-2xl">Frequently asked questions</h2>
