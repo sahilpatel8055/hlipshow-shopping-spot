@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { SectionNav } from "@/components/section-nav";
-import { SiteHeader, SiteFooter, Breadcrumb, StickyActionBar, LeadFormCompact, CounselingModal, useModalTrigger, SeoFaq, PopularSearches } from "@/components/site";
+import { SiteHeader, SiteFooter, Breadcrumb, StickyActionBar, LeadFormCompact, CounselingModal, useModalTrigger, SeoFaq, PopularSearches, MiniLeadForm } from "@/components/site";
 import { blogs, findBlog } from "@/lib/blogs";
 import { lpu } from "@/lib/lpu";
 import { comparisons } from "@/lib/comparisons";
