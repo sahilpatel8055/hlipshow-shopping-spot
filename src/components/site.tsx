@@ -533,20 +533,27 @@ function SocialProofToasts() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     let i = Math.floor(Math.random() * SOCIAL_PROOF.length);
-    let hide: ReturnType<typeof setTimeout>;
-    const show = () => {
+    let count = 0;
+    let t: ReturnType<typeof setTimeout>;
+    const run = () => {
       setItem(SOCIAL_PROOF[i % SOCIAL_PROOF.length]);
       i += 1;
-      hide = setTimeout(() => setItem(null), 5000);
+      count += 1;
+      t = setTimeout(() => {
+        setItem(null);
+        if (count % 5 === 0) {
+          // hand the bottom-left slot to the tools launcher for 10s
+          window.dispatchEvent(new CustomEvent("lpu:show-tools"));
+          t = setTimeout(run, 11000);
+        } else {
+          t = setTimeout(run, 17000);
+        }
+      }, 5000);
     };
-    const first = setTimeout(show, 12000);
-    const loop = setInterval(show, 22000);
-    return () => {
-      clearTimeout(first);
-      clearTimeout(hide);
-      clearInterval(loop);
-    };
+    t = setTimeout(run, 12000);
+    return () => clearTimeout(t);
   }, []);
+
 
   if (!item) return null;
   return (
