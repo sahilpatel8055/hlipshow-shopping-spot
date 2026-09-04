@@ -389,6 +389,48 @@ export function LeadFormCompact() {
   );
 }
 
+/* ---------------- Mini inline lead form (mid-article / bottom-funnel CTA) ---------------- */
+
+export function MiniLeadForm({
+  heading = "Talk to a counselor before you decide",
+  subtext = "Free 1-on-1 guidance on fees, EMI and eligibility. Name and mobile is all we need.",
+  source = "mini-inline",
+}: {
+  heading?: string;
+  subtext?: string;
+  source?: string;
+}) {
+  return (
+    <div className="my-10 rounded-2xl border-2 border-primary/30 bg-accent p-5 shadow-sm sm:p-6">
+      <div className="flex items-start gap-3">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/15 text-primary">
+          <PhoneCall className="h-5 w-5" />
+        </span>
+        <div className="min-w-0">
+          <h3 className="text-lg font-bold text-foreground">{heading}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{subtext}</p>
+        </div>
+      </div>
+      <LeadFields
+        className="mt-4 grid gap-3 sm:grid-cols-2"
+        submitLabel="Request a free call back"
+        source={source}
+        grouped
+        footer={
+          <p className="text-[11px] text-muted-foreground sm:col-span-2">
+            Prefer talking now?{" "}
+            <a href="tel:+918770012496" className="font-semibold text-primary">
+              Call +91 87700 12496
+            </a>
+          </p>
+        }
+      />
+    </div>
+  );
+}
+
+
+
 
 /* ---------------- Header ---------------- */
 
