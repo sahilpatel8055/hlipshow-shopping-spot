@@ -446,12 +446,6 @@ export function SiteHeader() {
           />
         </Link>
         <div className="flex items-center gap-2">
-          <a
-            href="tel:+918770012496"
-            className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-accent px-3 py-2 text-xs font-bold text-primary sm:hidden"
-          >
-            <Phone className="h-4 w-4" /> Call / Missed call
-          </a>
           <button
             type="button"
             onClick={openModal}
