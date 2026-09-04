@@ -403,13 +403,22 @@ export function SiteHeader() {
             className="h-10 w-auto sm:h-14"
           />
         </Link>
-        <button
-          type="button"
-          onClick={openModal}
-          className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
-        >
-          Enroll Now
-        </button>
+        <div className="flex items-center gap-2">
+          <a
+            href="tel:+918770012496"
+            className="inline-flex items-center gap-1.5 rounded-md border border-primary/40 bg-accent px-3 py-2 text-xs font-bold text-primary sm:hidden"
+          >
+            <Phone className="h-4 w-4" /> Call / Missed call
+          </a>
+          <button
+            type="button"
+            onClick={openModal}
+            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
+          >
+            Enroll Now
+          </button>
+        </div>
+
       </div>
     </header>
   );
