@@ -9,6 +9,7 @@ import {
   useModalTrigger,
   PopularSearches,
   openModal,
+  MiniLeadForm,
 } from "@/components/site";
 import { comparisons, findComparison } from "@/lib/comparisons";
 import type { Comparison } from "@/lib/comparisons";
@@ -166,6 +167,12 @@ function ComparePage() {
                   </Link>
                 </div>
               </div>
+
+              <MiniLeadForm
+                heading="Talk to a counselor before you decide"
+                subtext="One free call to compare fees, EMI, approvals and placement support side by side."
+                source="comparison-page"
+              />
 
               <div className="mt-10">
                 <h2 className="text-xl font-bold text-foreground">Frequently asked questions</h2>
