@@ -554,13 +554,13 @@ function SocialProofToasts() {
     <div
       role="status"
       aria-live="polite"
-      className="fixed bottom-20 left-3 z-40 max-w-[240px] animate-in fade-in slide-in-from-bottom-2 rounded-full border border-border bg-card/95 py-1.5 pl-2 pr-3 shadow-lg backdrop-blur md:bottom-20 md:left-4 md:max-w-[280px]"
+      className="fixed bottom-20 left-3 z-40 max-w-[260px] animate-in fade-in slide-in-from-bottom-2 rounded-full border-2 border-primary/40 bg-card/95 py-1.5 pl-2 pr-3 shadow-lg backdrop-blur md:bottom-20 md:left-4 md:max-w-[280px]"
     >
       <div className="flex items-center gap-2">
         <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
           {item.name.charAt(0)}
         </span>
-        <p className="truncate text-[11px] leading-tight text-foreground">
+        <p className="line-clamp-2 text-[11px] leading-tight text-foreground md:truncate">
           <span className="font-semibold">{item.name}</span>
           <span className="text-muted-foreground"> from {item.city} {item.action}</span>
         </p>
